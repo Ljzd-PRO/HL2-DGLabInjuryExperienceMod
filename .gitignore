@@ -7,6 +7,8 @@
 .venv/
 .specstory/
 .cursorindexingignore
+Debug_mod_*/
+Release_mod_*/
 
 # User-specific files
 *.rsuser
