@@ -738,4 +738,3 @@ const vertexFileHeader_t * mstudiomodel_t::CacheVertexData( void * pModelData )
 	g_pActiveStudioHdr->pVertexBase = (void*)pVvdHdr;
 	return pVvdHdr;
 }
-

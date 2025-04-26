@@ -2744,4 +2744,3 @@ void CVehicleSoundsParser::SetDefaults( void *pData )
 	vehiclesounds_t *pSounds = (vehiclesounds_t *)pData;
 	pSounds->Init();
 }
-

@@ -1029,4 +1029,3 @@ AI_BEGIN_CUSTOM_NPC( npc_zombine, CNPC_Zombine )
 AI_END_CUSTOM_NPC()
 
 
-

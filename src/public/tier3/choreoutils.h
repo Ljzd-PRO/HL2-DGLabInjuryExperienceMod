@@ -36,4 +36,3 @@ bool UpdateSequenceLength( CChoreoEvent *e, CStudioHdr *pStudioHdr, float *pPose
 
 
 #endif // CHOREOUTILS_H
-

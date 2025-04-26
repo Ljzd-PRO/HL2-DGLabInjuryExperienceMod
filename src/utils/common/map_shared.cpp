@@ -133,4 +133,3 @@ bool LoadEntsFromMapFile( char const *pFilename )
 	}
 }
 
-

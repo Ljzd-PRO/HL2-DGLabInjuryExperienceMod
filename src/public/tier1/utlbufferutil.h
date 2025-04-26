@@ -189,4 +189,3 @@ bool Unserialize( CUtlBuffer &buf, CUtlVector<T> &dest )
 
 
 #endif // UTLBUFFERUTIL_H
-

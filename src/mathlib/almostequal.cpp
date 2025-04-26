@@ -94,4 +94,3 @@ bool AlmostEqual(float a, float b, int maxUlps)
     return false;
 }
 
-

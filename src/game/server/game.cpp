@@ -108,4 +108,3 @@ void InitializeCvars( void )
 
 	g_pDeveloper	= cvar->FindVar( "developer" );
 }
-

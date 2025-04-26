@@ -28,4 +28,3 @@ void AlignPanel(vgui::Panel *pChild, vgui::Panel *pParent, int alignment);
 
 
 #endif // VGUI_HELPERS_H
-

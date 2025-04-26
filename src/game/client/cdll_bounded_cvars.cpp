@@ -141,4 +141,3 @@ float GetClientInterpAmount()
 		return 0.1;
 	}
 }
-

@@ -447,4 +447,3 @@ C_BaseEntity *ParseImpactData( const CEffectData &data, Vector *vecOrigin, Vecto
 
 	return pEntity;
 }
-

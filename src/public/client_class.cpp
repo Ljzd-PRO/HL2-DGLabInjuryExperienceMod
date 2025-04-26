@@ -13,4 +13,3 @@
 
 ClientClass *g_pClientClassHead=0;
 
-

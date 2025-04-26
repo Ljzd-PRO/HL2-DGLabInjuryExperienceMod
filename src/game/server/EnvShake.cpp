@@ -410,4 +410,3 @@ int CEnvShake::DrawDebugTextOverlays( void )
 
 static ConCommand shake("shake", CC_Shake, "Shake the screen.", FCVAR_CHEAT );
 
-

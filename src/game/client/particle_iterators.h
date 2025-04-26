@@ -267,4 +267,3 @@ inline float CParticleSimulateIterator::GetTimeDelta() const
 
 
 #endif // PARTICLE_ITERATORS_H
-

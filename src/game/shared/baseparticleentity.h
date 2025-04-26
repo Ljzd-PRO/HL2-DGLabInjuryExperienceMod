@@ -97,4 +97,3 @@ inline int CBaseParticleEntity::AllocateToolParticleEffectId()
 
 #endif
 
-

@@ -667,4 +667,3 @@ inline Vector2D operator*(float fl, const Vector2D& v)
 #endif //slow
 
 #endif // VECTOR2D_H
-

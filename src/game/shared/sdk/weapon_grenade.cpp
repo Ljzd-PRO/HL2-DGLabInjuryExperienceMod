@@ -111,4 +111,3 @@ void CSDKGrenade::EmitGrenade( Vector vecSrc, QAngle vecAngles, Vector vecVel, A
 }
 	
 #endif
-

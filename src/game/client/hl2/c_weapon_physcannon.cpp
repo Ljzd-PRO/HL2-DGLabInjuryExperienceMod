@@ -439,4 +439,3 @@ void C_WeaponPhysCannon::ClientThink( void )
 	return BaseClass::ClientThink();
 }
 
-

@@ -172,4 +172,3 @@ bool Pickup_ShouldPuntUseLaunchForces( CBaseEntity *pObject, PhysGunForce_t reas
 	}
 	return false;
 }
-

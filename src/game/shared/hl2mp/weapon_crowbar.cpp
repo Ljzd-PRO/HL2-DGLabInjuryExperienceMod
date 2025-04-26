@@ -225,4 +225,3 @@ float CWeaponCrowbar::GetFireRate( void )
 	return	CROWBAR_REFIRE;	
 }
 
-

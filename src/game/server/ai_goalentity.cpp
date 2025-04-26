@@ -275,4 +275,3 @@ int CAI_GoalEntity::DrawDebugTextOverlays()
 	return offset;
 }
 
-

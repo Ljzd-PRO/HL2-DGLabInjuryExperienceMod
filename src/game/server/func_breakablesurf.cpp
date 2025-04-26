@@ -1294,4 +1294,3 @@ void CBreakableSurface::VPhysicsCollision( int index, gamevcollisionevent_t *pEv
 	}
 	BaseClass::VPhysicsCollision( index, pEvent );
 }
-

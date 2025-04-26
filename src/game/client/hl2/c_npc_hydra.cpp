@@ -383,4 +383,3 @@ bool C_NPC_Hydra::GetSoundSpatialization( SpatializationInfo_t& info )
 
 	return bret;
 }
-

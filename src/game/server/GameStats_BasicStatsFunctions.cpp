@@ -180,4 +180,3 @@ bool BasicGameStats_t::ParseFromBuffer( CUtlBuffer& buf, int iBufferStatsVersion
 	}
 	return bret;
 }
-

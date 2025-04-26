@@ -388,4 +388,3 @@ void CFogSystem::LevelInitPostEntity( void )
 		}
 	}
 }
-

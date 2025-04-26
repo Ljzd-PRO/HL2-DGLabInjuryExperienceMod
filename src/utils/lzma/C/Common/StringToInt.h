@@ -14,4 +14,3 @@ Int64 ConvertStringToInt64(const char *s, const char **end);
 
 #endif
 
-

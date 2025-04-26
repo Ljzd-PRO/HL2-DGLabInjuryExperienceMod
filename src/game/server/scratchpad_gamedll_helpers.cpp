@@ -92,4 +92,3 @@ void ScratchPad_DrawEntityToScratchPad(
 	}
 }
 
-

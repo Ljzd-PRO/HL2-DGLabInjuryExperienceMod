@@ -27,4 +27,3 @@ void Chopper_PrecacheChunks( CBaseEntity *pChopper );
 
 #endif // NPC_ATTACKCHOPPER_H
 
-

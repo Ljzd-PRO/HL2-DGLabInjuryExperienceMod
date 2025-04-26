@@ -75,4 +75,3 @@ void C_ParticleTrail::Start( CParticleMgr *pParticleMgr, IPrototypeArgAccess *pA
 
 	m_pParticleMgr = pParticleMgr;
 }
-

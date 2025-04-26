@@ -1142,4 +1142,3 @@ AI_BEGIN_CUSTOM_NPC( npc_poisonzombie, CNPC_PoisonZombie )
 
 AI_END_CUSTOM_NPC()
 
-

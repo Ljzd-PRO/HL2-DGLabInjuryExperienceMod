@@ -772,4 +772,3 @@ void CJiggleBones::BuildJiggleTransformations( int boneIndex, float currenttime,
 	}
 #endif // CLIENT_DLL
 }
-

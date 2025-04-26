@@ -177,4 +177,3 @@ void CTesla::InputTurnOff( inputdata_t &inputdata )
 	m_bOn = false;
 	SetupForNextArc();
 }
-

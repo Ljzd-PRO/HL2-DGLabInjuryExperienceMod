@@ -1201,7 +1201,7 @@ class ReflectionTest(unittest.TestCase):
                       setattr, proto, 'optional_string', str('a\x80a'))
     # Assign a 'str' object which contains a UTF-8 encoded string.
     self.assertRaises(ValueError,
-                      setattr, proto, 'optional_string', 'Тест')
+                      setattr, proto, 'optional_string', '')
     # No exception thrown.
     proto.optional_string = 'abc'
 
@@ -1210,7 +1210,7 @@ class ReflectionTest(unittest.TestCase):
     extension_message = unittest_mset_pb2.TestMessageSetExtension2
     extension = extension_message.message_set_extension
 
-    test_utf8 = u'Тест'
+    test_utf8 = u''
     test_utf8_bytes = test_utf8.encode('utf-8')
 
     # 'Test' in another language, using UTF-8 charset.

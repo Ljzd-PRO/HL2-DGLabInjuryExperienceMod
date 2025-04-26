@@ -131,4 +131,3 @@ void CSimple3DEmitter::RenderParticles( CParticleRenderIterator *pIterator )
 	}
 }
 
-

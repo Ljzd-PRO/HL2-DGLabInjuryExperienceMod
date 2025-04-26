@@ -54,4 +54,3 @@ void ComputeScreenSpacePosition( Vector2D *pScreenPosition, const Vector &vecWor
 
 
 #endif // CAMERAUTILS_H
-

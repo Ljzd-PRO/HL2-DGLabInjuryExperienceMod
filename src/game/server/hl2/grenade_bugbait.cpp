@@ -323,4 +323,3 @@ CGrenadeBugBait *BugBaitGrenade_Create( const Vector &position, const QAngle &an
 
 	return pGrenade;
 }
-

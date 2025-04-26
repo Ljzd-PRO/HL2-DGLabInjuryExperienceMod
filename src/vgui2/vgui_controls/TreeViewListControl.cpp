@@ -312,4 +312,3 @@ void CTreeViewListControl::DrawTitleBars()
 		surface()->DrawPrintText( unicodeString, strlen( pTitleString ) );
 	}
 }
-

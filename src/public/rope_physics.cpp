@@ -149,4 +149,3 @@ void CBaseRopePhysics::ApplyConstraints( CSimplePhysics::CNode *pNodes, int nNod
 	}
 }
 
-

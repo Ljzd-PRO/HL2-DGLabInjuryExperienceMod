@@ -113,4 +113,3 @@ const char *WeaponIDToAlias( int id )
 	return s_WeaponAliasInfo[id];
 }
 
-

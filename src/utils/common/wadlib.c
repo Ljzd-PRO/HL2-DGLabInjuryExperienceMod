@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve LLC, All rights reserved. ============//
+//========= Copyright Â© 1996-2005, Valve LLC, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -330,5 +330,4 @@ void WriteWad (int wad3)
 	SafeWrite (outwad, &header, sizeof(header));
 	fclose (outwad);
 }
-
 

@@ -75,4 +75,3 @@ acttable_t CWeaponCrowbar::m_acttable[] =
 };
 
 IMPLEMENT_ACTTABLE( CWeaponCrowbar );
-

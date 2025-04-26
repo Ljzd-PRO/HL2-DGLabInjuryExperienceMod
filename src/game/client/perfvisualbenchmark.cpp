@@ -309,4 +309,3 @@ void CPerfVisualBenchmark::Print()				//  sort and print into console
 		m_RunInfo[curMax].m_flFPS=-1;
 	}
 }
-

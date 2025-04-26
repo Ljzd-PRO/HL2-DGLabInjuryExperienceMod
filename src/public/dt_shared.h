@@ -100,4 +100,3 @@ DataTableProp PropEHandle(
 	int sizeofVar=SIZEOF_IGNORE );
 
 #endif // DATATABLE_SHARED_H
-

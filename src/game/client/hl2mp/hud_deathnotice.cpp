@@ -349,4 +349,3 @@ void CHudDeathNotice::FireGameEvent( IGameEvent * event )
 }
 
 
-

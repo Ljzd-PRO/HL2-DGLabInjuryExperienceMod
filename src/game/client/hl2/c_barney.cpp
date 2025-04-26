@@ -38,4 +38,3 @@ C_Barney::~C_Barney()
 {
 }
 
-

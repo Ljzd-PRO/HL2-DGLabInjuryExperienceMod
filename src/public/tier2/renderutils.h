@@ -66,4 +66,3 @@ void DrawScreenSpaceRectangle( IMaterial *pMaterial,
 	float fDepth = 0.0 );								// what Z value to put in the verts
 
 #endif // RENDERUTILS_H
-

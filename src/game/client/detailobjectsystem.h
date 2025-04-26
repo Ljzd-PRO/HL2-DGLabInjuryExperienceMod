@@ -54,4 +54,3 @@ IDetailObjectSystem* DetailObjectSystem();
 
 
 #endif // DETAILOBJECTSYSTEM_H
-

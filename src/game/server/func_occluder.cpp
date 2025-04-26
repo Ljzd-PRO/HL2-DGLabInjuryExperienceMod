@@ -120,4 +120,3 @@ int CFuncOccluder::UpdateTransmitState()
 	// ALWAYS transmit to all clients.
 	return SetTransmitState( FL_EDICT_ALWAYS );
 }
-

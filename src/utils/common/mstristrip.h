@@ -40,4 +40,3 @@ void ComputeVertexPermutation
     int *pnumverts,                 // Number of verts (in and out)
     WORD **ppvertexpermutation      // Map from orignal index to remapped index
 );
-

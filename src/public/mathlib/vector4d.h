@@ -683,4 +683,3 @@ inline void Vector4DWeightMADSSE( vec_t w, Vector4DAligned const& vInA, Vector4D
 }
 
 #endif // VECTOR4D_H
-

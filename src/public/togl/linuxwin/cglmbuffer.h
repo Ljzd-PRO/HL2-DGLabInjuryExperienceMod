@@ -187,4 +187,3 @@ public:
 };	
 
 #endif // CGLMBUFFER_H
-

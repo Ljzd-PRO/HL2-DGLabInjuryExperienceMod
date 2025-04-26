@@ -136,4 +136,3 @@ void CLitSmokeEmitter::SimulateParticles( CParticleSimulateIterator *pIterator )
 	}
 }
 
-

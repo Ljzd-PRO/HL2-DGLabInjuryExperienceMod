@@ -2653,4 +2653,3 @@ CUtlDelegate< FASTDLGT_RETTYPE ( Param1, Param2, Param3, Param4, Param5, Param6,
 #undef FASTDLGT_RETTYPE
 
 #endif // !defined(UTLDELEGATEIMPL_H)
-

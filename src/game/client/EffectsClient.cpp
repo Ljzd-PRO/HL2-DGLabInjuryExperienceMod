@@ -228,4 +228,3 @@ bool CEffectsClient::IsServer()
 	return false;
 }
 
-

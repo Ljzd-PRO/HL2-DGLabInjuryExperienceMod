@@ -515,4 +515,3 @@ void CBlendingCycler::Think( void )
 	}
 }
 
-

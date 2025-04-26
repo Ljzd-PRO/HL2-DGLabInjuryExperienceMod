@@ -254,4 +254,3 @@ void CHudSuitPower::Paint()
 	}
 }
 
-

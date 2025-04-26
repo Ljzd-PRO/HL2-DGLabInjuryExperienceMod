@@ -209,4 +209,3 @@ bool CSubRectImage::IsValid()
 {
 	return _valid;
 }
-

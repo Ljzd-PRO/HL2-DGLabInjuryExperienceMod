@@ -440,4 +440,3 @@ int CGrenadeBeam::UpdateTransmitState(void)
 {
 	return SetTransmitState( FL_EDICT_PVSCHECK );
 }
-

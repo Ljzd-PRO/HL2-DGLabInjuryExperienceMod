@@ -163,4 +163,3 @@ void ApplyMacroTextures( int iFace, const Vector &vWorldPos, Vector &outLuxel )
 }
 
 
-

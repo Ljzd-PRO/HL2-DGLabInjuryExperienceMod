@@ -497,4 +497,3 @@ bool CSingleplayRules::Damage_ShouldNotBleed( int iDmgType )
 	}
 
 #endif
-

@@ -90,4 +90,3 @@
 #ifndef GL_MAP_UNSYNCHRONIZED_BIT
 #define GL_MAP_UNSYNCHRONIZED_BIT         0x0020
 #endif
-

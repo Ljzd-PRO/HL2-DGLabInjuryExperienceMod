@@ -1102,4 +1102,3 @@ float CAPCFourWheelServerVehicle::Weapon_SecondaryCanFireAt( void )
 {
 	return ((CPropAPC*)m_pVehicle)->SecondaryWeaponFireTime();
 }
-

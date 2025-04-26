@@ -60,4 +60,3 @@ void CTextureToggle::InputSetBrushTexIndex( inputdata_t& inputdata )
 		pEntity = gEntList.FindEntityByName( pEntity, m_target ); 
 	}
 }
-

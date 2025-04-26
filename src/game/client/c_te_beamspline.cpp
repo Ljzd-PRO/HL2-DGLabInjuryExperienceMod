@@ -83,4 +83,3 @@ BEGIN_RECV_TABLE_NOBASE(C_TEBeamSpline, DT_TEBeamSpline)
 		RecvPropVector( RECVINFO(m_vecPoints[0])),
 		m_vecPoints)
 END_RECV_TABLE()
-

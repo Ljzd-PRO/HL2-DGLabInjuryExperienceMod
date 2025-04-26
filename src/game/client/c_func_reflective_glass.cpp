@@ -115,4 +115,3 @@ bool IsReflectiveGlassInView( const CViewSetup& view, cplane_t &plane )
 }
 
 
-

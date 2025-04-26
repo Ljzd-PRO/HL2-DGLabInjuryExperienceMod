@@ -1419,4 +1419,3 @@ void CCollisionProperty::UpdatePartition( )
 	}
 }
 
-

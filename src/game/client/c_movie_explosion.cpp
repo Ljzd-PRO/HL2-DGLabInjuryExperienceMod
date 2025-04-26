@@ -215,4 +215,3 @@ void C_MovieExplosion::SimulateParticles( CParticleSimulateIterator *pIterator )
 		pParticle = (StandardParticle_t*)pIterator->GetNext();
 	}
 }
-

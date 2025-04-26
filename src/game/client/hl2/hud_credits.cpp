@@ -732,4 +732,3 @@ void CHudCredits::MsgFunc_LogoTimeMsg( bf_read &msg )
 	PrepareLogo( msg.ReadFloat() );
 }
 
-

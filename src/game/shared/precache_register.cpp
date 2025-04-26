@@ -36,4 +36,3 @@ void CPrecacheRegister::PrecacheFn_Other(void *pUser)
 	UTIL_PrecacheOther((const char*)pUser);
 }
 
-

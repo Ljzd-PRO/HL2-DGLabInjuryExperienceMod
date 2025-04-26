@@ -64,4 +64,3 @@ unsigned char C_Func_LOD::GetClientSideFade()
 	return UTIL_ComputeEntityFade( this, m_fDisappearDist, m_fDisappearDist + lod_TransitionDist.GetFloat(), 1.0f );
 }
 
-

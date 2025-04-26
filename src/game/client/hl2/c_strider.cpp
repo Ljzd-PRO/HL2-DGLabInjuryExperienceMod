@@ -1045,4 +1045,3 @@ void StriderBloodCallback( const CEffectData &data )
 }
 
 DECLARE_CLIENT_EFFECT( "StriderBlood", StriderBloodCallback );
-

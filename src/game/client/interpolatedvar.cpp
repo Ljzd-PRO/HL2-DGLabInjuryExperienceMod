@@ -27,4 +27,3 @@ float g_flLastPacketTimestamp = 0;
 
 
 ConVar cl_extrapolate_amount( "cl_extrapolate_amount", "0.25", FCVAR_CHEAT, "Set how many seconds the client will extrapolate entities for." );
-

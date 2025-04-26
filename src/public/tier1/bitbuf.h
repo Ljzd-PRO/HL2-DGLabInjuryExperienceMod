@@ -806,4 +806,3 @@ BITBUF_INLINE int bf_read::CompareBits( bf_read * RESTRICT other, int numbits ) 
 #endif
 
 
-

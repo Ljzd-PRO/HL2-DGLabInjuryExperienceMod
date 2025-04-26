@@ -79,4 +79,3 @@ IMPLEMENT_CLIENTCLASS_EVENT_DT(C_TEBeamEntPoint, DT_TEBeamEntPoint, CTEBeamEntPo
 	RecvPropVector(RECVINFO(m_vecStartPoint)),
 	RecvPropVector(RECVINFO(m_vecEndPoint)),
 END_RECV_TABLE()
-

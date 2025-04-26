@@ -456,4 +456,3 @@ LIBPROTOBUF_EXPORT double NoLocaleStrtod(const char* text, char** endptr);
 
 #endif  // GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
 
-

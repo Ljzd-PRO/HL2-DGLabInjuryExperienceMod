@@ -75,4 +75,3 @@
 #define TM_CONTEXT_FULL(val) ((char*)(val))
 
 typedef char *HTELEMETRY;
-

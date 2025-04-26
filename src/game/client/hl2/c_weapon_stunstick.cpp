@@ -184,4 +184,3 @@ STUB_WEAPON_CLASS_IMPLEMENT( weapon_stunstick, C_WeaponStunStick );
 IMPLEMENT_CLIENTCLASS_DT( C_WeaponStunStick, DT_WeaponStunStick, CWeaponStunStick )
 	RecvPropInt( RECVINFO(m_bActive), 0, RecvProxy_StunActive ),
 END_RECV_TABLE()
-

@@ -124,4 +124,3 @@ void RayTracingEnvironment::InitializeFromLoadedBSP(void)
 
 //	AddTriangle(1234,Vector(51,145,-700),Vector(71,165,-700),Vector(51,165,-700),colors[5]);
 }
-

@@ -221,4 +221,3 @@ void FX_FireBullets(
 
 	EndGroupingSounds();
 }
-

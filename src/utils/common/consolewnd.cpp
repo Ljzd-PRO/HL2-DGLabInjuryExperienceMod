@@ -330,4 +330,3 @@ IConsoleWnd* CreateConsoleWnd( void *hInstance, int dialogResourceID, int editCo
 
 
 
-

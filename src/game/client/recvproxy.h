@@ -55,4 +55,3 @@ RecvProp RecvPropIntWithMinusOneFlag(
 	RecvVarProxyFn proxyFn=RecvProxy_IntSubOne );
 
 #endif // RECVPROXY_H
-

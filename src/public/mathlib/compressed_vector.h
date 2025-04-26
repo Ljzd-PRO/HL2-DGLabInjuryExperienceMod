@@ -605,4 +605,3 @@ inline void Vector2d32::Init( vec_t ix, vec_t iy )
 #endif
 
 #endif
-

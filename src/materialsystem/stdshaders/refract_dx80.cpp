@@ -314,4 +314,3 @@ BEGIN_VS_SHADER( Refract_DX80,
 		}
 	}
 END_SHADER
-

@@ -465,4 +465,3 @@ CBaseEntity *EntityPhysics_CreateSolver( CBaseEntity *pMovingEntity, CBaseEntity
 
 	return CPhysicsEntitySolver::Create( pMovingEntity, pPhysicsObject, separationDuration );
 }
-

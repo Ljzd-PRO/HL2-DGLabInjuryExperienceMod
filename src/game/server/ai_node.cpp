@@ -272,4 +272,3 @@ CAI_Node::CAI_Node( int id, const Vector &origin, float yaw  )
 
 	m_zone = AI_NODE_ZONE_UNKNOWN;
 };
-

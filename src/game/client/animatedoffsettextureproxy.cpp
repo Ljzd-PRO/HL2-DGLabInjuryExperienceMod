@@ -53,4 +53,3 @@ void CAnimatedOffsetTextureProxy::OnBind( void *pBaseEntity )
 	// Call into the base class
 	CBaseAnimatedTextureProxy::OnBind( pBaseEntity );
 }
-

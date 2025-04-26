@@ -1030,4 +1030,3 @@ void CAI_Motor::SetMoveType( MoveType_t val, MoveCollide_t moveCollide )
 }
 
 //=============================================================================
-

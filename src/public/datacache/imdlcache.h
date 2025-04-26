@@ -294,4 +294,3 @@ private:
 #define MDLCACHE_COARSE_LOCK() MDLCACHE_COARSE_LOCK_(mdlcache)
 
 #endif // IMDLCACHE_H
-

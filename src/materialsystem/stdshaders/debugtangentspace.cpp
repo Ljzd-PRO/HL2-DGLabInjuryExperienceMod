@@ -130,4 +130,3 @@ BEGIN_SHADER( DebugTangentSpace, "Help for DebugTangentSpace" )
 		}
 	}
 END_SHADER
-

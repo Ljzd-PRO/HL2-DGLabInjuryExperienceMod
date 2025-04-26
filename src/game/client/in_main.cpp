@@ -1697,4 +1697,3 @@ void CInput::LevelInit( void )
 	m_EntityGroundContact.RemoveAll();
 #endif
 }
-

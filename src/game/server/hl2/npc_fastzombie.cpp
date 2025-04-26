@@ -2153,4 +2153,3 @@ AI_BEGIN_CUSTOM_NPC( npc_fastzombie, CFastZombie )
 
 AI_END_CUSTOM_NPC()
 
-

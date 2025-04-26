@@ -282,4 +282,3 @@ CON_COMMAND_F( nav_simplify_selected, "Chops all selected areas into their compo
 
 	Msg( "%d areas simplified - %d remain\n", selectedSetSize, TheNavMesh->GetSelecteSetSize() );
 }
-

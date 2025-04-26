@@ -408,4 +408,3 @@ void CDataManagerBase::GetLockHandleList( CUtlVector< memhandle_t >& list )
 		list.AddToTail( ToHandle( node ) );
 	}
 }
-

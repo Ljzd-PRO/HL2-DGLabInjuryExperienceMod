@@ -399,4 +399,3 @@ void CClientThinkList::CleanUpDeleteList()
 
 	m_aDeleteList.RemoveAll();
 }
-

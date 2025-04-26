@@ -583,4 +583,3 @@ bool CUtlHandle<T>::operator!=( UtlHandle_t h ) const
 
 
 #endif // UTLHANDLETABLE_H
-

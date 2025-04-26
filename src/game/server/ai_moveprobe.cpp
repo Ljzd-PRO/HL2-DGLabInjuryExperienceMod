@@ -1389,4 +1389,3 @@ bool CAI_MoveProbe::IsJumpLegal( const Vector &startPos, const Vector &apex, con
 }
 
 //-----------------------------------------------------------------------------
-

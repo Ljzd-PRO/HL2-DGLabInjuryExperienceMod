@@ -1353,4 +1353,3 @@ CON_COMMAND( getpos, "dump position and angles to the console" )
 	Warning( "%s %f %f %f;", pCommand1, vecOrigin.x, vecOrigin.y, vecOrigin.z );
 	Warning( "%s %f %f %f\n", pCommand2, angles.x, angles.y, angles.z );
 }
-

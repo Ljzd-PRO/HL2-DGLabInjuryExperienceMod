@@ -57,4 +57,3 @@ void CBaseTransmitProxy::Release()
 		--m_refCount;
 	}
 }
-

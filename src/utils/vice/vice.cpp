@@ -274,4 +274,3 @@ int main(int argc, char* argv[])
 	Pause();
 	return 0;
 }
-

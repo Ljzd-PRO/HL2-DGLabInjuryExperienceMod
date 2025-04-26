@@ -495,4 +495,3 @@ void CAPCController::StopRotSound( void )
 		EmitSound( filter, entindex(), ep );
 	}
 }
-

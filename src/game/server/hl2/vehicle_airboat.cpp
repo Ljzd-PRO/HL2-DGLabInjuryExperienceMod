@@ -2098,4 +2098,3 @@ void CPropAirboat::ApplyStressDamage( IPhysicsObject *pPhysics )
 		m_hPlayer->TakeDamage( dmgInfo );
 	}
 }
-

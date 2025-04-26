@@ -67,4 +67,3 @@ private:
 
 
 #endif // HL2MP_WEAPON_CROWBAR_H
-

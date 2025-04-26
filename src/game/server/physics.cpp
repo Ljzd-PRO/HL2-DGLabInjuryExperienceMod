@@ -2930,4 +2930,3 @@ void DumpCollideToGlView( CPhysCollide *pCollide, const Vector &origin, const QA
 	physcollision->DestroyDebugMesh( vertCount, outVerts );
 }
 #endif
-

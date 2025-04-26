@@ -494,4 +494,3 @@ void FileOpenStateMachine::OpenFile( const char *pOpenFileName, const char *pOpe
 	OpenFileDialog();
 }
 
-

@@ -761,4 +761,3 @@ unsigned int CLZMA::Uncompress( unsigned char *pInput, unsigned char *pOutput )
 
 	return outProcessed;
 }
-

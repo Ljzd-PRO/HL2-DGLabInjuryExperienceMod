@@ -169,4 +169,3 @@ bool InitializeTeamImage( KeyValues *pInitData, const char* pSectionName, vgui::
 
 	return pTeamImage->Init( pParent, pTeamImageSection, pEntity );
 }
-

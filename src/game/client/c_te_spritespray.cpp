@@ -143,4 +143,3 @@ void TE_SpriteSpray( IRecipientFilter& filter, float delay, KeyValues *pKeyValue
 
 	TE_SpriteSpray( filter, delay, &vecOrigin, &vecDirection, nModelIndex, nSpeed, flNoise, nCount );
 }
-

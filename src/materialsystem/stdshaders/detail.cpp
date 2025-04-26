@@ -34,4 +34,3 @@ BEGIN_VS_SHADER( Detail, "Help for Detail" )
 	}
 
 END_SHADER
-

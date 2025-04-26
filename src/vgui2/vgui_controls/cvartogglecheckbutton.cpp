@@ -22,4 +22,3 @@ vgui::Panel *Create_CvarToggleCheckButton()
 }
 
 DECLARE_BUILD_FACTORY_CUSTOM_ALIAS( CvarToggleCheckButton<ConVarRef>, CvarToggleCheckButton, Create_CvarToggleCheckButton );
-

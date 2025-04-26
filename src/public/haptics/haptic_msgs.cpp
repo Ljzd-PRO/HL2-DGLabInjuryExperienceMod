@@ -189,4 +189,3 @@ void __MsgFunc_HapMeleeContact( bf_read &msg )
 }
 #endif // CLIENT_DLL
 
-

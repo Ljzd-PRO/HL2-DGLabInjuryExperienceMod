@@ -339,4 +339,3 @@ void DrawRefract_DX9( CBaseVSShader *pShader, IMaterialVar** params, IShaderDyna
 	}
 	pShader->Draw();
 }
-

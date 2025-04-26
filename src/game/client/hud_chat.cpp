@@ -168,4 +168,3 @@ void CHudChat::MsgFunc_TextMsg( bf_read &msg )
 		break;
 	}
 }
-

@@ -380,4 +380,3 @@ void Bot_Think( CPluginBot *pBot )
 	pBot->m_BotInterface->RunPlayerMove( &cmd );
 }
 
-

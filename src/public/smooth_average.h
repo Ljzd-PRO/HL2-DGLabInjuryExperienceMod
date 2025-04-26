@@ -219,4 +219,3 @@ inline CTimingInfo< T > SumOverTimeInterval( const T &value, float nSeconds, con
 
 
 #endif // SMOOTH_AVERAGE_H
-

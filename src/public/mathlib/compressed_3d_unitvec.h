@@ -281,4 +281,3 @@ public:
 
 #endif // _3D_VECTOR_H
 
-

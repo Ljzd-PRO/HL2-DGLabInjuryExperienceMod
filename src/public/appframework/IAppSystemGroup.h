@@ -262,4 +262,3 @@ SuggestGameInfoDirFn_t SetSuggestGameInfoDirFn( SuggestGameInfoDirFn_t pfnNewFn 
 
 #endif // APPSYSTEMGROUP_H
 
-

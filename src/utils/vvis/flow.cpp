@@ -878,4 +878,3 @@ void BetterPortalVis (int portalnum)
 	c_vis += p->nummightsee;
 }
 
-

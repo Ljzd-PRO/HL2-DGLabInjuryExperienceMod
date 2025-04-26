@@ -200,4 +200,3 @@ int CSun::UpdateTransmitState()
 	return SetTransmitState( FL_EDICT_ALWAYS );
 }
 
-

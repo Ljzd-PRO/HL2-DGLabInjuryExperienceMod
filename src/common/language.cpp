@@ -214,4 +214,3 @@ const char *GetLanguageVGUILocalization( ELanguage eLang )
 	Assert( !"enum ELanguage order mismatched from Language_t s_LanguageNames, fix it!" );
 	return s_LanguageNames[0].m_pchVGUILocalizationName;
 }
-

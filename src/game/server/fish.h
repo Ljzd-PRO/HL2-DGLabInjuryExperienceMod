@@ -137,4 +137,3 @@ inline float CFishPool::GetWaterLevel( void ) const
 
 
 #endif // _FISH_H_
-

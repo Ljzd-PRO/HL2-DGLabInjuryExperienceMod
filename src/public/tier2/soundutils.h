@@ -28,4 +28,3 @@ float GetWavSoundDuration( const char *pWavFile );
 
 
 #endif // SOUNDUTILS_H
-

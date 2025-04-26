@@ -282,4 +282,3 @@ void BoundBox::Rotate90(int axis)
 	bmins[e2] = tmp1;
 	bmaxs[e2] = tmp2;
 }
-

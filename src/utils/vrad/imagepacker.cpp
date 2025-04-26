@@ -138,4 +138,3 @@ bool CImagePacker::AddBlock( int width, int height, int *returnX, int *returnY )
 
 	return true;
 }
-

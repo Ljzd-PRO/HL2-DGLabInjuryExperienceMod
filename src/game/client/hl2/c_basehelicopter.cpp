@@ -88,4 +88,3 @@ IMaterial *CHeliBladeMaterialProxy::GetMaterial()
 }
 
 EXPOSE_INTERFACE( CHeliBladeMaterialProxy, IMaterialProxy, "HeliBlade" IMATERIAL_PROXY_INTERFACE_VERSION );
-

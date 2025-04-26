@@ -29,4 +29,3 @@ extern bool g_bForceCLPredictOff;	// If this is set to true, then prediction is 
 
 
 #endif // CDLL_BOUNDED_CVARS_H
-

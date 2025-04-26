@@ -982,4 +982,3 @@ ChunkFileResult_t CChunkFile::WriteLine(const char *pszLine)
 	
 	return(ChunkFile_Ok);
 }
-

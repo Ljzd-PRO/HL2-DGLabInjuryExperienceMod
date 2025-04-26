@@ -103,4 +103,3 @@ void CBaseSpriteProjectile::Think()
 void CBaseSpriteProjectile::HandleThink()
 {
 }
-

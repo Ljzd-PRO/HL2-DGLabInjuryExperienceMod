@@ -324,4 +324,3 @@ void C_ScriptIntro::CalculateAlpha( void )
 
 	m_IntroData.m_flCurrentFadeColor[3] = flNewAlpha;
 }
-

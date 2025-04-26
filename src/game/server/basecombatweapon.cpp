@@ -731,4 +731,3 @@ void CBaseCombatWeapon::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_
 		}
 	}
 }
-

@@ -275,4 +275,3 @@ void PerforceFileExplorer::OnFolderUp()
 }
 
 
-

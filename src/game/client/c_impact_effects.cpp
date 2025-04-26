@@ -1428,4 +1428,3 @@ void TE_GaussExplosion( IRecipientFilter& filter, float delay, const Vector &pos
 {
 	FX_GaussExplosion( pos, dir, type );
 }
-

@@ -3436,4 +3436,3 @@ void CTempEnts::CSEjectBrass( const Vector &vecPosition, const QAngle &angVeloci
 
 	
 }
-

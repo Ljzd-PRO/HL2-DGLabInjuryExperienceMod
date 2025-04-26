@@ -24,4 +24,3 @@ void GenerateLumpFileName( const char *bspfilename, char *lumpfilename, int iBuf
 	V_StripExtension( bspfilename, lumppre, MAX_PATH );
 	Q_snprintf( lumpfilename, iBufferSize, "%s_l_%d.lmp", lumppre, iIndex );
 }
-

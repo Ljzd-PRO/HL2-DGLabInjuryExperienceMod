@@ -166,4 +166,3 @@ void TracerSoundCallback( const CEffectData &data )
 }
 
 DECLARE_CLIENT_EFFECT( "TracerSound", TracerSoundCallback );
-

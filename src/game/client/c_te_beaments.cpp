@@ -76,4 +76,3 @@ BEGIN_RECV_TABLE(C_TEBeamEnts, DT_TEBeamEnts)
 	RecvPropInt( RECVINFO(m_nStartEntity)),
 	RecvPropInt( RECVINFO(m_nEndEntity)),
 END_RECV_TABLE()
-

@@ -632,4 +632,3 @@ IScratchPad3D* ScratchPad3D_Create( char const *pFilename )
 	return pRet;
 }
 #endif // POSIX
-

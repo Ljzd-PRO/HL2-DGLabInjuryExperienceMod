@@ -171,4 +171,3 @@ int CRagdollManager::DrawDebugTextOverlays( void )
 	}
 	return text_offset;
 }
-

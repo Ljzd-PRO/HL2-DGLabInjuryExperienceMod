@@ -9,4 +9,3 @@
 
 CRenamedRecvTableInfo *g_pRenamedRecvTableInfoHead = 0;
 
-

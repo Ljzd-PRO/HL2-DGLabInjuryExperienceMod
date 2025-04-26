@@ -364,4 +364,3 @@ static ConCommand dbghist_dump("dbghist_dump", CC_DebugHistory_Dump,
 							   "     3: Alyx Blind\n"
 							   "     4: Log of damage done to player",
 							   FCVAR_NONE );
-

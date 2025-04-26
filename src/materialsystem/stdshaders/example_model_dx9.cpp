@@ -57,4 +57,3 @@ BEGIN_VS_SHADER( Example_Model_DX9, "Help for Example Model Shader" )
 	}
 
 END_SHADER
-

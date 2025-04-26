@@ -549,4 +549,3 @@ void CWeaponFrag::RollGrenade( CBasePlayer *pPlayer )
 
 	m_bRedraw = true;
 }
-

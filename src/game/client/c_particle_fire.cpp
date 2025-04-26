@@ -336,4 +336,3 @@ void C_ParticleFire::SimulateParticles( CParticleSimulateIterator *pIterator )
 	}
 }
 
-

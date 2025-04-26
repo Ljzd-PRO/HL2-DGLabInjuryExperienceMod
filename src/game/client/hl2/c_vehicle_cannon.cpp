@@ -184,4 +184,3 @@ void C_PropCannon::GetRenderBounds( Vector &theMins, Vector &theMaxs )
 	BaseClass::GetRenderBounds( theMins, theMaxs );
 	theMaxs.y += 660.0f;
 }
-

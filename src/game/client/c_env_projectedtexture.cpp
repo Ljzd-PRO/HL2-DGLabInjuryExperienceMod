@@ -233,4 +233,3 @@ void C_EnvProjectedTexture::Simulate( void )
 
 	BaseClass::Simulate();
 }
-

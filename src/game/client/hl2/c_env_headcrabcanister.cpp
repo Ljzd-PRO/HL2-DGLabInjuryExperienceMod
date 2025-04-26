@@ -94,4 +94,3 @@ void C_EnvHeadcrabCanister::ClientThink()
 	SetAbsOrigin( vecEndPosition );
 	SetAbsAngles( vecEndAngles );
 }
-

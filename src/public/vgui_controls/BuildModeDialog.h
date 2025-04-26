@@ -133,4 +133,3 @@ private:
 
 
 #endif // BUILDMODEDIALOG_H
-

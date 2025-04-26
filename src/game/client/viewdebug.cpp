@@ -672,4 +672,3 @@ void CDebugViewRender::GenerateOverdrawForTesting()
 	g_SmokeFogOverlayAlpha = 0;
 }
 
-

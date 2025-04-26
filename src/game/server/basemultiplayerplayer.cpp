@@ -346,4 +346,3 @@ void CBaseMultiplayerPlayer::StopScoringEscortPoints( void )
 {
 	SetContextThink( NULL, 0, ESCORT_SCORE_CONTEXT );
 }
-

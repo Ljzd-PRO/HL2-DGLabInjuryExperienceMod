@@ -44,4 +44,3 @@ namespace NDebugOverlay
 	void	YawArrow( const Vector &startPos, float yaw, float length, float width, int r, int g, int b, int a, bool noDepthTest, float flDuration) {}
 	void	VertArrow( const Vector &startPos, const Vector &endPos, float width, int r, int g, int b, int a, bool noDepthTest, float flDuration) {}
 };
-

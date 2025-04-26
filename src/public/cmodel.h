@@ -126,4 +126,3 @@ private:
 
 	
 #include "gametrace.h"
-

@@ -276,4 +276,3 @@ void CHudSquadStatus::Paint()
 	}
 }
 
-

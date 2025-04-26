@@ -349,4 +349,3 @@ bool CBSPTreeData::EnumerateLeavesAlongRay( Ray_t const& ray, ISpatialLeafEnumer
 {
 	return m_pBSPTree->EnumerateLeavesAlongRay( ray, pEnum, context );
 }
-

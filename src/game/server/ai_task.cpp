@@ -224,4 +224,3 @@ void CAI_BaseNPC::InitDefaultTaskSR(void)
 	ADD_DEF_TASK( TASK_PRE_SCRIPT );
 }
 
-

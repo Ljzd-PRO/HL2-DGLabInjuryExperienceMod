@@ -567,4 +567,3 @@ void PerforceFileList::OnMouseDoublePressed( MouseCode code )
 	BaseClass::OnMouseDoublePressed( code );
 }
 
-

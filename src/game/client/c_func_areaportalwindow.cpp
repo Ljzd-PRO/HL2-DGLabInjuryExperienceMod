@@ -144,4 +144,3 @@ bool C_FuncAreaPortalWindow::ShouldReceiveProjectedTextures( int flags )
 	return false;
 }
 
-

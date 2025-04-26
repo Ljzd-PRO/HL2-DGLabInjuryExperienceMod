@@ -898,4 +898,3 @@ void RayTracingEnvironment::AddInfinitePointLight(Vector position, Vector intens
 	
 }
 
-

@@ -171,4 +171,3 @@ void CHL2MPSpectatorGUI::Update()
 	}
 }
 
-

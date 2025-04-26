@@ -44,4 +44,3 @@ extern IDmSerializers *g_pDmSerializers;
 
 #endif // DMSERIALIZERS_H
 
-

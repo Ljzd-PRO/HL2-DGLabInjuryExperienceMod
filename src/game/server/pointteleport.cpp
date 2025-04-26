@@ -144,4 +144,3 @@ void CPointTeleport::InputTeleport( inputdata_t &inputdata )
 
 	pTarget->Teleport( &m_vSaveOrigin, &m_vSaveAngles, NULL );
 }
-

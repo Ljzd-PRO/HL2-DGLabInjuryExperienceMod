@@ -41,4 +41,3 @@ CAssassinSmoke* CAssassinSmoke::CreateAssassinSmoke(const Vector &pos)
 	return NULL;
 }
 
-

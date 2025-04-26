@@ -180,4 +180,3 @@ void CLogicNavigation::TurnOff()
 	gEntList.RemoveListenerEntity( this );
 	UpdateProperty();
 }
-

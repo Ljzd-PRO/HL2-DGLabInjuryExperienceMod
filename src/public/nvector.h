@@ -200,4 +200,3 @@ NVectorN NVectorN::operator*( float val ) const
 
 
 #endif // NVECTOR_H
-

@@ -179,4 +179,3 @@ void CPointHurt::InputHurt( inputdata_t &data )
 
 	HurtThink();
 }
-

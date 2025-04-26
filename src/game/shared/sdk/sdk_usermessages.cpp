@@ -46,4 +46,3 @@ void RegisterUserMessages()
 	// Used to send a sample HUD message
 	usermessages->Register( "GameMessage", -1 );
 }
-

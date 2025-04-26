@@ -109,4 +109,3 @@ CSIMDVectorMatrix & CSIMDVectorMatrix::operator*=( Vector const &src )
 	}
 	return *this;
 }
-

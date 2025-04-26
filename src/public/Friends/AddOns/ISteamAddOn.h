@@ -66,4 +66,3 @@ public:
 #define STEAMADDON_INTERFACE_VERSION "SteamAddOn007"
 
 #endif // ISTEAMADDON_H
-

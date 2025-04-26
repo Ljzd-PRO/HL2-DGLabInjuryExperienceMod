@@ -70,4 +70,3 @@ CPolyhedron *GetTempPolyhedron( unsigned short iVertices, unsigned short iLines,
 
 
 #endif //#ifndef POLYHEDRON_H_
-

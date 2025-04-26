@@ -133,4 +133,3 @@ void DestroyBSPTreeData( IBSPTreeData* pTreeData );
 
 #endif	// BSPTREEDATA
 
-

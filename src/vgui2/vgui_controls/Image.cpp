@@ -279,4 +279,3 @@ HTexture Image::GetID()
 {
 	return 0;
 }
-

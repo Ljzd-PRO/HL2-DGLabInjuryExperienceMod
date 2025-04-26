@@ -146,4 +146,3 @@ void CBuyMenu::OnKeyCodeTyped( KeyCode code )
 		BaseClass::OnKeyCodeTyped( code );
 	}
 }
-

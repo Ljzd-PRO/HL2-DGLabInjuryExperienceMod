@@ -77,4 +77,3 @@ void CSAchievementsAndStatsInterface::ReleasePanel()
 }
 
 #endif
-

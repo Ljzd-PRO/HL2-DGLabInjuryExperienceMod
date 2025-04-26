@@ -79,4 +79,3 @@ private:
 };
 
 #endif // C_ENTITY_DISSOLVE_H
-

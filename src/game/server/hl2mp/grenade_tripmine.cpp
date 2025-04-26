@@ -273,4 +273,3 @@ void CTripmineGrenade::DelayDeathThink( void )
 
 	UTIL_Remove( this );
 }
-

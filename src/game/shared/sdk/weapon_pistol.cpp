@@ -77,4 +77,3 @@ acttable_t CWeaponPistol::m_acttable[] =
 };
 
 IMPLEMENT_ACTTABLE( CWeaponPistol );
-

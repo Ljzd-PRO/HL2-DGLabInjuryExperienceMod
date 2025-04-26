@@ -1681,4 +1681,3 @@ void MarkVisibleSides (tree_t *tree, mapbrush_t **ppBrushes, int nCount )
 	// set visible flags on the sides that are used by portals
 	MarkVisibleSides_r( tree->headnode );
 }
-

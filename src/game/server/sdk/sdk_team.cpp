@@ -37,4 +37,3 @@ void CSDKTeam::Init( const char *pName, int iNumber )
 	// Only detect changes every half-second.
 	NetworkProp()->SetUpdateInterval( 0.75f );
 }
-

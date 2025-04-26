@@ -154,4 +154,3 @@ BEGIN_VS_SHADER( WorldVertexTransition_DX9, "Help for WorldVertexTransition" )
 		DrawLightmappedGeneric_DX9( this, params, pShaderAPI, pShaderShadow, s_info, pContextDataPtr );
 	}
 END_SHADER
-

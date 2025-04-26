@@ -361,4 +361,3 @@ bool CTriggerBrush::PassesInputFilter( CBaseEntity *pOther, int filter )
 
 	return true;
 }
-

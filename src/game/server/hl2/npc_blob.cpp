@@ -1376,4 +1376,3 @@ void CNPC_Blob::RecomputeIdealElementDist()
 
 	//Msg("New element dist: %f\n", m_flMinElementDist );
 }
-

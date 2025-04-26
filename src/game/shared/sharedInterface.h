@@ -34,4 +34,3 @@ extern IMapData					*g_pMapData;			// TODO: current implementations of the
 														// to TF2/HL2 neutral territory
 
 #endif // SHAREDINTERFACE_H
-

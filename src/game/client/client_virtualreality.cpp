@@ -1511,4 +1511,3 @@ void CClientVirtualReality::StartupComplete()
 	if ( vr_activate_default.GetBool() || ShouldForceVRActive() )
 		Activate();
 }
-

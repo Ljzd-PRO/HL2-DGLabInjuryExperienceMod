@@ -117,4 +117,3 @@ void CBitmapButton::Paint( void )
 	BaseClass::Paint();
 }
 
-

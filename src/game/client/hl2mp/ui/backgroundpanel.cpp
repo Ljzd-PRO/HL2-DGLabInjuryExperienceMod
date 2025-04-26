@@ -428,4 +428,3 @@ void LayoutBackgroundPanel( EditablePanel *pWindow )
 }
 
 //-----------------------------------------------------------------------------
-

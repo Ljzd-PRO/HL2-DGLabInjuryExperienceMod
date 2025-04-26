@@ -191,4 +191,3 @@ C_World *GetClientWorldEntity()
 	Assert( g_pClientWorld != NULL );
 	return g_pClientWorld;
 }
-

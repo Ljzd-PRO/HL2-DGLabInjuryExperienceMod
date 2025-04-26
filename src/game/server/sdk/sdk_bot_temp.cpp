@@ -469,4 +469,3 @@ void Bot_Think( CSDKBot *pBot )
 	RunPlayerMove( pBot, cmd, frametime );
 }
 
-

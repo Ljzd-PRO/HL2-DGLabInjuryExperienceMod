@@ -79,4 +79,3 @@ BEGIN_RECV_TABLE_NOBASE( C_TEBaseBeam, DT_BaseBeam )
 	RecvPropInt( RECVINFO(a)),
 	RecvPropInt( RECVINFO(m_nFlags)),
 END_RECV_TABLE()
-

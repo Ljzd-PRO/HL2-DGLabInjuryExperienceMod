@@ -2005,4 +2005,3 @@ static const CaseFoldHashBucket case_fold_hash[256] = {
 	{ CASEFOLDING_ARRAYLEN(case_fold_254), case_fold_254 },
 	{ CASEFOLDING_ARRAYLEN(case_fold_255), case_fold_255 },
 };
-

@@ -75,4 +75,3 @@ IMaterial *CWorldDimsProxy::GetMaterial()
 
 EXPOSE_INTERFACE( CWorldDimsProxy, IMaterialProxy, "WorldDims" IMATERIAL_PROXY_INTERFACE_VERSION );
 
-

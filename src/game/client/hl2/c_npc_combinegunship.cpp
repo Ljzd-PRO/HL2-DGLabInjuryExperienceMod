@@ -473,4 +473,3 @@ void ImpactGunshipCallback( const CEffectData &data )
 }
 
 DECLARE_CLIENT_EFFECT( "ImpactGunship", ImpactGunshipCallback );
-

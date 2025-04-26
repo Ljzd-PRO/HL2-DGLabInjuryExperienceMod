@@ -13,4 +13,3 @@
 
 ServerClass *g_pServerClassHead=0;
 
-

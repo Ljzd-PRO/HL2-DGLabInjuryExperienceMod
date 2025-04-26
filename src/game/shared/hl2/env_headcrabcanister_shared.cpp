@@ -390,4 +390,3 @@ void CEnvHeadcrabCanisterShared::CalcEnterTime( const Vector &vecTriggerMins,
 
 #undef HEADCRABCANISTER_TRIGGER_EPSILON
 }
-

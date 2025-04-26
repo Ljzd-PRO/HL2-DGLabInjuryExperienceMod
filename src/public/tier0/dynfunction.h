@@ -133,4 +133,3 @@ public:
 };
 
 #endif  // DYNFUNCTION_H
-

@@ -159,4 +159,3 @@ private:
 };
 
 #endif // CLIENTMODE_NORMAL_H
-

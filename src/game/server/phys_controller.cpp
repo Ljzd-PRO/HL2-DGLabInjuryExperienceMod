@@ -1075,4 +1075,3 @@ AngularImpulse ComputeRotSpeedToAlignAxes( const Vector &testAxis, const Vector 
 
 	return angular * len;
 }
-

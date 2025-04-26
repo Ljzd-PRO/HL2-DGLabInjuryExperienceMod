@@ -50,4 +50,3 @@ static CSDKPrediction g_Prediction;
 EXPOSE_SINGLE_INTERFACE_GLOBALVAR( CSDKPrediction, IPrediction, VCLIENT_PREDICTION_INTERFACE_VERSION, g_Prediction );
 
 CPrediction *prediction = &g_Prediction;
-

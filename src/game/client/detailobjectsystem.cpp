@@ -2808,4 +2808,3 @@ void CDetailObjectSystem::BuildDetailObjectRenderLists( const Vector &vViewOrigi
 	pQuery->EnumerateLeavesInSphere( CurrentViewOrigin(), 
 									 cl_detaildist.GetFloat(), this, (int)&ctx );
 }
-

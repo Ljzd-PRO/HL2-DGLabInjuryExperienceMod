@@ -104,4 +104,3 @@ void CHudGameMessage::Paint( void )
 	surface()->DrawSetTextPos( 32, 8 ); // x,y position
 	surface()->DrawPrintText( m_pText, wcslen(m_pText) ); // print text
 }
-

@@ -32,4 +32,3 @@ void CSDKWeaponInfo::Parse( KeyValues *pKeyValuesData, const char *szWeaponName 
 	Q_strncpy( m_szAnimExtension, pAnimEx, sizeof( m_szAnimExtension ) );
 }
 
-

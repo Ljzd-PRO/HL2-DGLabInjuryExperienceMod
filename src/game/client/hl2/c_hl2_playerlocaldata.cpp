@@ -49,4 +49,3 @@ C_HL2PlayerLocalData::C_HL2PlayerLocalData()
 	m_vecLocatorOrigin = vec3_origin;
 #endif
 }
-

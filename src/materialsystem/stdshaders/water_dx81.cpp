@@ -308,4 +308,3 @@ BEGIN_VS_SHADER( Water_DX81,
 		}
 	}
 END_SHADER
-

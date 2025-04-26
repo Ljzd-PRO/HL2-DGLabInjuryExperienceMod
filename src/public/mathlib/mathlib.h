@@ -2168,7 +2168,7 @@ inline bool CloseEnough( const Vector &a, const Vector &b, float epsilon = EQUAL
 // Fast compare
 // maxUlps is the maximum error in terms of Units in the Last Place. This 
 // specifies how big an error we are willing to accept in terms of the value
-// of the least significant digit of the floating point number’s 
+// of the least significant digit of the floating point numbers 
 // representation. maxUlps can also be interpreted in terms of how many 
 // representable floats we are willing to accept between A and B. 
 // This function will allow maxUlps-1 floats between A and B.
@@ -2183,4 +2183,3 @@ inline bool AlmostEqual( const Vector &a, const Vector &b, int maxUlps = 10)
 
 
 #endif	// MATH_BASE_H
-

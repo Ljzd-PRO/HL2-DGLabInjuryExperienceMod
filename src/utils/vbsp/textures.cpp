@@ -734,4 +734,3 @@ void LoadSurfaceProperties( void )
 	manifest->deleteThis();
 }
 
-

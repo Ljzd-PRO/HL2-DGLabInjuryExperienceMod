@@ -85,4 +85,3 @@ class VideoPlayerPanel : public vgui::Panel		// Should this be EditablePanel ?
 };
 
 #endif
-

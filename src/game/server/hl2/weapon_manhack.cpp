@@ -101,4 +101,3 @@ void CWeapon_Manhack::SecondaryAttack()
 }
 
 
-

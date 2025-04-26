@@ -1635,4 +1635,3 @@ CBaseEntity *CreateGibsFromList( CUtlVector<breakmodel_t> &list, int modelindex,
 
 	return pFirstBreakable;
 }
-

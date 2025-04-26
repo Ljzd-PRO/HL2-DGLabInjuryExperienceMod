@@ -181,4 +181,3 @@ GL_EXT(GL_GREMEDY_string_marker,-1,-1)
 GL_FUNC_VOID(GL_GREMEDY_string_marker,false,glStringMarkerGREMEDY,(GLsizei a,const void *b),(a,b))
 GL_FUNC_VOID(OpenGL,true,glPushClientAttrib,(GLbitfield a),(a))
 GL_FUNC_VOID(OpenGL,true,glPopClientAttrib,(void),())
-

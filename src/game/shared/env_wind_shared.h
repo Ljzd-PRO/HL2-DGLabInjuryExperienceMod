@@ -241,4 +241,3 @@ void ResetWindspeed();
 
 
 #endif // ENV_WIND_SHARED_H
-

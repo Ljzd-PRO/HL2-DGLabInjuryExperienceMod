@@ -680,4 +680,3 @@ CAI_Path::~CAI_Path()
 	DeleteAll( GetCurWaypoint() );
 }
 
-

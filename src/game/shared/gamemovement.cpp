@@ -4926,4 +4926,3 @@ void  CGameMovement::TryTouchGround( const Vector& start, const Vector& end, con
 	ray.Init( start, end, mins, maxs );
 	UTIL_TraceRay( ray, fMask, mv->m_nPlayerHandle.Get(), collisionGroup, &pm );
 }
-

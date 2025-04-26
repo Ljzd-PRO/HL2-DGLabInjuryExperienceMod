@@ -379,4 +379,3 @@ IMotionEvent::simresult_e CAI_BasePhysicsFlyingBot::Simulate( IPhysicsMotionCont
 
 	return SIM_GLOBAL_ACCELERATION; // on my local axis.   SIM_GLOBAL_ACCELERATION
 }
-

@@ -30,4 +30,3 @@ int CGameTrace::GetEntityIndex() const
 	else
 		return -1;
 }
-

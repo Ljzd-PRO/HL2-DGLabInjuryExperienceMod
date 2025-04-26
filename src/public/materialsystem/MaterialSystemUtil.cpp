@@ -252,4 +252,3 @@ void CTextureReference::InitRenderTargetSurface( int width, int height, ImageFor
 	m_pTexture->CreateRenderTargetSurface( width, height, fmt, bSameAsTexture );
 }
 #endif
-

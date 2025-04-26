@@ -25,4 +25,3 @@ public:
 
 #endif//ASSASSIN_SMOKE_H
 
-

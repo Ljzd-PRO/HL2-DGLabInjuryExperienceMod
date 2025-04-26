@@ -405,4 +405,3 @@ bool CHUDQuickInfo::EventTimeElapsed( void )
 
 	return false;
 }
-

@@ -292,4 +292,3 @@ CAmmoDef::~CAmmoDef( void )
 	}
 }
 
-

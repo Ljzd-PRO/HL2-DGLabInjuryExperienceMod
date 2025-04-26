@@ -1868,4 +1868,3 @@ void CEntityList::DeleteEntity( CBaseEntity *pEnt )
 		e = e->pNext;
 	}
 }
-

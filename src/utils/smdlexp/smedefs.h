@@ -175,4 +175,3 @@ private:
 	Point3					Pt3GetRVertexNormal(RVertex *prvertex, DWORD smGroupFace);
 	void					DumpWeights( int iVertex );
 };
-

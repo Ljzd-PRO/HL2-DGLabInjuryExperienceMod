@@ -253,4 +253,3 @@ void UpdateAllClientData( void )
 		ClientData_Update( pl );
 	}
 }
-

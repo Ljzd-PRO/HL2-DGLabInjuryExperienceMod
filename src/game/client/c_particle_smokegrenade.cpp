@@ -1031,4 +1031,3 @@ void C_ParticleSmokeGrenade::CleanupToolRecordingState( KeyValues *msg )
 }
 
 
-

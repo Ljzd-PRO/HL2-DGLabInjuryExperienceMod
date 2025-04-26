@@ -2242,4 +2242,3 @@ const char *CAI_ScriptedSequence::GetSpawnPreIdleSequenceForScript( CBaseEntity 
 	}
 	return NULL;
 }
-

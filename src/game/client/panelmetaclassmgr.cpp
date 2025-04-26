@@ -434,4 +434,3 @@ void CPanelMetaClassMgrImp::DestroyPanelMetaClass( vgui::Panel *pPanel )
 	delete pPanel;
 }
 
-

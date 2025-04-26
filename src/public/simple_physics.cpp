@@ -69,4 +69,3 @@ void CSimplePhysics::Simulate(
 	}
 }
 
-

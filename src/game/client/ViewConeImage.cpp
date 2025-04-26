@@ -80,4 +80,3 @@ bool InitializeViewConeImage( KeyValues *pInitData, const char* pSectionName,
 
 	return pViewConeImage->Init( pParent, pViewConeImageSection );
 }
-

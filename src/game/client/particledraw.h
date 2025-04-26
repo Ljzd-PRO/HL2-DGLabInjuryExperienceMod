@@ -78,4 +78,3 @@ inline CMeshBuilder* ParticleDraw::GetMeshBuilder()
 }
 
 #endif
-

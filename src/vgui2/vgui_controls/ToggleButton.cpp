@@ -99,4 +99,3 @@ void ToggleButton::OnKeyCodePressed(KeyCode code)
         BaseClass::OnKeyCodePressed(code);
     }
 }
-

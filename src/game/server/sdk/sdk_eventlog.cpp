@@ -52,4 +52,3 @@ IGameSystem* GameLogSystem()
 {
 	return &g_SDKEventLog;
 }
-

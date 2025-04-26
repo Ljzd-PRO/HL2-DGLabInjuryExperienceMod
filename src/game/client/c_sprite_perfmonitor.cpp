@@ -65,4 +65,3 @@ void C_ParticlePerformanceMonitor::OnDataChanged( DataUpdateType_t updateType )
 	g_bMeasureParticlePerformance = m_bMeasurePerf;
 	g_bDisplayParticlePerformance = m_bDisplayPerf;
 }
-

@@ -239,4 +239,3 @@ void CHL2MPMachineGun::ItemPostFrame( void )
 	BaseClass::ItemPostFrame();
 }
 
-

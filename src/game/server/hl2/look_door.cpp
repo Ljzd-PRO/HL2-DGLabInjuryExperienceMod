@@ -234,4 +234,3 @@ void CLookDoor::MoveThink(void)
 	// Move the door
 	SetPosition( flMove );
 }
-

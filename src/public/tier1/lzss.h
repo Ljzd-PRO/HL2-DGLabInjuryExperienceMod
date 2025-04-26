@@ -66,4 +66,3 @@ FORCEINLINE CLZSS::CLZSS( int nWindowSize )
 	m_nWindowSize = nWindowSize;
 }
 #endif
-

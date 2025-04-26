@@ -81,4 +81,3 @@ BEGIN_VS_SHADER( Eyes_dx9, "Help for Eyes" )
 		DrawEyes_DX8_DX9( true, this, params, pShaderAPI, pShaderShadow, info, vertexCompression );
 	}
 END_SHADER
-

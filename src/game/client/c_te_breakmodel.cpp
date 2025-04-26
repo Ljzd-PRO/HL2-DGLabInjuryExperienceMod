@@ -176,4 +176,3 @@ void TE_BreakModel( IRecipientFilter& filter, float delay, KeyValues *pKeyValues
 	TE_BreakModel( filter, 0.0f, vecOrigin, angles, vecSize, vecVel,
 		nModelIndex, nRandomization, nCount, flDuration, nFlags );
 }
-

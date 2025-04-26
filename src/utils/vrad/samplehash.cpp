@@ -227,4 +227,3 @@ void PatchSampleData_AddSample( CPatch *pPatch, int ndxPatch )
 		}
 	}
 }
-

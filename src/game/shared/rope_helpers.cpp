@@ -137,4 +137,3 @@ void CalcRopeStartingConditions(
 	*pOutputSlack = rope.m_flCurSlack;
 }
 
-

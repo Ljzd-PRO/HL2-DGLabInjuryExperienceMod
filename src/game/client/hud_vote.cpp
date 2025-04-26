@@ -1723,4 +1723,3 @@ bool CHudVote::IsVoteUIActive( void )
 {
 	return m_bShowVoteActivePanel;
 }
-

@@ -805,4 +805,3 @@ void CAISound::InputEmitAISound( inputdata_t &inputdata )
 	g_pSoundEnt->InsertSound( m_iSoundType | m_iSoundContext, vecLocation, m_iVolume, m_flDuration, this );
 }
 
-

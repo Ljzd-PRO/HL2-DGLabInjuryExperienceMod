@@ -202,4 +202,3 @@ void CheckButton::SetHighlightColor(Color fgColor)
 		InvalidateLayout(false);
 	}
 }
-

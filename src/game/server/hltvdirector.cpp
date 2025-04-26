@@ -1181,4 +1181,3 @@ void CHLTVDirector::AnalyzePlayers()
 		}
 	}
 }
-

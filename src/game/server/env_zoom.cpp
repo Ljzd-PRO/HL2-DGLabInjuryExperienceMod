@@ -113,4 +113,3 @@ void CEnvZoom::InputUnZoom( inputdata_t &inputdata )
 		pPlayer->SetFOV( this, 0 );
 	}
 }
-

@@ -601,4 +601,3 @@ static void DumpParticleStats_f( void )
 }
 
 static ConCommand cl_dump_particle_stats( "cl_dump_particle_stats", DumpParticleStats_f, "dump particle profiling info to particle_profile.csv") ;
-

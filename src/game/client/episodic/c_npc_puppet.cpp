@@ -164,4 +164,3 @@ void C_NPC_Puppet::AccumulateLayers( IBoneSetup &boneSetup, Vector pos[], Quater
 		}
 	}
 }
-

@@ -701,4 +701,3 @@ AI_BEGIN_CUSTOM_NPC( npc_groundturret, CNPC_GroundTurret )
 	)
 
 AI_END_CUSTOM_NPC()
-

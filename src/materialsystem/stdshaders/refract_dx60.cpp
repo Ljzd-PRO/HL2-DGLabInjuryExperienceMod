@@ -13,4 +13,3 @@
 DEFINE_FALLBACK_SHADER( Refract, Refract_DX60 )
 DEFINE_FALLBACK_SHADER( Refract_DX60, UnlitGeneric )
 
-

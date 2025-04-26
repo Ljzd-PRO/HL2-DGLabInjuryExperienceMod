@@ -198,4 +198,3 @@ void* C_BaseTempEntity::GetDataTableBasePtr()
 {
 	return this;
 }
-

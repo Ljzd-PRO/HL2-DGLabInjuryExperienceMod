@@ -28,4 +28,3 @@ void CActAnimating::SetActivity( Activity act )
 		SetCycle( 0 );
 	}
 }
-

@@ -58,4 +58,3 @@ IGameSystem* GameLogSystem()
 {
 	return &s_HL2EventLog;
 }
-

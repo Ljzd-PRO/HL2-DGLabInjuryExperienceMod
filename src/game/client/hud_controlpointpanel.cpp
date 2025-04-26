@@ -943,4 +943,3 @@ void CHudCapturePanel::FireGameEvent( IGameEvent *event )
 		}
 	}
 }
-

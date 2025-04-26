@@ -256,4 +256,3 @@ void C_PropVehicleChoreoGeneric::DrawHudElements( )
 {
 }
 
-

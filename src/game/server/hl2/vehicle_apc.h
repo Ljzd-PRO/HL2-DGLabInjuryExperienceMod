@@ -159,4 +159,3 @@ private:
 };
 
 #endif // VEHICLE_APC_H
-

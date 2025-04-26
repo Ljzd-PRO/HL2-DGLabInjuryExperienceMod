@@ -804,4 +804,3 @@ BEGIN_INHERITED_SHADER( VertexLitGeneric_NoBump_DX8, VertexLitGeneric_DX8,
 	}
 
 END_INHERITED_SHADER
-

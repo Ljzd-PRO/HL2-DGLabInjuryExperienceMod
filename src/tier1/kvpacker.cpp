@@ -271,4 +271,3 @@ bool KVPacker::ReadAsBinary( KeyValues *pNode, CUtlBuffer &buffer )
 
 	return buffer.IsValid();
 }
-

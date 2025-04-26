@@ -57,4 +57,3 @@ bool C_WaterLODControl::ShouldDraw()
 {
 	return false;
 }
-

@@ -24,4 +24,3 @@ bool IsReflectiveGlassInView( const CViewSetup& view, cplane_t &plane );
 
 #endif // C_FUNC_REFLECTIVE_GLASS
 
-

@@ -80,4 +80,3 @@ extern CEventQueue g_EventQueue;
 
 
 #endif // EVENTQUEUE_H
-

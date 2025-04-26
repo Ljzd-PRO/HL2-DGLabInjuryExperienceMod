@@ -108,4 +108,3 @@ VSTDLIB_INTERFACE void	InstallUniformRandomStream( IUniformRandomStream *pStream
 #endif // VSTDLIB_RANDOM_H
 
 
-

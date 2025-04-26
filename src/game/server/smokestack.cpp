@@ -273,4 +273,3 @@ void CSmokeStack::RecalcWindVector()
 	
 }
 
-

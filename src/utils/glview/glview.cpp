@@ -1424,4 +1424,3 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance
     /* return success of application */
     return TRUE;
 }
-

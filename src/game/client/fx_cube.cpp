@@ -133,4 +133,3 @@ void FX_AddCenteredCube( const Vector &center, float size, const Vector &vColor,
 	FX_AddCube(center-Vector(size,size,size), center+Vector(size,size,size), vColor, life, materialName);
 }
 
-

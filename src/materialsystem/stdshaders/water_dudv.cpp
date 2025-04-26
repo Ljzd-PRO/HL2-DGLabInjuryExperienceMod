@@ -92,4 +92,3 @@ BEGIN_VS_SHADER( Water_DuDv, "Help for Water_DuDv" )
 		Draw();
 	}
 END_SHADER
-

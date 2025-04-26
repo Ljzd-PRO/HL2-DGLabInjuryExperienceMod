@@ -29,4 +29,3 @@ protected:
 
 
 #endif // PROXY_ENTITY_H
-

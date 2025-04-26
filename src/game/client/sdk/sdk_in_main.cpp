@@ -20,4 +20,3 @@ static CSDKInput g_Input;
 
 // Expose this interface
 IInput *input = ( IInput * )&g_Input;
-

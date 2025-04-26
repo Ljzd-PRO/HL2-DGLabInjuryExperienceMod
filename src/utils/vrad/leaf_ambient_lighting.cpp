@@ -705,4 +705,3 @@ void ComputePerLeafAmbientLighting()
 	}
 	Msg("done\n");
 }
-

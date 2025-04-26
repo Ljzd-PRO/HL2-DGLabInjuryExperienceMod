@@ -693,4 +693,3 @@ void CWeaponIFMSteadyCam::ItemPostFrame()
 #endif   // GAME_DLL
 
 
-

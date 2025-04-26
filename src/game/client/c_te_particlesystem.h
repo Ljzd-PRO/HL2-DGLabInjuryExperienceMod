@@ -130,4 +130,3 @@ inline float CTEParticleRenderer::GetParticleLifetime(StandardParticle_t *pParti
 #endif
 
 
-

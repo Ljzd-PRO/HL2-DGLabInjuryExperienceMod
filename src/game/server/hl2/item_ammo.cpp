@@ -981,4 +981,3 @@ void CItem_AmmoCrate::InputKill( inputdata_t &data )
 {
 	UTIL_Remove( this );
 }
-

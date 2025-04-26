@@ -64,4 +64,3 @@ void TE_GaussExplosion( IRecipientFilter& filter, float delay,
 }
 
 
-

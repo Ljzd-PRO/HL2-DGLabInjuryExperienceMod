@@ -192,4 +192,3 @@ void CEnvSpark::InputToggleSpark( inputdata_t &inputdata )
 	}
 }
 
-

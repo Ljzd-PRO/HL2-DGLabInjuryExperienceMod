@@ -537,4 +537,3 @@ void CHeadlightEffect::UpdateLight( const Vector &vecPos, const Vector &vecDir, 
 	
 	g_pClientShadowMgr->UpdateProjectedTexture( GetFlashlightHandle(), true );
 }
-

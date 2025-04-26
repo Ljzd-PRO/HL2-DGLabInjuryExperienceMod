@@ -86,4 +86,3 @@ void CHudElementHelper::CreateAllElements( void )
 		p = p->GetNext();
 	}
 }
-

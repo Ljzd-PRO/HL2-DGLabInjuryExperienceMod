@@ -55,4 +55,3 @@ private:
 	static Initializer g_Initializer_##functionName##(0, __Initializer__Create##functionName##Fn, 0);
 
 #endif
-

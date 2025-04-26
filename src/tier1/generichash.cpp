@@ -434,4 +434,3 @@ uint64 MurmurHash64( const void * key, int len, uint32 seed )
 
 	return h;
 }
-

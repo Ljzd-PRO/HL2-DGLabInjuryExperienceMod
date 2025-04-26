@@ -23,4 +23,3 @@ void GenerateLineLoopIndexBuffer( unsigned short* pIndexMemory, int nIndexCount,
 
 
 #endif // MESHUTILS_H
-

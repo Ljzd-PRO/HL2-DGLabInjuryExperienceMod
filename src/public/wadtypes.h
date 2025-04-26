@@ -96,4 +96,3 @@ typedef struct miptex_s					// New WAD4 files
 
 
 #endif		// WADTYPES_H
-

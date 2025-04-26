@@ -847,4 +847,3 @@ CON_COMMAND_F( spec_player, "Spectate player by name", FCVAR_CLIENTCMD_CAN_EXECU
 }
 
 
-

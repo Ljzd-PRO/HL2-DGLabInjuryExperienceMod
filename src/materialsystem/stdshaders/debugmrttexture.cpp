@@ -83,4 +83,3 @@ BEGIN_VS_SHADER_FLAGS( DebugMRTTexture, "Help for DebugMRTTexture", SHADER_NOT_E
 		Draw();
 	}
 END_SHADER
-

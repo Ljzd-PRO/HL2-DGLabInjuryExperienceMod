@@ -576,4 +576,3 @@ void CGlowOverlay::RestoreSkyOverlayData( int iRestoreFromSlot )
 }
 
 #endif //#ifdef PORTAL
-

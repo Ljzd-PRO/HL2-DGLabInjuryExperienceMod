@@ -271,4 +271,3 @@ void CGrenadeBottle::Detonate( void )
 LINK_ENTITY_TO_CLASS( grenade_beerbottle, CGrenadeBottle );
 PRECACHE_REGISTER(grenade_beerbottle);
 
-

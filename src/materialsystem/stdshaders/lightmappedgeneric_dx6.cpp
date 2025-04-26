@@ -285,4 +285,3 @@ END_SHADER
 //-----------------------------------------------------------------------------
 BEGIN_INHERITED_SHADER( Water_DX60, LightmappedGeneric_DX6, "Help for Water_DX60" )
 END_INHERITED_SHADER
-

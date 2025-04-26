@@ -784,4 +784,3 @@ bool CAI_Squad::IsSquadInflictor( CBaseEntity *pInflictor )
 }
 
 //=============================================================================
-

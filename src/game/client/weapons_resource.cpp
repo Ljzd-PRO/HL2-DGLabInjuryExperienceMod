@@ -267,4 +267,3 @@ const FileWeaponInfo_t *WeaponsResource::GetWeaponFromAmmo( int iAmmoId )
 
 	return NULL;
 }
-

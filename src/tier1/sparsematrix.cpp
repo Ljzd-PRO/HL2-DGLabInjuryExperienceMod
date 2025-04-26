@@ -138,4 +138,3 @@ void CSparseMatrix::AppendElement( int nRow, int nColumn, float flValue )
 	
 	
 
-

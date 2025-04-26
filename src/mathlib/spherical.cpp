@@ -121,4 +121,3 @@ float SphericalHarmonic( int nL, int nM, Vector const &vecDirection )
 	}
 	return SphericalHarmonic( nL, nM, flTheta, flPhi, cos( flTheta ) );
 }
-

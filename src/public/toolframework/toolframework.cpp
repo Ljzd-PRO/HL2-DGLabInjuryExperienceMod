@@ -38,4 +38,3 @@ void RegisterTool( IToolSystem *tool )
 {
 	g_ToolDictionary.RegisterTool( tool );
 }
-

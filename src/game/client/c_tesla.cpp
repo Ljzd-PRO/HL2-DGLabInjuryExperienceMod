@@ -62,4 +62,3 @@ void C_Tesla::ClientThink()
 	SetNextClientThink( CLIENT_THINK_NEVER );
 }
 
-

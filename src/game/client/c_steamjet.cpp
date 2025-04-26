@@ -522,4 +522,3 @@ void C_SteamJet::UpdateLightingRamp()
 	}
 }
 
-

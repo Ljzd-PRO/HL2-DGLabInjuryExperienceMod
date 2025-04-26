@@ -734,4 +734,3 @@ void CGamePlayerTeam::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TY
 	}
 }
 
-

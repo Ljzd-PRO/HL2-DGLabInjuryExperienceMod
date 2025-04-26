@@ -145,4 +145,3 @@ BEGIN_VS_SHADER_FLAGS( DebugNormalMap, "Help for DebugNormalMap", SHADER_NOT_EDI
 		Draw();
 	}
 END_SHADER
-

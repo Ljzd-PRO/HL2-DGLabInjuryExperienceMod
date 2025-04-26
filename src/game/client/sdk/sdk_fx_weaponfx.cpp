@@ -37,4 +37,3 @@ void SDK_FX_EjectBrass_12Gauge_Callback( const CEffectData &data )
 
 DECLARE_CLIENT_EFFECT( "EjectBrass_9mm", SDK_FX_EjectBrass_9mm_Callback );
 DECLARE_CLIENT_EFFECT( "EjectBrass_12Gauge",SDK_FX_EjectBrass_12Gauge_Callback );
-

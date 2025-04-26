@@ -654,4 +654,3 @@ void RemoveAreaPortalBrushes_R( node_t *node );
 dtexdata_t *GetTexData( int index );
 
 #endif
-

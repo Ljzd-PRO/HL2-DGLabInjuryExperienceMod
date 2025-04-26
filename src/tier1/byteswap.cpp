@@ -87,4 +87,3 @@ void CByteswap::SwapFieldsToTargetEndian( void *pOutputBuffer, void *pBaseData, 
 								  pField );
 	}
 }
-

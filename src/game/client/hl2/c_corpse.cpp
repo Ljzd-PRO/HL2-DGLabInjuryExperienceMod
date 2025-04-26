@@ -63,4 +63,3 @@ int C_Corpse::DrawModel( int flags )
 
 	return drawn;
 }
-

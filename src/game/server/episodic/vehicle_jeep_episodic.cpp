@@ -1761,4 +1761,3 @@ bool CPropJeepEpisodic::AllowBlockedExit( CBaseCombatCharacter *pPassenger, int 
 	// sticking the player through player clips or into geometry.
 	return GetSmoothedVelocity().IsLengthLessThan( jalopy_blocked_exit_max_speed.GetFloat() );
 }
-

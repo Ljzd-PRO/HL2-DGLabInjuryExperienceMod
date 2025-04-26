@@ -1038,4 +1038,3 @@ void GDclass::GetHelperForGDVar( GDinputvariable *pVar, CUtlVector<const char *>
 }
 
 
-

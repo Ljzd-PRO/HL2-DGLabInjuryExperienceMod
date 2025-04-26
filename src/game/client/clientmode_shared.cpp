@@ -1407,4 +1407,3 @@ void ClientModeShared::DeactivateInGameVGuiContext()
 {
 	vgui::ivgui()->ActivateContext( DEFAULT_VGUI_CONTEXT );
 }
-

@@ -1097,4 +1097,3 @@ public:
 };
 
 CVoteControllerSystem VoteControllerSystem( "CVoteControllerSystem" );
-

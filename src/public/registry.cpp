@@ -418,4 +418,3 @@ void CRegistry::Shutdown( void )
 	m_bValid = false;
 }
 #endif // POSIX
-

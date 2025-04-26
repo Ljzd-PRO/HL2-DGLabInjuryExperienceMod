@@ -3148,4 +3148,3 @@ CAI_ActBusyBehavior *CAI_ActBusyQueueGoal::GetQueueBehaviorForNPC( CAI_BaseNPC *
 	Assert( pBehavior );
 	return pBehavior;
 }
-

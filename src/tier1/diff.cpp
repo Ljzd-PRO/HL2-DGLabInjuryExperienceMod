@@ -544,4 +544,3 @@ int FindDiffsLowMemory(uint8 const *NewBlock, uint8 const *OldBlock,
   return ret;
 }
 
-

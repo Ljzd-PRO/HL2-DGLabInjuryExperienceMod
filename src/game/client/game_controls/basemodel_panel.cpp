@@ -650,4 +650,3 @@ void CBaseModelPanel::LookAtBounds( const Vector &vecBoundsMin, const Vector &ve
 	SetCameraOffset( Vector( 0.0f, -vecCameraOffset.x, -vecCameraOffset.y ) );
 	UpdateCameraTransform();
 }
-

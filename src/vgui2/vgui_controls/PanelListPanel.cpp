@@ -472,4 +472,3 @@ void PanelListPanel::ScrollToItem( int itemNumber )
 	InvalidateLayout();
 }
 
-

@@ -143,4 +143,3 @@ void CTargetChangeGravity::InputResetGrav( inputdata_t &inputdata )
 	pl->SetGravity(m_iOldGrav);
 }
 
-

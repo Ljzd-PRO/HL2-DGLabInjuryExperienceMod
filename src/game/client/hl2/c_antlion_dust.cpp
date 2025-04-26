@@ -216,4 +216,3 @@ void C_TEAntlionDust::RenderParticles( CParticleRenderIterator *pIterator )
 void C_TEAntlionDust::SimulateParticles( CParticleSimulateIterator *pIterator )
 {
 }
-

@@ -82,4 +82,3 @@ bool CDamageModifier::IsDamageDoneToMe() const
 {
 	return m_bDoneToMe;
 }
-

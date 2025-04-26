@@ -472,4 +472,3 @@ void C_AR2Explosion::RenderParticles( CParticleRenderIterator *pIterator )
 	}
 }
 
-

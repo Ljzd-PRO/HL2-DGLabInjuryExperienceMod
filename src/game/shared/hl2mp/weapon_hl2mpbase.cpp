@@ -327,4 +327,3 @@ void UTIL_ClipPunchAngleOffset( QAngle &in, const QAngle &punch, const QAngle &c
 }
 
 #endif
-

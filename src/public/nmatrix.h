@@ -329,4 +329,3 @@ inline NMatrix<N,M> NMatrixMN::Transpose() const
 }
 
 #endif // NMATRIX_H
-

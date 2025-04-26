@@ -179,4 +179,3 @@ void TE_ProjectDecal( IRecipientFilter& filter, float delay, KeyValues *pKeyValu
 
 	TE_ProjectDecal( filter, 0.0f, &vecOrigin, &angles, flDistance, effects->Draw_DecalIndexFromName( (char*)pDecalName ) );
 }
-

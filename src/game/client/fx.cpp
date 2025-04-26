@@ -1325,4 +1325,3 @@ void FX_BuildTeslaZap( const CEffectData &data )
 }
 
 DECLARE_CLIENT_EFFECT( "TeslaZap", FX_BuildTeslaZap );
-

@@ -418,4 +418,3 @@ BEGIN_SHADER( VertexLitGeneric_DX6,
 		}
 	}
 END_SHADER
-

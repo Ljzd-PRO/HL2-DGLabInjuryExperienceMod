@@ -240,4 +240,3 @@ void CVRadDLL::Interrupt()
 	g_bInterrupt = true;
 }
 
-

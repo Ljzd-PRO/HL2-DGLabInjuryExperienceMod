@@ -90,4 +90,3 @@ AString UnicodeStringToMultiByte(const UString &srcString, UINT codePage)
 }
 
 #endif
-

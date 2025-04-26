@@ -501,4 +501,3 @@ void C_SmokeStack::SimulateParticles( CParticleSimulateIterator *pIterator )
 	m_bInView = bDrawn;
 }
 
-

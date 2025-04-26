@@ -1383,4 +1383,3 @@ void Label::HandleAutoSizing( void )
 }
 
 
-

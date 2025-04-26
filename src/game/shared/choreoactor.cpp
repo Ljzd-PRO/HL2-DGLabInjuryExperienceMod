@@ -291,4 +291,3 @@ bool CChoreoActor::RestoreFromBuffer( CUtlBuffer& buf, CChoreoScene *pScene, ICh
 
 	return true;
 }
-

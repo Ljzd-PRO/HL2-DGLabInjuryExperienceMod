@@ -256,4 +256,3 @@ void CFunctionProxy::ComputeResultType( MaterialVarType_t& resultType, int& vecS
 		}
 	}
 }
-

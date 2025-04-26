@@ -493,4 +493,3 @@ void CAI_Relationship::ChangeRelationships( int disposition, int iReverting, CBa
 		}
 	}
 }
-

@@ -45,4 +45,3 @@ void SetupLightNormalFromProps( const QAngle &angles, float angle, float pitch, 
 	output[0] *= (float)cos(pitch/180*M_PI);
 	output[1] *= (float)cos(pitch/180*M_PI);
 }
-

@@ -113,4 +113,3 @@ void C_PointCamera::GetToolRecordingState( KeyValues *msg )
 	msg->SetPtr( "monitor", &state );
 }
 
-

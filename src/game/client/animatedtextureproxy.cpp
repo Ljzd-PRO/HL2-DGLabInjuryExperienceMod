@@ -26,4 +26,3 @@ float CAnimatedTextureProxy::GetAnimationStartTime( void* pBaseEntity )
 {
 	return 0;
 }
-

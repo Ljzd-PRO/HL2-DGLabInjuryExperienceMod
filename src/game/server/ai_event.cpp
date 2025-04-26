@@ -47,4 +47,3 @@ int CAI_BaseNPC::GetEventID(const char* eventName)
 {
 	return m_pEventSR->GetStringID( eventName );
 }
-

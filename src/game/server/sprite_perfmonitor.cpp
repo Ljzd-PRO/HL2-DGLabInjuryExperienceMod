@@ -92,4 +92,3 @@ void CParticlePerformanceMonitor::InputStopMeasuring( inputdata_t &inputdata )
 {
 	m_bMeasurePerf = false;
 }
-

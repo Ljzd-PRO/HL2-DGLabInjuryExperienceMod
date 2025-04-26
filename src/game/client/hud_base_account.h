@@ -74,4 +74,3 @@ private:
 #endif	// HUD_BASE_ACCOUNT_H
 
 
-

@@ -155,4 +155,3 @@ void URLLabel::ApplySchemeSettings(IScheme *pScheme)
     BaseClass::ApplySchemeSettings(pScheme);
     SetCursor(dc_hand);
 }
-

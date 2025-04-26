@@ -172,4 +172,3 @@ BEGIN_VS_SHADER( WorldTwoTextureBlend_DX8,
 	}
 
 END_SHADER
-

@@ -95,4 +95,3 @@ private:
 
 #endif // AI_BEHAVIOR_FEAR_H
 
-

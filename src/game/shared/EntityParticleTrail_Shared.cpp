@@ -55,4 +55,3 @@ BEGIN_NETWORK_TABLE_NOBASE( EntityParticleTrailInfo_t, DT_EntityParticleTrailInf
 END_NETWORK_TABLE()
 
 
-

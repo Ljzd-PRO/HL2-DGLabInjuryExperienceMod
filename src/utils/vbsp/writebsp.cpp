@@ -1549,4 +1549,3 @@ void ComputeBoundsNoSkybox( )
 	}
 }
 
-

@@ -927,4 +927,3 @@ void ComputeVertexPermutation(int numstripindices, WORD* pstripindices,
     delete[] pSortTable;
     delete[] pInversePermutation;
 }
-

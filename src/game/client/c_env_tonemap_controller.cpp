@@ -94,4 +94,3 @@ void C_EnvTonemapController::OnDataChanged( DataUpdateType_t updateType )
 
 	g_hTonemapControllerInUse = this;
 }
-

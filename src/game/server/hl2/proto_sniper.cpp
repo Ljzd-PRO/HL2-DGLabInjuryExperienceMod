@@ -3493,4 +3493,3 @@ bool CSniperTarget::KeyValue( const char *szKeyName, const char *szValue )
 
 LINK_ENTITY_TO_CLASS( info_snipertarget, CSniperTarget );
 
-

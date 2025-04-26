@@ -63,4 +63,3 @@ bool C_ShadowControl::ShouldDraw()
 {
 	return false;
 }
-

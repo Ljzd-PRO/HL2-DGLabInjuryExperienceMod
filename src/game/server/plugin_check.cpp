@@ -27,4 +27,3 @@ bool CPluginHelpersCheck::CreateMessage( const char *plugin, edict_t *pEntity, D
 	// return false here to disallow a plugin from running this command on this client
 	return true;
 }
-

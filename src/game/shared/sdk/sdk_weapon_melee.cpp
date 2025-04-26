@@ -360,4 +360,3 @@ void CWeaponSDKMelee::Swing( int bIsSecondary )
 	m_flNextPrimaryAttack = gpGlobals->curtime + GetFireRate();
 	m_flNextSecondaryAttack = gpGlobals->curtime + SequenceDuration();
 }
-

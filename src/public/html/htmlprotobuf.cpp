@@ -67,4 +67,3 @@ bool CHTMLBaseProtoBufMsg::BDeserializeCrossProc( CUtlBuffer *pBuffer )
 
 	return bSucccess;
 }
-

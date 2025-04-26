@@ -103,4 +103,3 @@ public:
 };
 
 #endif // WEAPON_FLAREGUN_H
-

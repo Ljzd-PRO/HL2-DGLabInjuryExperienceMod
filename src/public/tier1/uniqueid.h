@@ -53,4 +53,3 @@ inline bool operator ==( const UniqueId_t& lhs, const UniqueId_t& rhs )
 
 
 #endif // UNIQUEID_H
-

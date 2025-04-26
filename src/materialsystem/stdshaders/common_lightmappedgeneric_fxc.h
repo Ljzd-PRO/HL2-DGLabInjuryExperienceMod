@@ -199,4 +199,3 @@ float3 LightMapSample( sampler LightmapSampler, float2 vTexCoord )
 	}
 #	endif
 }
-

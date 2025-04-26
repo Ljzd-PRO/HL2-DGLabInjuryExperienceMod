@@ -279,4 +279,3 @@ void CTEParticleRenderer::SimulateParticles( CParticleSimulateIterator *pIterato
 	}
 }
 
-

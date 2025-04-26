@@ -73,4 +73,3 @@ private:
 
 #endif // AI_BEHAVIOR_HOLSTER_H
 
-

@@ -110,4 +110,3 @@ DataTableProp PropEHandle(
 	return RecvPropEHandle( pVarName, offset, sizeofVar );
 #endif
 }
-

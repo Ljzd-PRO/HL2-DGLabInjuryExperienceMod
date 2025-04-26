@@ -1114,4 +1114,3 @@ CCraneTip *CCraneTip::Create( CBaseAnimating *pCraneMagnet, IPhysicsConstraintGr
 
 	return pCraneTip;
 }
-

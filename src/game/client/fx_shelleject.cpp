@@ -56,4 +56,3 @@ void ShotgunShellEjectCallback( const CEffectData &data )
 
 DECLARE_CLIENT_EFFECT( "ShotgunShellEject", ShotgunShellEjectCallback );
 
-

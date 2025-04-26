@@ -41,4 +41,3 @@ extern Vector	g_SmokeFogOverlayColor;
 
 #endif
 
-

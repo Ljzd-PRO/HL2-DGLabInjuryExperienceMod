@@ -247,4 +247,3 @@ void CEnvLaser::StrikeThink( void )
 	SetNextThink( gpGlobals->curtime );
 }
 
-

@@ -339,4 +339,3 @@ CNodeEnt::CNodeEnt( void )
 }
 
 
-

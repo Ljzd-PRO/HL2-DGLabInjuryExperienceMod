@@ -272,4 +272,3 @@ void ImpactHelicopterCallback( const CEffectData &data )
 }
 
 DECLARE_CLIENT_EFFECT( "HelicopterImpact", ImpactHelicopterCallback );
-

@@ -316,4 +316,3 @@ void CHudLocator::Paint()
 #endif // HL2_EPISODIC
 }
 
-

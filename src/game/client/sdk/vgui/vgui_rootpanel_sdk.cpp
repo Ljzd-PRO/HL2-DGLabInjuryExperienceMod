@@ -103,4 +103,3 @@ void C_SDKRootPanel::LevelInit( void )
 void C_SDKRootPanel::LevelShutdown( void )
 {
 }
-

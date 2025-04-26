@@ -157,4 +157,3 @@ const char *CControllerMap::GetBindingIcon( int idx )
 }
 
 DECLARE_BUILD_FACTORY( CControllerMap );
-

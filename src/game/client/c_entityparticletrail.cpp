@@ -247,4 +247,3 @@ inline void C_EntityParticleTrail::SimulateParticles( CParticleSimulateIterator 
 		pParticle = (SimpleParticle*)pIterator->GetNext();
 	}
 }
-

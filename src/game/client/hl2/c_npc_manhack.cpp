@@ -179,4 +179,3 @@ void C_NPC_Manhack::SoundShutdown(void)
 		m_pBladeSound = NULL;
 	}
 }
-

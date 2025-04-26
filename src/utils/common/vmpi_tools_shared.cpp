@@ -371,4 +371,3 @@ void HandleMPIDisconnect( int procID, const char *pReason )
 	g_bSuppressPrintfOutput = bOldSuppress;
 }
 
-

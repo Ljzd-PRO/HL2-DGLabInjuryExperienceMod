@@ -131,4 +131,3 @@ edict_t *CPluginBotManager::CreateBot( const char *botname )
 
 EXPOSE_SINGLE_INTERFACE_GLOBALVAR(CPlayerInfoManager, IPlayerInfoManager, INTERFACEVERSION_PLAYERINFOMANAGER, s_PlayerInfoManager);
 EXPOSE_SINGLE_INTERFACE_GLOBALVAR(CPluginBotManager, IBotManager, INTERFACEVERSION_PLAYERBOTMANAGER, s_BotManager);
-

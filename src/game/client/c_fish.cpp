@@ -349,4 +349,3 @@ void C_Fish::OnDataChanged( DataUpdateType_t type )
 		return;
 	}
 }
-

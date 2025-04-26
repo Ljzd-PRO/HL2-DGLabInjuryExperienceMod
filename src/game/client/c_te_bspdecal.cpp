@@ -106,4 +106,3 @@ IMPLEMENT_CLIENTCLASS_EVENT_DT(C_TEBSPDecal, DT_TEBSPDecal, CTEBSPDecal)
 	RecvPropInt( RECVINFO(m_nEntity)),
 	RecvPropInt( RECVINFO(m_nIndex)),
 END_RECV_TABLE()
-

@@ -244,4 +244,3 @@ void FilePlayerClassInfo_t::Parse( KeyValues *pKeyValuesData, const char *szPlay
 	*/
 #endif
 }
-

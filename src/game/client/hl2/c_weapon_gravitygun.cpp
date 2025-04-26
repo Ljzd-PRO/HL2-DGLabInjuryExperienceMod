@@ -163,4 +163,3 @@ int	C_BeamQuadratic::DrawModel( int )
 	DrawBeamQuadratic( points[0], points[1], points[2], 13, color, scrollOffset );
 	return 1;
 }
-

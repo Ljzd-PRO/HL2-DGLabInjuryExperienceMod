@@ -51,4 +51,3 @@ private:
 } // namespace vgui
 
 #endif // MENUBAR_H
-

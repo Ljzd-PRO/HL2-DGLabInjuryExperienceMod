@@ -76,4 +76,3 @@ int FindBullseyesInCone( CBaseEntity **pList, int listMax, const Vector &coneOri
 
 
 #endif	// NPC_BULLSEYE_H
-

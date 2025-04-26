@@ -740,4 +740,3 @@ void CNewWallHealth::Off(void)
 			SetThink( NULL );
 	}
 }
-

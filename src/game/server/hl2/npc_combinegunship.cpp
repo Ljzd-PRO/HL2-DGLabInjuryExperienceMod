@@ -3225,4 +3225,3 @@ AI_BEGIN_CUSTOM_NPC( npc_combinegunship, CNPC_CombineGunship )
 
 
 AI_END_CUSTOM_NPC()
-

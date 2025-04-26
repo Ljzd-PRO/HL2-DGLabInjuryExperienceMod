@@ -160,4 +160,3 @@ void TE_LargeFunnel( IRecipientFilter& filter, float delay,
 	__g_C_TELargeFunnel.PostDataUpdate( DATA_UPDATE_CREATED );
 }
 
-

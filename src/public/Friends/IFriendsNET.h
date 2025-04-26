@@ -38,4 +38,3 @@ public:
 #define FRIENDSNET_INTERFACE_VERSION "FriendsNET003"
 
 #endif // FRIENDSNET_INTERFACE_H
-

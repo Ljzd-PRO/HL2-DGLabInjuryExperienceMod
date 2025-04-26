@@ -17,4 +17,3 @@ FileWeaponInfo_t* CreateWeaponInfo()
 }
 
 
-

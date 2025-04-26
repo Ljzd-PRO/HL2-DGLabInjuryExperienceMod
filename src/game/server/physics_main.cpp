@@ -2070,4 +2070,3 @@ void Physics_RunThinkFunctions( bool simulating )
 
 	gpGlobals->curtime = starttime;
 }
-

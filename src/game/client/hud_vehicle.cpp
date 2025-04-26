@@ -87,4 +87,3 @@ void CHudVehicle::Paint( void )
 	// Vehicle-based hud...
 	v->DrawHudElements();
 }
-

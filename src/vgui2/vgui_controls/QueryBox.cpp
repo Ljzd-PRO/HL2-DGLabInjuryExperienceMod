@@ -219,4 +219,3 @@ void QueryBox::OnKeyCodePressed( KeyCode code )
 }
 
 
-

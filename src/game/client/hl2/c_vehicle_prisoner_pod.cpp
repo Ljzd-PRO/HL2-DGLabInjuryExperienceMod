@@ -234,4 +234,3 @@ void C_PropVehiclePrisonerPod::DrawHudElements( )
 {
 }
 
-

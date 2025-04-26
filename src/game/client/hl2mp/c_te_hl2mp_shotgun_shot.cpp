@@ -157,4 +157,3 @@ BEGIN_RECV_TABLE_NOBASE(C_TEHL2MPFireBullets, DT_TEHL2MPFireBullets )
 	RecvPropBool( RECVINFO( m_bDoTracers ) ),
 END_RECV_TABLE()
 
-

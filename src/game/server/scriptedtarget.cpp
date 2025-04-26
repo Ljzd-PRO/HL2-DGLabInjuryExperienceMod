@@ -359,4 +359,3 @@ void CScriptedTarget::DrawDebugGeometryOverlays(void)
 	}
 	CBaseEntity::DrawDebugGeometryOverlays();
 }
-

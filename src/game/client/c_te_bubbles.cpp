@@ -82,4 +82,3 @@ IMPLEMENT_CLIENTCLASS_EVENT_DT(C_TEBubbles, DT_TEBubbles, CTEBubbles)
 	RecvPropInt( RECVINFO(m_nCount)),
 	RecvPropFloat( RECVINFO(m_fSpeed )),
 END_RECV_TABLE()
-

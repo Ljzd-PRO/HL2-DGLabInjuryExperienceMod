@@ -248,4 +248,3 @@ BEGIN_VS_SHADER( Eyes_dx6,
 
 	}
 END_SHADER
-

@@ -17,4 +17,3 @@ PrototypeEffectLink::PrototypeEffectLink(PrototypeEffectCreateFn fn, const char 
 	g_pPrototypeEffects = this;
 }
 
-

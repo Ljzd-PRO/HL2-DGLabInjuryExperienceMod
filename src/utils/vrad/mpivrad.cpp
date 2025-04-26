@@ -493,4 +493,3 @@ void VMPI_DistributeLightData()
 	}
 }
 
-

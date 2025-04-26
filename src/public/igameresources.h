@@ -41,4 +41,3 @@ public:
 extern IGameResources *GameResources( void ); // singelton accessor
 
 #endif
-

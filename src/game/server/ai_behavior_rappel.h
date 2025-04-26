@@ -90,4 +90,3 @@ private:
 
 #endif // AI_BEHAVIOR_RAPPEL_H
 
-

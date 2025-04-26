@@ -146,4 +146,3 @@ void TE_GlowSprite( IRecipientFilter& filter, float delay, KeyValues *pKeyValues
 
 	TE_GlowSprite( filter, delay, &vecOrigin, nModelIndex, flDuration, flSize, nBrightness );
 }
-

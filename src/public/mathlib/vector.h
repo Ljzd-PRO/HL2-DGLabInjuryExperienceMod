@@ -2309,4 +2309,3 @@ inline bool Vector::IsLengthLessThan( float val ) const
 }
 
 #endif
-

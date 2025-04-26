@@ -30,4 +30,3 @@ C_SDKTeam::C_SDKTeam()
 C_SDKTeam::~C_SDKTeam()
 {
 }
-

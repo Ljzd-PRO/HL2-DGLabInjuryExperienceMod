@@ -356,4 +356,3 @@ void Disp_BuildVirtualMesh( int contentsMask )
 	g_pPhysDisp = new byte[g_PhysDispSize];
 	Q_memcpy( g_pPhysDisp, buf.Base(), g_PhysDispSize );
 }
-

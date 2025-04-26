@@ -96,4 +96,3 @@ bool ClientModeHLNormal::ShouldDrawCrosshair( void )
 }
 
 
-

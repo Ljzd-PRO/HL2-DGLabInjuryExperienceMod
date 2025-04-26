@@ -864,4 +864,3 @@ bool WasRagdollCreatedOnCurrentTick( C_BaseEntity *pRagdoll )
 	gRagdolls.Update();
 	return gRagdolls.IsInList( pRagdoll );
 }
-

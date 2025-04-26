@@ -159,4 +159,3 @@ void CLogicRelay::InputTrigger( inputdata_t &inputdata )
 		}
 	}
 }
-

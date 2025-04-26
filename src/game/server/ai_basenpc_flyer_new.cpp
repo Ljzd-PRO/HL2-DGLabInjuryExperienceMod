@@ -137,4 +137,3 @@ void CAI_BaseNPCFlyerNew::RunTask( const Task_t *pTask )
 	BaseClass::RunTask(pTask);
 }
 
-

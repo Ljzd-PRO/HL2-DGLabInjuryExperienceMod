@@ -187,4 +187,3 @@ void EnableHUDFilmDemo( bool bEnable, const char *left_string_id, const char *ri
 	}
 }
 
-

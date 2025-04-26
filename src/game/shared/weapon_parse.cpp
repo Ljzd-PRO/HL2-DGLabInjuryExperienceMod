@@ -461,4 +461,3 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 		}
 	}
 }
-

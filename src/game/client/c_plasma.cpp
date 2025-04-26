@@ -473,4 +473,3 @@ void C_Plasma::Update( void )
 		}
 	}
 }
-

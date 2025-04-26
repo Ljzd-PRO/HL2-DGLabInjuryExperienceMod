@@ -149,4 +149,3 @@ void TE_DynamicLight( IRecipientFilter& filter, float delay, KeyValues *pKeyValu
 	TE_DynamicLight( filter, 0.0f, &vecOrigin, c.r(), c.g(), c.b(), nExponent, 
 		flRadius, flDuration, flDecay, nLightIndex );
 }
-

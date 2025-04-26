@@ -895,4 +895,3 @@ void CModelPanel::ZoomToFrameDistance( void )
 	m_pModelInfo->m_vecOriginOffset.y = -vecModelCenter.y;
 	m_pModelInfo->m_vecOriginOffset.z = -vecModelCenter.z;
 }
-

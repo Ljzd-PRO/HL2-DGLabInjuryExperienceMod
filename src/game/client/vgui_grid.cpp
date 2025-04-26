@@ -407,4 +407,3 @@ bool CGrid::GetCellAtPoint(int worldX, int worldY, int &row, int &col)
 	return false;
 }
 
-

@@ -141,4 +141,3 @@ private:
 
 #endif // AI_BEHAVIOR_OPERATOR_H
 
-

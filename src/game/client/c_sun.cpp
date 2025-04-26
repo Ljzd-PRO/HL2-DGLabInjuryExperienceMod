@@ -138,4 +138,3 @@ void C_Sun::OnDataChanged( DataUpdateType_t updateType )
 }
 
 
-

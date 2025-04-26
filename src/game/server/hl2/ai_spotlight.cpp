@@ -408,4 +408,3 @@ void CAI_Spotlight::Update(void)
 	UpdateSpotlightDirection();
 	UpdateSpotlightEndpoint();
 }
-

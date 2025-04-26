@@ -112,4 +112,3 @@ public:
 
 
 #endif // IMATSYSTEMSURFACE_H
-

@@ -265,4 +265,3 @@ inline float CMeshReader::BoneWeight( int iVertex ) const
 
 
 
-

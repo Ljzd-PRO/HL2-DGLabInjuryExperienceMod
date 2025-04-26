@@ -124,4 +124,3 @@ void CLogicAuto::Think(void)
 		}
 	}
 }
-

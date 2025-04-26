@@ -432,4 +432,3 @@ inline Vector WorldGetLightForPoint(const Vector &vPos, bool bClamp)
 #endif
 
 
-

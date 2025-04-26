@@ -1792,4 +1792,3 @@ char * CUtlInplaceBuffer::InplaceGetLinePtr( void )
 
 	return pszLine;
 }
-

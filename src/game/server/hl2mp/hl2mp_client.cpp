@@ -198,4 +198,3 @@ void InstallGameRules()
 	// vanilla deathmatch
 	CreateGameRulesObject( "CHL2MPRules" );
 }
-

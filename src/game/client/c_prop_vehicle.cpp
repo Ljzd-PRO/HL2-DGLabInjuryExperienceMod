@@ -419,4 +419,3 @@ void C_PropVehicleDriveable::OnExitedVehicle( C_BaseCombatCharacter *pPassenger 
 	HapticsExitedVehicle(this,pPassenger);
 #endif
 }
-

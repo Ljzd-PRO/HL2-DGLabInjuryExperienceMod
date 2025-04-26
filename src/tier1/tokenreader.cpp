@@ -477,4 +477,3 @@ bool TokenReader::SkipWhiteSpace(void)
 		}
 	}
 }
-

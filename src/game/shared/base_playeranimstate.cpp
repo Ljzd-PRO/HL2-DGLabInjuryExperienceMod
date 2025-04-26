@@ -1076,4 +1076,3 @@ int CBasePlayerAnimState::SelectWeightedSequence( Activity activity )
 {
 	return GetOuter()->SelectWeightedSequence( activity ); 
 }
-

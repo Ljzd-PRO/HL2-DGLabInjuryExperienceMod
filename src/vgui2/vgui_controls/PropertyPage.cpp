@@ -111,4 +111,3 @@ void PropertyPage::SetVisible(bool state)
 
     BaseClass::SetVisible(state);
 }
-

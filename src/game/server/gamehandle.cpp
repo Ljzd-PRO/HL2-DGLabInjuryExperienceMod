@@ -27,4 +27,3 @@ void *GetGameModuleHandle()
 #error "GetGameModuleHandle() needs to be implemented"
 #endif
 }
-

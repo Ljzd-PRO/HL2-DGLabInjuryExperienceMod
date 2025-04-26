@@ -38,4 +38,3 @@ CParticleLight::CParticleLight()
 	m_bDirectional = false;
 }
 
-

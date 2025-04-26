@@ -371,4 +371,3 @@ void WritePortalFile (tree_t *tree)
 
 	Msg("done (%d)\n", (int)(Plat_FloatTime() - start) );
 }
-

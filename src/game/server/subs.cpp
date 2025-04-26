@@ -346,4 +346,3 @@ float CBaseToggle::AxisDelta( int flags, const QAngle &angle1, const QAngle &ang
 	return angle1.y - angle2.y;
 }
 
-

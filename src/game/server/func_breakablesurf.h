@@ -99,4 +99,3 @@ private:
 };
 
 #endif // FUNC_BREAKABLESURF_H
-

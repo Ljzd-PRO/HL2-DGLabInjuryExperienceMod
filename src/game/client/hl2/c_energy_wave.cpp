@@ -413,4 +413,3 @@ int	C_EnergyWave::DrawModel( int flags )
 
 
 
-

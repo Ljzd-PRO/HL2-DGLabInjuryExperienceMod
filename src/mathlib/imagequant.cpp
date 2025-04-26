@@ -93,4 +93,3 @@ void ColorQuantize(uint8 const *Image,
 	}
 	if (q) FreeQuantization(q);
 }
-

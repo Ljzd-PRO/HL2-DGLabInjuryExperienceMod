@@ -119,4 +119,3 @@ bool C_FuncTrackTrain::GetSoundSpatialization( SpatializationInfo_t& info )
 	return true;
 }
 
-

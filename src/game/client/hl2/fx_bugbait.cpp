@@ -60,4 +60,3 @@ float SporeSmokeEffect::UpdateAlpha( const SimpleParticle *pParticle )
 void SporeSmokeEffect::UpdateVelocity( SimpleParticle *pParticle, float timeDelta )
 {
 }
-

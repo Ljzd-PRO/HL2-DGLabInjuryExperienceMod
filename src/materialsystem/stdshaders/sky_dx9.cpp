@@ -123,4 +123,3 @@ BEGIN_VS_SHADER( Sky_DX9, "Help for Sky_DX9 shader" )
 	}
 
 END_SHADER
-

@@ -1715,4 +1715,3 @@ unsigned int CZip::GetAlignment()
 {
 	return m_ZipFile.GetAlignment();
 }
-

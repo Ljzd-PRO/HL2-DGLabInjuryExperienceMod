@@ -71,4 +71,3 @@ bool CEP1GameStats::UserPlayedAllTheMaps( void )
 
 	return true;
 }
-

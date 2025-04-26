@@ -477,4 +477,3 @@ void CWeaponFrag::RollGrenade( CBasePlayer *pPlayer )
 	m_iPrimaryAttacks++;
 	gamestats->Event_WeaponFired( pPlayer, true, GetClassname() );
 }
-

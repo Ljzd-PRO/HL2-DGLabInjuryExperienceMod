@@ -16,4 +16,3 @@ void variant_t::SetEntity( CBaseEntity *val )
 	fieldType = FIELD_EHANDLE; 
 }
 
-

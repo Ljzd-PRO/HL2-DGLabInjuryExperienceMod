@@ -2744,4 +2744,3 @@ void RichText::Validate( CValidator &validator, char *pchName )
 	validator.Pop();
 }
 #endif // DBGFLAG_VALIDATE
-

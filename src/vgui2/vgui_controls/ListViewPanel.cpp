@@ -1079,4 +1079,3 @@ int ListViewPanel::GetItemsPerColumn()
 
 	return tall / m_iRowHeight;	// should round down
 }
-

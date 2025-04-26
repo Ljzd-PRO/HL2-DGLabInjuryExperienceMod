@@ -2290,4 +2290,3 @@ void DumpPlaneToGlView( const float *pPlane, float fGrayScale, const char *pszFi
 }
 #endif
 
-

@@ -577,4 +577,3 @@ const CVertIndex& CPowerInfo::GetCornerPointIndex( int iCorner ) const
 	Assert( iCorner >= 0 && iCorner < 4 );
 	return m_CornerPointIndices[iCorner];
 }
-

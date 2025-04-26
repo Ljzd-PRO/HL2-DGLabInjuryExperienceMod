@@ -80,4 +80,3 @@ private:
 
 #endif // AI_SPOTLIGHT_H
 
-

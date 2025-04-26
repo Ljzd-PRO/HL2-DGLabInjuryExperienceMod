@@ -285,4 +285,3 @@ void CFXDiscreetLine::Update( double frametime )
 	//VectorMA( m_vecStart, frametime, m_vecStartVelocity, m_vecStart );
 	//VectorMA( m_vecEnd, frametime, m_vecStartVelocity, m_vecEnd );
 }
-

@@ -763,4 +763,3 @@ CLightFace* CIncLight::FindOrCreateLightFace( int iFace, int lmSize, bool *bNew 
 	return pFace;
 }
 
-

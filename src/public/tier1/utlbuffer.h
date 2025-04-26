@@ -1081,4 +1081,3 @@ inline void	CUtlBuffer::CopyBuffer( const void *pubData, int cubData )
 }
 
 #endif // UTLBUFFER_H
-

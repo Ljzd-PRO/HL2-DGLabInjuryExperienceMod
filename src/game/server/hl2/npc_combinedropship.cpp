@@ -3001,4 +3001,3 @@ AI_BEGIN_CUSTOM_NPC( npc_combinedropship, CNPC_CombineDropship )
 AI_END_CUSTOM_NPC()
 
 
-

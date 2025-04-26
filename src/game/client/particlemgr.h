@@ -908,4 +908,3 @@ inline void SwapParticles( Particle *pPrev, Particle *pCur )
 
 #endif
 
-

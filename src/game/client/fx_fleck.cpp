@@ -236,4 +236,3 @@ void CFleckParticles::SimulateParticles( CParticleSimulateIterator *pIterator )
 	}
 }
 
-

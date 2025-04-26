@@ -41,4 +41,3 @@ public:
 };
 
 LINK_ENTITY_TO_CLASS(item_security, CItemSecurity);
-

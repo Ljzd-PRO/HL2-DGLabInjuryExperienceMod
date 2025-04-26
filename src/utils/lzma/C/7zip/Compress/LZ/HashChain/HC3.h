@@ -13,4 +13,3 @@
 #undef BT_NAMESPACE
 
 #endif
-

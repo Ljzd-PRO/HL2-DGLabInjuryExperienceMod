@@ -192,4 +192,3 @@ void CHudPosture::Paint()
 }
 
 #endif
-

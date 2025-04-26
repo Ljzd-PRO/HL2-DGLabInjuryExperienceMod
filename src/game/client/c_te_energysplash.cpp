@@ -87,4 +87,3 @@ BEGIN_RECV_TABLE_NOBASE(C_TEEnergySplash, DT_TEEnergySplash)
 	RecvPropVector(RECVINFO(m_vecDir)),
 	RecvPropInt(RECVINFO(m_bExplosive)),
 END_RECV_TABLE()
-

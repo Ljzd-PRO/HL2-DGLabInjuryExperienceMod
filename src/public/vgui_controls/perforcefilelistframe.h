@@ -148,4 +148,3 @@ void ShowPerforceQuery( vgui::Panel *pParent, const char *pFileName, vgui::Panel
 
 
 #endif // PERFORCEFILELISTFRAME_H
-

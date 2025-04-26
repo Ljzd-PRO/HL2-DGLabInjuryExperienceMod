@@ -170,4 +170,3 @@ inline void LightDesc_t::InitSpot(const Vector &pos, const Vector &color, const 
 
 
 #endif
-

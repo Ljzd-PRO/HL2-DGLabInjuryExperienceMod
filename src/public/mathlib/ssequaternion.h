@@ -364,4 +364,3 @@ FORCEINLINE fltx4 QuaternionSlerpSIMD( const fltx4 &p, const fltx4 &q, float t )
 #endif // ALLOW_SIMD_QUATERNION_MATH
 
 #endif // SSEQUATMATH_H
-

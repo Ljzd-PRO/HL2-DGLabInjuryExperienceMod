@@ -195,4 +195,3 @@ void CLogicMirrorMovement::Think()
 	SetNextThink( gpGlobals->curtime + TICK_INTERVAL );
 }
 
-

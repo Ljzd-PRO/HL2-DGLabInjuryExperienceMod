@@ -68,4 +68,3 @@ bool CFuncAreaPortalBase::UpdateVisibility( const Vector &vOrigin, float fovDist
 
 
 
-

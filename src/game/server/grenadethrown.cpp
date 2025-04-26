@@ -78,4 +78,3 @@ void CThrownGrenade::Thrown( Vector vecOrigin, Vector vecVelocity, float flExplo
 	SetThink( &CThrownGrenade::Detonate );
 	SetNextThink( gpGlobals->curtime + flExplodeTime );
 }
-

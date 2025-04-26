@@ -1196,4 +1196,3 @@ CON_COMMAND_F( testhudanim, "Test a hud element animation.\n\tArguments: <anim n
 
 	g_pClientMode->GetViewportAnimationController()->StartAnimationSequence( args[1] );
 }
-

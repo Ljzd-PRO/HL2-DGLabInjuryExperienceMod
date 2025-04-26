@@ -103,4 +103,3 @@ bool ImageList::IsValidIndex(int imageIndex)
 {
 	return m_Images.IsValidIndex(imageIndex);
 }
-

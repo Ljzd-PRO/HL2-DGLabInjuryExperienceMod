@@ -110,4 +110,3 @@ BEGIN_SHADER_FLAGS( DebugDepth, "Help for DebugDepth", SHADER_NOT_EDITABLE )
 		Draw();
 	}
 END_SHADER
-

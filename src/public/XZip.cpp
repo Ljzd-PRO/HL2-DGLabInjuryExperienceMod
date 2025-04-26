@@ -3031,4 +3031,3 @@ bool IsZipHandleZ(HZIP hz)
   return (han->flag==2);
 }
 
-

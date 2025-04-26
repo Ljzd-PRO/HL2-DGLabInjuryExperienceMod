@@ -830,4 +830,3 @@ void CLagCompensationManager::FinishLagCompensation( CBasePlayer *player )
 	}
 }
 
-

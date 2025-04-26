@@ -1022,4 +1022,3 @@ size_t Compress(const char* input, size_t input_length, string* compressed) {
 
 
 } // end namespace snappy
-

@@ -54,4 +54,3 @@ PLATFORM_INTERFACE ICommandLine *CommandLine_Tier0();
 #endif
 
 #endif // TIER0_ICOMMANDLINE_H
-

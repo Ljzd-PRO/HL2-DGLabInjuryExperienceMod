@@ -1633,4 +1633,3 @@ CON_COMMAND(report_simthinklist, "Lists all simulating/thinking entities")
 	}
 	list.ReportEntityList();
 }
-

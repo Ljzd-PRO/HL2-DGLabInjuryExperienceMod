@@ -440,4 +440,3 @@ void HapticsExitedVehicle(C_BaseEntity* vehicle, C_BaseCombatCharacter *pPasseng
 
 
 
-

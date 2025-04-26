@@ -82,4 +82,3 @@ int SDKViewport::GetDeathMessageStartHeight( void )
 
 	return x;
 }
-

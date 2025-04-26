@@ -1318,4 +1318,3 @@ void CPushable::VPhysicsCollision( int index, gamevcollisionevent_t *pEvent )
 
 	BaseClass::VPhysicsCollision( index, pEvent );
 }
-

@@ -83,4 +83,3 @@ void ScrollableEditablePanel::OnMouseWheeled(int delta)
 	val -= (delta * 50);
 	m_pScrollBar->SetValue( val );
 }
-

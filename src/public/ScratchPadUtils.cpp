@@ -464,4 +464,3 @@ void ScratchPad_DrawAABB(
 
 
 #endif // !_STATIC_LINKED || _SHARED_LIB
-

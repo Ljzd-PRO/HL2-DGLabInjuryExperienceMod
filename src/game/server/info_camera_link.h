@@ -29,4 +29,3 @@ void PointCameraSetupVisibility( CBaseEntity *pPlayer, int area, unsigned char *
 
 
 #endif // INFO_CAMERA_LINK_H
-

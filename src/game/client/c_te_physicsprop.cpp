@@ -162,4 +162,3 @@ void TE_PhysicsProp( IRecipientFilter& filter, float delay, KeyValues *pKeyValue
 
 	TE_PhysicsProp( filter, delay, nModelIndex, nSkin, vecOrigin, angles, vecVel, bBreakModel, nEffects );
 }
-

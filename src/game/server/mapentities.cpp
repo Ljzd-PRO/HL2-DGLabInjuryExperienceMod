@@ -598,4 +598,3 @@ const char *MapEntity_ParseEntity(CBaseEntity *&pEntity, const char *pEntData, I
 	return entData.CurrentBufferPosition();
 }
 
-

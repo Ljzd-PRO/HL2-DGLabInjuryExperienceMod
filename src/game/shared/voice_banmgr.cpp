@@ -180,4 +180,3 @@ CVoiceBanMgr::BannedPlayer* CVoiceBanMgr::AddBannedPlayer(char const playerID[SI
 	pNew->m_pPrev->m_pNext = pNew->m_pNext->m_pPrev = pNew;
 	return pNew;
 }
-

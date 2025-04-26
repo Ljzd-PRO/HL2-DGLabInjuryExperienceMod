@@ -71,4 +71,3 @@ protected:
 };
 
 #endif // FUNCTIONPROXY_H
-

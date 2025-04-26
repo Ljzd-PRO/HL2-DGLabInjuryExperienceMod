@@ -383,4 +383,3 @@ void CViewAngleAnimation::SetAngles( QAngle vecCalculatedAngles )
 
 	engine->SetViewAngles( vecViewAngle );
 }
-

@@ -94,4 +94,3 @@ void GetMDLBoundingSphere( Vector *pVecCenter, float *pRadius, MDLHandle_t h, in
 
 
 #endif // MDLUTILS_H
-

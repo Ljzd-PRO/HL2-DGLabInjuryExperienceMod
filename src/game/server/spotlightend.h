@@ -44,4 +44,3 @@ public:
 
 #endif	//SPOTLIGHTEND_H
 
-

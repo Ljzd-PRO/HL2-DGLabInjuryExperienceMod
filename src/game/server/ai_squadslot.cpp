@@ -85,4 +85,3 @@ void CAI_BaseNPC::InitDefaultSquadSlotSR(void)
 	gm_SquadSlotNamespace.AddSymbol( "SQUAD_SLOT_PICKUP_WEAPON2", AI_RemapToGlobal(SQUAD_SLOT_PICKUP_WEAPON2) );
 	gm_SquadSlotNamespace.AddSymbol( "SQUAD_SLOT_SPECIAL_ATTACK", AI_RemapToGlobal(SQUAD_SLOT_SPECIAL_ATTACK) );
 }
-

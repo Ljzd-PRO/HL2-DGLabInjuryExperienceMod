@@ -444,4 +444,3 @@ void CWeaponSniperRifle::Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCom
 		}
 	}
 }
-

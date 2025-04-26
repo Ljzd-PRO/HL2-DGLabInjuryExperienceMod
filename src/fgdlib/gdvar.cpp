@@ -726,4 +726,3 @@ const char *GDinputvariable::GetVarTypeName( GDIV_TYPE eType )
 	return TypeMap[ eType ].pszName;
 }
 
-

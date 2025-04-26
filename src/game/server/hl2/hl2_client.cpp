@@ -174,4 +174,3 @@ void InstallGameRules()
 		CreateGameRulesObject( "CHalfLife2" );
 	}
 }
-

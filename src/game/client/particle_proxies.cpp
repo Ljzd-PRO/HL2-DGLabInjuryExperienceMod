@@ -74,4 +74,3 @@ private:
 };
 
 EXPOSE_INTERFACE( ParticleSphereProxy, IMaterialProxy, "ParticleSphereProxy" IMATERIAL_PROXY_INTERFACE_VERSION );
-

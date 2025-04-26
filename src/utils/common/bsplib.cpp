@@ -5061,4 +5061,3 @@ bool GetBSPDependants( const char *pBSPFilename, CUtlVector< CUtlString > *pList
 
 	return true;
 }
-

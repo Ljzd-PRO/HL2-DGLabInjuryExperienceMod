@@ -188,4 +188,3 @@ int CAreaPortal::UpdateTransmitState()
 	// Our brushes are kept around so don't transmit anything since we don't want to draw them.
 	return SetTransmitState( FL_EDICT_DONTSEND );
 }
-

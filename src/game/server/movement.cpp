@@ -655,4 +655,3 @@ float CBaseMoveBehavior::SetObjectPhysicsVelocity( float moveTime )
 
 	return moveTime;
 }
-

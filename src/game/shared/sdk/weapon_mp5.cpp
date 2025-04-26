@@ -165,4 +165,3 @@ void CWeaponMP5::WeaponIdle()
 	}
 }
 
-

@@ -167,4 +167,3 @@ void CAI_PoliceGoal::InputDisableKnockOut( inputdata_t &data )
 {
 	m_bOverrideKnockOut = false;
 }
-

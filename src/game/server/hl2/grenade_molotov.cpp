@@ -241,4 +241,3 @@ void CGrenade_Molotov::Precache( void )
 
 	PrecacheScriptSound( "Grenade_Molotov.Detonate" );
 }
-

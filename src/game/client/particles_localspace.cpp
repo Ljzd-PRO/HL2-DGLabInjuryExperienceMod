@@ -157,4 +157,3 @@ void CLocalSpaceEmitter::SetupTransformMatrix( void )
 	// We preapply the local transform because we need to squash it for viewmodel FOV.
 	m_ParticleEffect.SetAutoApplyLocalTransform( false );
 }
-

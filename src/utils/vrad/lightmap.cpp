@@ -3574,4 +3574,3 @@ void ConvertRGBExp32ToRGBA8888( const ColorRGBExp32 *pSrc, unsigned char *pDst )
 	pDst[2] = RoundFloatToByte( vertexColor[2] * 255.0f );
 	pDst[3] = 255;
 }
-

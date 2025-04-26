@@ -334,4 +334,3 @@ CON_COMMAND_F_COMPLETION( cl_animationinfo, "Hud element to examine.", 0, HudEle
 		}
 	}
 }
-

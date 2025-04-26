@@ -255,4 +255,3 @@ BEGIN_SHADER( WorldTwoTextureBlend_DX6,
 	}
 
 END_SHADER
-

@@ -730,4 +730,3 @@ void CFishPool::Update( void )
 		m_fishes[i]->Update( deltaT );
 	}
 }
-

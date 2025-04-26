@@ -534,4 +534,3 @@ BEGIN_VS_SHADER( WorldVertexTransition_DX8,
 		}
 	}
 END_SHADER
-

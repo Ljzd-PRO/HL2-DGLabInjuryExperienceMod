@@ -309,4 +309,3 @@ void LightDesc_t::SetupNewStyleAttenuation( float fFiftyPercentDistance,
 	m_Attenuation1=b;
 	m_Attenuation0=c;
 }
-

@@ -432,4 +432,3 @@ void Bot_Think( CHL2MP_Player *pBot )
 
 
 #endif
-
