@@ -6,9 +6,10 @@
 .idea/
 .venv/
 .specstory/
-.cursorindexingignore
 Debug_mod_*/
 Release_mod_*/
+.cursorindexingignore
+*.sentinel
 
 # User-specific files
 *.rsuser
