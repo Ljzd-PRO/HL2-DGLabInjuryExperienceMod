@@ -5,6 +5,8 @@
 
 .idea/
 .venv/
+.specstory/
+.cursorindexingignore
 
 # User-specific files
 *.rsuser
