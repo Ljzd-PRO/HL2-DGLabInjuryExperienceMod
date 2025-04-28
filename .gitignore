@@ -407,6 +407,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+## C++
+
 # Prerequisites
 *.d
 
