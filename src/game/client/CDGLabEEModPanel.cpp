@@ -1,4 +1,3 @@
-//The following include files are necessary to allow your MyPanel.cpp to compile.
 #include "cbase.h"
 #include "IDGLabEEModPanel.h"
 #include <vgui/IVGui.h>
@@ -9,17 +8,15 @@
 #include <vgui_controls/Label.h>
 #include "dglab_ws_client.h"
 
-//CMyPanel class: Tutorial example class
 class CDGLabEEModPanel : public vgui::Frame
 {
     DECLARE_CLASS_SIMPLE(CDGLabEEModPanel, vgui::Frame);
-    CDGLabEEModPanel(vgui::VPANEL parent); // Constructor
+    CDGLabEEModPanel(vgui::VPANEL parent);
     ~CDGLabEEModPanel() override
     {
-    }; // Destructor
+    };
 
 protected:
-    //VGUI overrides:
     void OnTick() override;
     void OnCommand(const char* pcCommand) override;
 
@@ -37,9 +34,8 @@ private:
     void AppendLog(const char* message);
 };
 
-// Constuctor: Initializes the Panel
 CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
-    : BaseClass(nullptr, "MyPanel")
+    : BaseClass(nullptr, "DGLabEEModPanel")
 {
     SetParent(parent);
 
@@ -71,6 +67,7 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pHostnameEntry->SetPos(50, 50);
     m_pHostnameEntry->SetSize(300, 30);
     m_pHostnameEntry->SetAllowNonAsciiCharacters(true);
+    m_pHostnameEntry->SetText("127.0.0.1");
 
     // Port Label
     m_pPortLabel = new vgui::Label(this, "PortLabel", "Port:");
@@ -82,6 +79,7 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pPortEntry->SetPos(50, 100);
     m_pPortEntry->SetSize(300, 30);
     m_pPortEntry->SetAllowNonAsciiCharacters(true);
+    m_pPortEntry->SetText("5679");
 
     // Output Label
     m_pOutputLabel = new vgui::Label(this, "OutputLabel", "Output:");
@@ -101,7 +99,7 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
 
     vgui::ivgui()->AddTickSignal(GetVPanel(), 100);
 
-    DevMsg("MyPanel has been constructed\n");
+    DevMsg("DGLabEEModPanel has been constructed\n");
 }
 
 void CDGLabEEModPanel::AppendLog(const char* message)
@@ -122,57 +120,56 @@ void CDGLabEEModPanel::UpdateConnectionStatus()
     m_pConnectButton->SetText(isConnected ? "Disconnect" : "Connect");
 }
 
-//Class: CMyPanelInterface Class. Used for construction.
-class CMyPanelInterface : public IDGLabEEModPanel
+class CDGLabEEModPanelInterface : public IDGLabEEModPanel
 {
-    CDGLabEEModPanel* MyPanel;
+    CDGLabEEModPanel* DGLabEEModPanel;
 
 public:
-    CMyPanelInterface()
+    CDGLabEEModPanelInterface()
     {
-        MyPanel = nullptr;
+        DGLabEEModPanel = nullptr;
     }
 
     void Create(vgui::VPANEL parent) override
     {
-        MyPanel = new CDGLabEEModPanel(parent);
+        DGLabEEModPanel = new CDGLabEEModPanel(parent);
     }
 
     void Destroy() override
     {
-        if (MyPanel)
+        if (DGLabEEModPanel)
         {
-            MyPanel->SetParent(static_cast<vgui::Panel*>(nullptr));
-            delete MyPanel;
+            DGLabEEModPanel->SetParent(static_cast<vgui::Panel*>(nullptr));
+            delete DGLabEEModPanel;
         }
     }
 
     void Activate(void) override
     {
-        if (MyPanel)
+        if (DGLabEEModPanel)
         {
-            MyPanel->Activate();
+            DGLabEEModPanel->Activate();
         }
     }
 };
 
-static CMyPanelInterface g_MyPanel;
-auto mypanel = &g_MyPanel;
+static CDGLabEEModPanelInterface g_DGLabEEModPanel;
+IDGLabEEModPanel* dglab_ee_mod_panel = &g_DGLabEEModPanel;
 
 // ConVar to control panel visibility
-ConVar cl_showmypanel("cl_showmypanel", "0", FCVAR_CLIENTDLL, "Sets the state of myPanel <state>");
+ConVar cl_show_dglab_ee_mod_panel("cl_show_dglab_ee_mod_panel", "0", FCVAR_CLIENTDLL, "Sets the state of myPanel <state>");
 
 void CDGLabEEModPanel::OnTick()
 {
     BaseClass::OnTick();
-    SetVisible(cl_showmypanel.GetBool());
+    SetVisible(cl_show_dglab_ee_mod_panel.GetBool());
     UpdateConnectionStatus();
 }
 
 // Command to toggle panel visibility
-CON_COMMAND(OpenMyPanel, "Toggles myPanel on or off")
+CON_COMMAND(OpenDGLabEEModPanel, "Toggles myPanel on or off")
 {
-    cl_showmypanel.SetValue(!cl_showmypanel.GetBool());
+    cl_show_dglab_ee_mod_panel.SetValue(!cl_show_dglab_ee_mod_panel.GetBool());
     dglab_ee_mod_panel->Activate();
 }
 
@@ -219,7 +216,7 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
     }
     else if (!Q_stricmp(pcCommand, "Close"))
     {
-        cl_showmypanel.SetValue(0);
+        cl_show_dglab_ee_mod_panel.SetValue(0);
         SetVisible(false);
     }
 }
