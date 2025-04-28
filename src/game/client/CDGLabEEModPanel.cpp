@@ -24,11 +24,16 @@ private:
     //Other used VGUI control Elements:
     vgui::TextEntry* m_pHostnameEntry;
     vgui::TextEntry* m_pPortEntry;
+    vgui::TextEntry* m_pMaxStrengthEntry;
     vgui::RichText* m_pOutputText;
     vgui::Button* m_pConnectButton;
+    vgui::Button* m_pSaveButton;
     vgui::Label* m_pHostnameLabel;
     vgui::Label* m_pPortLabel;
     vgui::Label* m_pOutputLabel;
+    vgui::Label* m_pMaxStrengthLabel;
+    vgui::Label* m_pConnectionTitleLabel;
+    vgui::Label* m_pSettingsTitleLabel;
 
     void UpdateConnectionStatus();
     void AppendLog(const char* message);
@@ -52,50 +57,80 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     SetVisible(true);
 
     // Set panel size
-    SetSize(600, 400);
+    SetSize(600, 500);
 
     SetScheme(vgui::scheme()->LoadSchemeFromFile("resource/SourceScheme.res", "SourceScheme"));
 
     // Create controls
+    // Connection Title
+    m_pConnectionTitleLabel = new vgui::Label(this, "ConnectionTitleLabel", "Connect To PyDGLab-WS Connector");
+    m_pConnectionTitleLabel->SetPos(50, 30);
+    m_pConnectionTitleLabel->SetSize(500, 20);
+    m_pConnectionTitleLabel->SetContentAlignment(vgui::Label::a_west);
+    m_pConnectionTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
+
     // Hostname Label
     m_pHostnameLabel = new vgui::Label(this, "HostnameLabel", "Hostname:");
-    m_pHostnameLabel->SetPos(50, 30);
+    m_pHostnameLabel->SetPos(50, 60);
     m_pHostnameLabel->SetSize(300, 20);
     m_pHostnameLabel->SetContentAlignment(vgui::Label::a_west);
 
     m_pHostnameEntry = new vgui::TextEntry(this, "HostnameEntry");
-    m_pHostnameEntry->SetPos(50, 50);
+    m_pHostnameEntry->SetPos(50, 80);
     m_pHostnameEntry->SetSize(300, 30);
     m_pHostnameEntry->SetAllowNonAsciiCharacters(true);
     m_pHostnameEntry->SetText("127.0.0.1");
 
     // Port Label
     m_pPortLabel = new vgui::Label(this, "PortLabel", "Port:");
-    m_pPortLabel->SetPos(50, 80);
+    m_pPortLabel->SetPos(50, 120);
     m_pPortLabel->SetSize(300, 20);
     m_pPortLabel->SetContentAlignment(vgui::Label::a_west);
 
     m_pPortEntry = new vgui::TextEntry(this, "PortEntry");
-    m_pPortEntry->SetPos(50, 100);
+    m_pPortEntry->SetPos(50, 140);
     m_pPortEntry->SetSize(300, 30);
     m_pPortEntry->SetAllowNonAsciiCharacters(true);
     m_pPortEntry->SetText("5679");
 
+    m_pConnectButton = new vgui::Button(this, "ConnectButton", "Connect", this, "ToggleConnection");
+    m_pConnectButton->SetPos(50, 180);
+    m_pConnectButton->SetSize(120, 40);
+
+    // Settings Title
+    m_pSettingsTitleLabel = new vgui::Label(this, "SettingsTitleLabel", "DGLab Settings");
+    m_pSettingsTitleLabel->SetPos(50, 230);
+    m_pSettingsTitleLabel->SetSize(500, 20);
+    m_pSettingsTitleLabel->SetContentAlignment(vgui::Label::a_west);
+    m_pSettingsTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
+
+    // Max Strength Label
+    m_pMaxStrengthLabel = new vgui::Label(this, "MaxStrengthLabel", "Max Strength:");
+    m_pMaxStrengthLabel->SetPos(50, 260);
+    m_pMaxStrengthLabel->SetSize(300, 20);
+    m_pMaxStrengthLabel->SetContentAlignment(vgui::Label::a_west);
+
+    m_pMaxStrengthEntry = new vgui::TextEntry(this, "MaxStrengthEntry");
+    m_pMaxStrengthEntry->SetPos(50, 280);
+    m_pMaxStrengthEntry->SetSize(300, 30);
+    m_pMaxStrengthEntry->SetAllowNonAsciiCharacters(true);
+    m_pMaxStrengthEntry->SetText("50");
+
+    m_pSaveButton = new vgui::Button(this, "SaveButton", "Save", this, "SaveSettings");
+    m_pSaveButton->SetPos(50, 320);
+    m_pSaveButton->SetSize(120, 40);
+
     // Output Label
     m_pOutputLabel = new vgui::Label(this, "OutputLabel", "Output:");
-    m_pOutputLabel->SetPos(50, 130);
+    m_pOutputLabel->SetPos(50, 370);
     m_pOutputLabel->SetSize(300, 20);
     m_pOutputLabel->SetContentAlignment(vgui::Label::a_west);
 
     m_pOutputText = new vgui::RichText(this, "OutputText");
-    m_pOutputText->SetPos(50, 150);
-    m_pOutputText->SetSize(500, 150);
+    m_pOutputText->SetPos(50, 390);
+    m_pOutputText->SetSize(500, 100);
     m_pOutputText->SetPaintBorderEnabled(true);
     m_pOutputText->SetVerticalScrollbar(true);
-
-    m_pConnectButton = new vgui::Button(this, "ConnectButton", "Connect", this, "ToggleConnection");
-    m_pConnectButton->SetPos(50, 320);
-    m_pConnectButton->SetSize(120, 40);
 
     vgui::ivgui()->AddTickSignal(GetVPanel(), 100);
 
@@ -213,6 +248,12 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
         }
 
         UpdateConnectionStatus();
+    }
+    else if (!Q_stricmp(pcCommand, "SaveSettings"))
+    {
+        char maxStrength[32];
+        m_pMaxStrengthEntry->GetText(maxStrength, sizeof(maxStrength));
+        AppendLog("Settings saved!");
     }
     else if (!Q_stricmp(pcCommand, "Close"))
     {
