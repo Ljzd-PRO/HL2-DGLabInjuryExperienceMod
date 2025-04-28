@@ -1,6 +1,6 @@
 [submodule "src/thirdparty/easywsclient"]
 	path = src/thirdparty/easywsclient
-	url = https://github.com/dhbaird/easywsclient.git
+	url = ./src/thirdparty/easywsclient
 [submodule "src/thirdparty/cJSON"]
 	path = src/thirdparty/cJSON
-	url = https://github.com/DaveGamble/cJSON.git
+	url = ./src/thirdparty/cJSON
