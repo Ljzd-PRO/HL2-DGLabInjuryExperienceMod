@@ -8,6 +8,40 @@
 #include <vgui_controls/Label.h>
 #include "dglab_ws_client.h"
 
+// Default values
+#define DEFAULT_HOSTNAME "127.0.0.1"
+#define DEFAULT_PORT "5679"
+#define DEFAULT_MAX_STRENGTH "50"
+
+// Panel dimensions
+#define PANEL_WIDTH 600
+#define PANEL_HEIGHT 500
+
+// Control dimensions
+#define LABEL_WIDTH 300
+#define LABEL_HEIGHT 20
+#define ENTRY_WIDTH 300
+#define ENTRY_HEIGHT 30
+#define BUTTON_WIDTH 120
+#define BUTTON_HEIGHT 40
+#define OUTPUT_WIDTH 500
+#define OUTPUT_HEIGHT 100
+
+// Control positions
+#define START_X 50
+#define TITLE_Y 30
+#define HOSTNAME_LABEL_Y 60
+#define HOSTNAME_ENTRY_Y 80
+#define PORT_LABEL_Y 120
+#define PORT_ENTRY_Y 140
+#define CONNECT_BUTTON_Y 180
+#define SETTINGS_TITLE_Y 230
+#define MAX_STRENGTH_LABEL_Y 260
+#define MAX_STRENGTH_ENTRY_Y 280
+#define SAVE_BUTTON_Y 320
+#define OUTPUT_LABEL_Y 370
+#define OUTPUT_TEXT_Y 390
+
 class CDGLabEEModPanel : public vgui::Frame
 {
     DECLARE_CLASS_SIMPLE(CDGLabEEModPanel, vgui::Frame);
@@ -57,78 +91,78 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     SetVisible(true);
 
     // Set panel size
-    SetSize(600, 500);
+    SetSize(PANEL_WIDTH, PANEL_HEIGHT);
 
     SetScheme(vgui::scheme()->LoadSchemeFromFile("resource/SourceScheme.res", "SourceScheme"));
 
     // Create controls
     // Connection Title
     m_pConnectionTitleLabel = new vgui::Label(this, "ConnectionTitleLabel", "Connect To PyDGLab-WS Connector");
-    m_pConnectionTitleLabel->SetPos(50, 30);
-    m_pConnectionTitleLabel->SetSize(500, 20);
+    m_pConnectionTitleLabel->SetPos(START_X, TITLE_Y);
+    m_pConnectionTitleLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pConnectionTitleLabel->SetContentAlignment(vgui::Label::a_west);
     m_pConnectionTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
 
     // Hostname Label
     m_pHostnameLabel = new vgui::Label(this, "HostnameLabel", "Hostname:");
-    m_pHostnameLabel->SetPos(50, 60);
-    m_pHostnameLabel->SetSize(300, 20);
+    m_pHostnameLabel->SetPos(START_X, HOSTNAME_LABEL_Y);
+    m_pHostnameLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pHostnameLabel->SetContentAlignment(vgui::Label::a_west);
 
     m_pHostnameEntry = new vgui::TextEntry(this, "HostnameEntry");
-    m_pHostnameEntry->SetPos(50, 80);
-    m_pHostnameEntry->SetSize(300, 30);
+    m_pHostnameEntry->SetPos(START_X, HOSTNAME_ENTRY_Y);
+    m_pHostnameEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
     m_pHostnameEntry->SetAllowNonAsciiCharacters(true);
-    m_pHostnameEntry->SetText("127.0.0.1");
+    m_pHostnameEntry->SetText(DEFAULT_HOSTNAME);
 
     // Port Label
     m_pPortLabel = new vgui::Label(this, "PortLabel", "Port:");
-    m_pPortLabel->SetPos(50, 120);
-    m_pPortLabel->SetSize(300, 20);
+    m_pPortLabel->SetPos(START_X, PORT_LABEL_Y);
+    m_pPortLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pPortLabel->SetContentAlignment(vgui::Label::a_west);
 
     m_pPortEntry = new vgui::TextEntry(this, "PortEntry");
-    m_pPortEntry->SetPos(50, 140);
-    m_pPortEntry->SetSize(300, 30);
+    m_pPortEntry->SetPos(START_X, PORT_ENTRY_Y);
+    m_pPortEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
     m_pPortEntry->SetAllowNonAsciiCharacters(true);
-    m_pPortEntry->SetText("5679");
+    m_pPortEntry->SetText(DEFAULT_PORT);
 
     m_pConnectButton = new vgui::Button(this, "ConnectButton", "Connect", this, "ToggleConnection");
-    m_pConnectButton->SetPos(50, 180);
-    m_pConnectButton->SetSize(120, 40);
+    m_pConnectButton->SetPos(START_X, CONNECT_BUTTON_Y);
+    m_pConnectButton->SetSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 
     // Settings Title
     m_pSettingsTitleLabel = new vgui::Label(this, "SettingsTitleLabel", "DGLab Settings");
-    m_pSettingsTitleLabel->SetPos(50, 230);
-    m_pSettingsTitleLabel->SetSize(500, 20);
+    m_pSettingsTitleLabel->SetPos(START_X, SETTINGS_TITLE_Y);
+    m_pSettingsTitleLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pSettingsTitleLabel->SetContentAlignment(vgui::Label::a_west);
     m_pSettingsTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
 
     // Max Strength Label
     m_pMaxStrengthLabel = new vgui::Label(this, "MaxStrengthLabel", "Max Strength:");
-    m_pMaxStrengthLabel->SetPos(50, 260);
-    m_pMaxStrengthLabel->SetSize(300, 20);
+    m_pMaxStrengthLabel->SetPos(START_X, MAX_STRENGTH_LABEL_Y);
+    m_pMaxStrengthLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMaxStrengthLabel->SetContentAlignment(vgui::Label::a_west);
 
     m_pMaxStrengthEntry = new vgui::TextEntry(this, "MaxStrengthEntry");
-    m_pMaxStrengthEntry->SetPos(50, 280);
-    m_pMaxStrengthEntry->SetSize(300, 30);
+    m_pMaxStrengthEntry->SetPos(START_X, MAX_STRENGTH_ENTRY_Y);
+    m_pMaxStrengthEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
     m_pMaxStrengthEntry->SetAllowNonAsciiCharacters(true);
-    m_pMaxStrengthEntry->SetText("50");
+    m_pMaxStrengthEntry->SetText(DEFAULT_MAX_STRENGTH);
 
     m_pSaveButton = new vgui::Button(this, "SaveButton", "Save", this, "SaveSettings");
-    m_pSaveButton->SetPos(50, 320);
-    m_pSaveButton->SetSize(120, 40);
+    m_pSaveButton->SetPos(START_X, SAVE_BUTTON_Y);
+    m_pSaveButton->SetSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 
     // Output Label
     m_pOutputLabel = new vgui::Label(this, "OutputLabel", "Output:");
-    m_pOutputLabel->SetPos(50, 370);
-    m_pOutputLabel->SetSize(300, 20);
+    m_pOutputLabel->SetPos(START_X, OUTPUT_LABEL_Y);
+    m_pOutputLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pOutputLabel->SetContentAlignment(vgui::Label::a_west);
 
     m_pOutputText = new vgui::RichText(this, "OutputText");
-    m_pOutputText->SetPos(50, 390);
-    m_pOutputText->SetSize(500, 100);
+    m_pOutputText->SetPos(START_X, OUTPUT_TEXT_Y);
+    m_pOutputText->SetSize(OUTPUT_WIDTH, OUTPUT_HEIGHT);
     m_pOutputText->SetPaintBorderEnabled(true);
     m_pOutputText->SetVerticalScrollbar(true);
 
