@@ -6,7 +6,6 @@
 #include <vgui_controls/Button.h>
 #include <vgui_controls/RichText.h>
 #include <vgui_controls/Label.h>
-#include "dglab_ws_client.h"
 
 // Default values
 #define DEFAULT_HOSTNAME "127.0.0.1"
@@ -185,8 +184,16 @@ void CDGLabEEModPanel::AppendLog(const char* message)
 
 void CDGLabEEModPanel::UpdateConnectionStatus()
 {
-    bool isConnected = dglab_ws_is_connected() != 0;
+    bool isConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
     m_pConnectButton->SetText(isConnected ? "Disconnect" : "Connect");
+    
+    // Update max strength input field
+    if (isConnected)
+    {
+        char maxStrength[32];
+        Q_snprintf(maxStrength, sizeof(maxStrength), "%d", cvar->FindVar("dglab_ws_max_strength")->GetInt());
+        m_pMaxStrengthEntry->SetText(maxStrength);
+    }
 }
 
 class CDGLabEEModPanelInterface : public IDGLabEEModPanel
@@ -232,6 +239,34 @@ void CDGLabEEModPanel::OnTick()
 {
     BaseClass::OnTick();
     SetVisible(cl_show_dglab_ee_mod_panel.GetBool());
+
+    static bool lastConnected = false;
+    static int lastMaxStrength = 0;
+    
+    bool currentConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
+    int currentMaxStrength = cvar->FindVar("dglab_ws_max_strength")->GetInt();
+
+    // Update connection status
+    if (currentConnected != lastConnected)
+    {
+        if (currentConnected)
+        {
+            AppendLog("DGLab WebSocket connected successfully!");
+        }
+        else
+        {
+            AppendLog("DGLab WebSocket disconnected.");
+        }
+        lastConnected = currentConnected;
+    }
+
+    // Update max strength
+    if (currentMaxStrength != lastMaxStrength)
+    {
+        AppendLog(VarArgs("Max strength updated to: %d", currentMaxStrength));
+        lastMaxStrength = currentMaxStrength;
+    }
+
     UpdateConnectionStatus();
 }
 
@@ -248,46 +283,29 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
 
     if (!Q_stricmp(pcCommand, "ToggleConnection"))
     {
-        bool isConnected = dglab_ws_is_connected() != 0;
+        char hostname[256];
+        char port[256];
+        m_pHostnameEntry->GetText(hostname, sizeof(hostname));
+        m_pPortEntry->GetText(port, sizeof(port));
 
-        if (!isConnected)
-        {
-            // Try to connect
-            char hostname[256];
-            char port[256];
-            m_pHostnameEntry->GetText(hostname, sizeof(hostname));
-            m_pPortEntry->GetText(port, sizeof(port));
+        char ws_url[512];
+        Q_snprintf(ws_url, sizeof(ws_url), "ws://%s:%s", hostname, port);
 
-            char ws_url[512];
-            Q_snprintf(ws_url, sizeof(ws_url), "ws://%s:%s", hostname, port);
-
-            AppendLog("Connecting to server...");
-            int result = dglab_ws_connect(ws_url);
-
-            if (result == 0)
-            {
-                AppendLog("Connection successful!");
-            }
-            else
-            {
-                AppendLog("Connection failed!");
-            }
-        }
-        else
-        {
-            // Disconnect
-            AppendLog("Disconnecting...");
-            dglab_ws_disconnect();
-            AppendLog("Disconnected");
-        }
-
-        UpdateConnectionStatus();
+        // Encode the URL to prevent command parsing issues
+        char encoded_url[1024];
+        Q_StrSubst(ws_url, ":", "_COLON_", encoded_url, sizeof(encoded_url));
+        
+        engine->ServerCmd(VarArgs("dglab_connect %s", encoded_url));
+        AppendLog("Connection request sent to server...");
     }
     else if (!Q_stricmp(pcCommand, "SaveSettings"))
     {
         char maxStrength[32];
         m_pMaxStrengthEntry->GetText(maxStrength, sizeof(maxStrength));
-        AppendLog("Settings saved!");
+        
+        // Send settings to server using ServerCmd
+        engine->ServerCmd(VarArgs("dglab_set_max_strength %s", maxStrength));
+        AppendLog("Settings sent to server!");
     }
     else if (!Q_stricmp(pcCommand, "Close"))
     {

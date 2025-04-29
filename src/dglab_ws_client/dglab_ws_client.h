@@ -5,7 +5,7 @@ extern "C" {
 #endif
 
 // Default max strength for both channels
-#define DGLAB_WS_DEFAULT_MAX_STRENGTH 50
+#define DGLAB_WS_DEFAULT_MAX_STRENGTH 120
 
 // Channel enumeration
 typedef enum {

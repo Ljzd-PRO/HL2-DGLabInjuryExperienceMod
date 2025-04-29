@@ -800,6 +800,7 @@
     <ClCompile Include="..\..\game\shared\achievementmgr.cpp" />
     <ClCompile Include="..\..\game\shared\achievements_hlx.cpp" />
     <ClCompile Include="..\..\game\shared\activitylist.cpp" />
+    <ClCompile Include="dglab_ws_server_commands.cpp" />
     <ClCompile Include="ai_activity.cpp" />
     <ClCompile Include="ai_baseactor.cpp" />
     <ClCompile Include="ai_basehumanoid.cpp" />
