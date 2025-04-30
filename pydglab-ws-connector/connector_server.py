@@ -2,6 +2,7 @@ import asyncio
 import json
 import logging
 from typing import Optional
+from websockets.frames import CloseCode
 from websockets.server import WebSocketServerProtocol, serve
 from pydglab_ws import Channel, StrengthOperationType
 from config import settings
@@ -22,7 +23,7 @@ async def handle_websocket(websocket: WebSocketServerProtocol):
     global dglab_client
     if not dglab_client:
         logger.error("DGLab客户端未初始化")
-        await websocket.close(1000, "DGLab客户端未初始化")
+        await websocket.close(CloseCode.TRY_AGAIN_LATER, "DGLab客户端未初始化")
         return
 
     logger.info(f"新的外部客户端连接: {websocket.remote_address}")
