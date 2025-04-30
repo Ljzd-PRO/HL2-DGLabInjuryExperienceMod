@@ -3,76 +3,114 @@
 #include "easywsclient.hpp"
 #include "cJSON.h"
 #include <mutex>
+#include <memory>
+#include <string>
+#include <stdexcept>
+#include <thread>
+#include <atomic>
 
-using easywsclient::WebSocket;
-static WebSocket::pointer ws = nullptr;
-static std::mutex ws_mutex;
-static bool connected = false;
-static int max_strength_a = DGLAB_WS_DEFAULT_MAX_STRENGTH;
-static int max_strength_b = DGLAB_WS_DEFAULT_MAX_STRENGTH;
+namespace dglab {
 
-// Convert channel enum to string
-static const char* channel_to_string(dglab_ws_channel_t channel) {
+// Define global client instance
+WSClient client;
+    
+// WSClient implementation
+WSClient::~WSClient() {
+    disconnect();
+}
+
+void WSClient::message_loop() {
+    while (!should_stop_) {
+        {
+            std::lock_guard<std::mutex> lock(ws_mutex_);
+            if (ws_ && connected_) {
+                ws_->poll();
+                ws_->dispatch([](const std::string& message) {
+                    // Handle text messages
+                });
+                ws_->dispatchBinary([](const std::vector<uint8_t>& message) {
+                    // Handle binary messages
+                });
+            }
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(DGLAB_WS_POLL_INTERVAL_MS));
+    }
+}
+
+void WSClient::start_message_thread() {
+    should_stop_ = false;
+    message_thread_ = std::thread(&WSClient::message_loop, this);
+}
+
+void WSClient::stop_message_thread() {
+    should_stop_ = true;
+    if (message_thread_.joinable()) {
+        message_thread_.join();
+    }
+}
+
+std::string WSClient::channel_to_string(Channel channel) {
     switch (channel) {
-        case DGLAB_WS_CHANNEL_A: return "A";
-        case DGLAB_WS_CHANNEL_B: return "B";
+        case Channel::A: return "A";
+        case Channel::B: return "B";
         default: return "A";
     }
 }
 
-// Convert operation type enum to string
-static const char* operation_type_to_string(dglab_ws_operation_type_t op_type) {
+std::string WSClient::operation_type_to_string(OperationType op_type) {
     switch (op_type) {
-        case DGLAB_WS_OP_SET_TO: return "SET_TO";
-        case DGLAB_WS_OP_INCREASE: return "INCREASE";
-        case DGLAB_WS_OP_DECREASE: return "DECREASE";
+        case OperationType::SET_TO: return "SET_TO";
+        case OperationType::INCREASE: return "INCREASE";
+        case OperationType::DECREASE: return "DECREASE";
         default: return "SET_TO";
     }
 }
 
-extern "C" {
-
-int dglab_ws_connect(const char* ws_url) {
-    std::lock_guard<std::mutex> lock(ws_mutex);
-    if (ws) {
-        return 1; // Already connected
-    }
-    ws = WebSocket::from_url(ws_url);
-    connected = (ws != nullptr);
-    return connected ? 0 : -1;
-}
-
-void dglab_ws_disconnect() {
-    std::lock_guard<std::mutex> lock(ws_mutex);
-    if (ws) {
-        ws->close();
-        delete ws;
-        ws = nullptr;
-        connected = false;
-    }
-}
-
-int dglab_ws_is_connected() {
-    std::lock_guard<std::mutex> lock(ws_mutex);
-    return (ws && connected) ? 1 : 0;
-}
-
-static int send_json(const char* json_str) {
-    std::lock_guard<std::mutex> lock(ws_mutex);
-    if (!ws || !connected) return -1;
-    ws->send(json_str);
-    ws->poll();
+int WSClient::send_json(const std::string& json_str) {
+    std::lock_guard<std::mutex> lock(ws_mutex_);
+    if (!ws_ || !connected_) return -1;
+    ws_->send(json_str);
+    ws_->poll(); // Restore poll call to ensure message is sent
     return 0;
 }
 
-int dglab_ws_set_strength(dglab_ws_channel_t channel, dglab_ws_operation_type_t operation_type, int value) {
+bool WSClient::connect(const std::string& ws_url) {
+    std::lock_guard<std::mutex> lock(ws_mutex_);
+    if (ws_) {
+        return true; // Already connected
+    }
+    ws_ = std::unique_ptr<easywsclient::WebSocket>(easywsclient::WebSocket::from_url(ws_url));
+    connected_ = (ws_ != nullptr);
+    if (connected_) {
+        start_message_thread();
+    }
+    return connected_;
+}
+
+void WSClient::disconnect() {
+    std::lock_guard<std::mutex> lock(ws_mutex_);
+    stop_message_thread();
+    if (ws_) {
+        ws_->close();
+        ws_.reset();
+        connected_ = false;
+    }
+}
+
+bool WSClient::is_connected() const {
+    std::lock_guard<std::mutex> lock(ws_mutex_);
+    return (ws_ && connected_ && ws_->getReadyState() != easywsclient::WebSocket::CLOSED);
+}
+
+int WSClient::set_strength(Channel channel, OperationType operation_type, int value) {
     cJSON* root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "method", "set_strength");
     cJSON* params = cJSON_CreateObject();
-    cJSON_AddStringToObject(params, "channel", channel_to_string(channel));
-    cJSON_AddStringToObject(params, "operation_type", operation_type_to_string(operation_type));
+    cJSON_AddStringToObject(params, "channel", channel_to_string(channel).c_str());
+    cJSON_AddStringToObject(params, "operation_type", operation_type_to_string(operation_type).c_str());
     cJSON_AddNumberToObject(params, "value", value);
     cJSON_AddItemToObject(root, "params", params);
+    
     char* json_str = cJSON_PrintUnformatted(root);
     int ret = send_json(json_str);
     cJSON_free(json_str);
@@ -80,36 +118,33 @@ int dglab_ws_set_strength(dglab_ws_channel_t channel, dglab_ws_operation_type_t 
     return ret;
 }
 
-int dglab_ws_add_pulses(dglab_ws_channel_t channel, const dglab_ws_pulse_t* pulses, int pulse_count) {
-    if (!pulses || pulse_count <= 0) {
-        return -1; // Invalid parameters
+int WSClient::add_pulses(Channel channel, const std::vector<Pulse>& pulses) {
+    if (pulses.empty()) {
+        return -1;
     }
 
     cJSON* root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "method", "add_pulses");
     cJSON* params = cJSON_CreateObject();
-    cJSON_AddStringToObject(params, "channel", channel_to_string(channel));
+    cJSON_AddStringToObject(params, "channel", channel_to_string(channel).c_str());
     
-    // Create pulses array
     cJSON* pulses_array = cJSON_CreateArray();
-    for (int i = 0; i < pulse_count; i++) {
-        cJSON* pulse = cJSON_CreateArray();
+    for (const auto& pulse : pulses) {
+        cJSON* pulse_obj = cJSON_CreateArray();
         
-        // Add time array
         cJSON* time_array = cJSON_CreateArray();
         for (int j = 0; j < 4; j++) {
-            cJSON_AddItemToArray(time_array, cJSON_CreateNumber(pulses[i].frequency[j]));
+            cJSON_AddItemToArray(time_array, cJSON_CreateNumber(pulse.frequency[j]));
         }
-        cJSON_AddItemToArray(pulse, time_array);
+        cJSON_AddItemToArray(pulse_obj, time_array);
         
-        // Add value array
         cJSON* value_array = cJSON_CreateArray();
         for (int j = 0; j < 4; j++) {
-            cJSON_AddItemToArray(value_array, cJSON_CreateNumber(pulses[i].strength[j]));
+            cJSON_AddItemToArray(value_array, cJSON_CreateNumber(pulse.strength[j]));
         }
-        cJSON_AddItemToArray(pulse, value_array);
+        cJSON_AddItemToArray(pulse_obj, value_array);
         
-        cJSON_AddItemToArray(pulses_array, pulse);
+        cJSON_AddItemToArray(pulses_array, pulse_obj);
     }
     
     cJSON_AddItemToObject(params, "pulses", pulses_array);
@@ -122,12 +157,13 @@ int dglab_ws_add_pulses(dglab_ws_channel_t channel, const dglab_ws_pulse_t* puls
     return ret;
 }
 
-int dglab_ws_clear_pulses(dglab_ws_channel_t channel) {
+int WSClient::clear_pulses(Channel channel) {
     cJSON* root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "method", "clear_pulses");
     cJSON* params = cJSON_CreateObject();
-    cJSON_AddStringToObject(params, "channel", channel_to_string(channel));
+    cJSON_AddStringToObject(params, "channel", channel_to_string(channel).c_str());
     cJSON_AddItemToObject(root, "params", params);
+    
     char* json_str = cJSON_PrintUnformatted(root);
     int ret = send_json(json_str);
     cJSON_free(json_str);
@@ -135,32 +171,32 @@ int dglab_ws_clear_pulses(dglab_ws_channel_t channel) {
     return ret;
 }
 
-int dglab_ws_set_max_strength(dglab_ws_channel_t channel, int max_strength) {
-    std::lock_guard<std::mutex> lock(ws_mutex);
+bool WSClient::set_max_strength(Channel channel, int max_strength) {
     if (max_strength < 0 || max_strength > 200) {
-        return -1; // Invalid max strength value
+        return false;
     }
-    if (channel == DGLAB_WS_CHANNEL_A) {
-        max_strength_a = max_strength;
+    std::lock_guard<std::mutex> lock(ws_mutex_);
+    if (channel == Channel::A) {
+        max_strength_a_ = max_strength;
     } else {
-        max_strength_b = max_strength;
+        max_strength_b_ = max_strength;
     }
-    return 0;
+    return true;
 }
 
-int dglab_ws_set_strength_percentage(dglab_ws_channel_t channel, float percentage) {
+int WSClient::set_strength_percentage(Channel channel, float percentage) {
     if (percentage < 0.0f || percentage > 1.0f) {
-        return -1; // Invalid percentage value
+        return -1;
     }
 
     int max_strength;
     {
-        std::lock_guard<std::mutex> lock(ws_mutex);
-        max_strength = channel == DGLAB_WS_CHANNEL_A ? max_strength_a : max_strength_b;
+        std::lock_guard<std::mutex> lock(ws_mutex_);
+        max_strength = channel == Channel::A ? max_strength_a_ : max_strength_b_;
     }
 
     int strength = static_cast<int>(max_strength * percentage);
-    return dglab_ws_set_strength(channel, DGLAB_WS_OP_SET_TO, strength);
+    return set_strength(channel, OperationType::SET_TO, strength);
 }
 
-} // extern "C" 
+} // namespace dglab 

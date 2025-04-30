@@ -283,20 +283,30 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
 
     if (!Q_stricmp(pcCommand, "ToggleConnection"))
     {
-        char hostname[256];
-        char port[256];
-        m_pHostnameEntry->GetText(hostname, sizeof(hostname));
-        m_pPortEntry->GetText(port, sizeof(port));
-
-        char ws_url[512];
-        Q_snprintf(ws_url, sizeof(ws_url), "ws://%s:%s", hostname, port);
-
-        // Encode the URL to prevent command parsing issues
-        char encoded_url[1024];
-        Q_StrSubst(ws_url, ":", "_COLON_", encoded_url, sizeof(encoded_url));
+        bool isConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
         
-        engine->ServerCmd(VarArgs("dglab_connect %s", encoded_url));
-        AppendLog("Connection request sent to server...");
+        if (isConnected)
+        {
+            engine->ServerCmd("dglab_disconnect");
+            AppendLog("Disconnection request sent to server...");
+        }
+        else
+        {
+            char hostname[256];
+            char port[256];
+            m_pHostnameEntry->GetText(hostname, sizeof(hostname));
+            m_pPortEntry->GetText(port, sizeof(port));
+
+            char ws_url[512];
+            Q_snprintf(ws_url, sizeof(ws_url), "ws://%s:%s", hostname, port);
+
+            // Encode the URL to prevent command parsing issues
+            char encoded_url[1024];
+            Q_StrSubst(ws_url, ":", "_COLON_", encoded_url, sizeof(encoded_url));
+            
+            engine->ServerCmd(VarArgs("dglab_connect %s", encoded_url));
+            AppendLog("Connection request sent to server...");
+        }
     }
     else if (!Q_stricmp(pcCommand, "SaveSettings"))
     {
