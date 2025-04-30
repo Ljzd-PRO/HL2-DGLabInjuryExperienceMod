@@ -13,6 +13,8 @@
 namespace dglab {
 
 // Constants
+static const int DGLAB_WS_MIN_STRENGTH = 0;
+static const int DGLAB_WS_MAX_STRENGTH = 200;
 static const int DGLAB_WS_DEFAULT_MAX_STRENGTH = 100;
 static const int DGLAB_WS_POLL_INTERVAL_MS = 100; // Message processing interval in milliseconds
 

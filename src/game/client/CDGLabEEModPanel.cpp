@@ -21,7 +21,7 @@
 #define LABEL_HEIGHT 20
 #define ENTRY_WIDTH 300
 #define ENTRY_HEIGHT 30
-#define BUTTON_WIDTH 120
+#define BUTTON_WIDTH 200
 #define BUTTON_HEIGHT 40
 #define OUTPUT_WIDTH 500
 #define OUTPUT_HEIGHT 100
@@ -185,15 +185,17 @@ void CDGLabEEModPanel::AppendLog(const char* message)
 void CDGLabEEModPanel::UpdateConnectionStatus()
 {
     bool isConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
-    m_pConnectButton->SetText(isConnected ? "Disconnect" : "Connect");
+    bool isServerLoaded = engine->IsConnected();
     
-    // Update max strength input field
-    if (isConnected)
-    {
-        char maxStrength[32];
-        Q_snprintf(maxStrength, sizeof(maxStrength), "%d", cvar->FindVar("dglab_ws_max_strength")->GetInt());
-        m_pMaxStrengthEntry->SetText(maxStrength);
-    }
+    m_pConnectButton->SetText(isServerLoaded ? (isConnected ? "Disconnect" : "Connect") : "Enter The Game First");
+    m_pConnectButton->SetEnabled(isServerLoaded);
+    
+    m_pSaveButton->SetText(isServerLoaded ? "Save" : "Enter The Game First");
+    m_pSaveButton->SetEnabled(isServerLoaded);
+    m_pMaxStrengthEntry->SetEnabled(isServerLoaded);
+    
+    m_pHostnameEntry->SetEnabled(isServerLoaded);
+    m_pPortEntry->SetEnabled(isServerLoaded);
 }
 
 class CDGLabEEModPanelInterface : public IDGLabEEModPanel
@@ -263,6 +265,9 @@ void CDGLabEEModPanel::OnTick()
     // Update max strength
     if (currentMaxStrength != lastMaxStrength)
     {
+        char maxStrength[32];
+        Q_snprintf(maxStrength, sizeof(maxStrength), "%d", currentMaxStrength);
+        m_pMaxStrengthEntry->SetText(maxStrength);
         AppendLog(VarArgs("Max strength updated to: %d", currentMaxStrength));
         lastMaxStrength = currentMaxStrength;
     }
@@ -288,7 +293,6 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
         if (isConnected)
         {
             engine->ServerCmd("dglab_disconnect");
-            AppendLog("Disconnection request sent to server...");
         }
         else
         {
@@ -305,7 +309,6 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
             Q_StrSubst(ws_url, ":", "_COLON_", encoded_url, sizeof(encoded_url));
             
             engine->ServerCmd(VarArgs("dglab_connect %s", encoded_url));
-            AppendLog("Connection request sent to server...");
         }
     }
     else if (!Q_stricmp(pcCommand, "SaveSettings"))
@@ -315,7 +318,6 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
         
         // Send settings to server using ServerCmd
         engine->ServerCmd(VarArgs("dglab_set_max_strength %s", maxStrength));
-        AppendLog("Settings sent to server!");
     }
     else if (!Q_stricmp(pcCommand, "Close"))
     {

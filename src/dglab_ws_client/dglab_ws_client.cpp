@@ -67,18 +67,16 @@ std::string WSClient::operation_type_to_string(OperationType op_type) {
 }
 
 int WSClient::send_json(const std::string& json_str) {
+    if (!is_connected()) return -1;
     std::lock_guard<std::mutex> lock(ws_mutex_);
-    if (!ws_ || !connected_) return -1;
     ws_->send(json_str);
     ws_->poll(); // Restore poll call to ensure message is sent
     return 0;
 }
 
 bool WSClient::connect(const std::string& ws_url) {
+    if (is_connected()) disconnect();
     std::lock_guard<std::mutex> lock(ws_mutex_);
-    if (ws_) {
-        return true; // Already connected
-    }
     ws_ = std::unique_ptr<easywsclient::WebSocket>(easywsclient::WebSocket::from_url(ws_url));
     connected_ = (ws_ != nullptr);
     if (connected_) {

@@ -57,9 +57,9 @@ void CC_DGLabSetMaxStrength(const CCommand &args)
     }
 
     int strength = atoi(args[1]);
-    if (strength < 0 || strength > 100)
+    if (strength < dglab::DGLAB_WS_MIN_STRENGTH || strength > dglab::DGLAB_WS_MAX_STRENGTH)
     {
-        Warning("Strength must be between 0 and 100\n");
+        Warning("Strength must be between %d and %d\n", dglab::DGLAB_WS_MIN_STRENGTH, dglab::DGLAB_WS_MAX_STRENGTH);
         return;
     }
 
