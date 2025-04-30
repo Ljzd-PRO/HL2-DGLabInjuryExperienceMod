@@ -4,7 +4,33 @@
 
 // ConVars to track connection status
 ConVar dglab_ws_connected("dglab_ws_connected", "0", FCVAR_REPLICATED, "Indicates if DGLab WebSocket is connected");
-ConVar dglab_ws_max_strength("dglab_ws_max_strength", std::to_string(dglab::DGLAB_WS_DEFAULT_MAX_STRENGTH).c_str(), FCVAR_REPLICATED, "Maximum strength for DGLab pulses");
+
+// Global variables for default values
+char dglab_ws_default_max_strength[32];
+char dglab_ws_default_min_strength[32];
+
+// Initialize default values
+void InitializeDefaultValues()
+{
+    Q_snprintf(dglab_ws_default_max_strength, sizeof(dglab_ws_default_max_strength), "%d", dglab::DGLAB_WS_DEFAULT_MAX_STRENGTH);
+    Q_snprintf(dglab_ws_default_min_strength, sizeof(dglab_ws_default_min_strength), "%d", dglab::DGLAB_WS_DEFAULT_MIN_STRENGTH);
+}
+
+ConVar dglab_ws_max_strength_a("dglab_ws_max_strength_a", dglab_ws_default_max_strength, FCVAR_REPLICATED, "Maximum strength for DGLab A channel");
+ConVar dglab_ws_min_strength_a("dglab_ws_min_strength_a", dglab_ws_default_min_strength, FCVAR_REPLICATED, "Minimum strength for DGLab A channel");
+ConVar dglab_ws_max_strength_b("dglab_ws_max_strength_b", dglab_ws_default_max_strength, FCVAR_REPLICATED, "Maximum strength for DGLab B channel");
+ConVar dglab_ws_min_strength_b("dglab_ws_min_strength_b", dglab_ws_default_min_strength, FCVAR_REPLICATED, "Minimum strength for DGLab B channel");
+
+// Initialize default values at startup
+class CDGLabWSDefaultInitializer
+{
+public:
+    CDGLabWSDefaultInitializer()
+    {
+        InitializeDefaultValues();
+    }
+};
+static CDGLabWSDefaultInitializer g_DGLabWSDefaultInitializer;
 
 //-----------------------------------------------------------------------------
 // Purpose: Handle the dglab_connect command from clients
@@ -48,11 +74,11 @@ void CC_DGLabDisconnect(const CCommand &args)
 //-----------------------------------------------------------------------------
 // Purpose: Handle the dglab_set_max_strength command from clients
 //-----------------------------------------------------------------------------
-void CC_DGLabSetMaxStrength(const CCommand &args)
+void CC_DGLabSetMaxStrengthA(const CCommand &args)
 {
     if (args.ArgC() < 2)
     {
-        Warning("Usage: dglab_set_max_strength <strength>\n");
+        Warning("Usage: dglab_set_max_strength_a <strength>\n");
         return;
     }
 
@@ -64,12 +90,74 @@ void CC_DGLabSetMaxStrength(const CCommand &args)
     }
 
     dglab::client.set_max_strength(dglab::Channel::A, strength);
+    dglab_ws_max_strength_a.SetValue(strength);
+    Msg("DGLab A channel max strength set to %d\n", strength);
+}
+
+void CC_DGLabSetMinStrengthA(const CCommand &args)
+{
+    if (args.ArgC() < 2)
+    {
+        Warning("Usage: dglab_set_min_strength_a <strength>\n");
+        return;
+    }
+
+    int strength = atoi(args[1]);
+    if (strength < dglab::DGLAB_WS_MIN_STRENGTH || strength > dglab::DGLAB_WS_MAX_STRENGTH)
+    {
+        Warning("Strength must be between %d and %d\n", dglab::DGLAB_WS_MIN_STRENGTH, dglab::DGLAB_WS_MAX_STRENGTH);
+        return;
+    }
+
+    dglab::client.set_min_strength(dglab::Channel::A, strength);
+    dglab_ws_min_strength_a.SetValue(strength);
+    Msg("DGLab A channel min strength set to %d\n", strength);
+}
+
+void CC_DGLabSetMaxStrengthB(const CCommand &args)
+{
+    if (args.ArgC() < 2)
+    {
+        Warning("Usage: dglab_set_max_strength_b <strength>\n");
+        return;
+    }
+
+    int strength = atoi(args[1]);
+    if (strength < dglab::DGLAB_WS_MIN_STRENGTH || strength > dglab::DGLAB_WS_MAX_STRENGTH)
+    {
+        Warning("Strength must be between %d and %d\n", dglab::DGLAB_WS_MIN_STRENGTH, dglab::DGLAB_WS_MAX_STRENGTH);
+        return;
+    }
+
     dglab::client.set_max_strength(dglab::Channel::B, strength);
-    dglab_ws_max_strength.SetValue(strength);
-    Msg("DGLab max strength set to %d\n", strength);
+    dglab_ws_max_strength_b.SetValue(strength);
+    Msg("DGLab B channel max strength set to %d\n", strength);
+}
+
+void CC_DGLabSetMinStrengthB(const CCommand &args)
+{
+    if (args.ArgC() < 2)
+    {
+        Warning("Usage: dglab_set_min_strength_b <strength>\n");
+        return;
+    }
+
+    int strength = atoi(args[1]);
+    if (strength < dglab::DGLAB_WS_MIN_STRENGTH || strength > dglab::DGLAB_WS_MAX_STRENGTH)
+    {
+        Warning("Strength must be between %d and %d\n", dglab::DGLAB_WS_MIN_STRENGTH, dglab::DGLAB_WS_MAX_STRENGTH);
+        return;
+    }
+
+    dglab::client.set_min_strength(dglab::Channel::B, strength);
+    dglab_ws_min_strength_b.SetValue(strength);
+    Msg("DGLab B channel min strength set to %d\n", strength);
 }
 
 // Register console commands
 static ConCommand dglab_connect("dglab_connect", CC_DGLabConnect, "Connect to DGLab WebSocket server");
 static ConCommand dglab_disconnect("dglab_disconnect", CC_DGLabDisconnect, "Disconnect from DGLab WebSocket server");
-static ConCommand dglab_set_max_strength("dglab_set_max_strength", CC_DGLabSetMaxStrength, "Set maximum strength for DGLab pulses"); 
+static ConCommand dglab_set_max_strength_a("dglab_set_max_strength_a", CC_DGLabSetMaxStrengthA, "Set maximum strength for DGLab A channel");
+static ConCommand dglab_set_min_strength_a("dglab_set_min_strength_a", CC_DGLabSetMinStrengthA, "Set minimum strength for DGLab A channel");
+static ConCommand dglab_set_max_strength_b("dglab_set_max_strength_b", CC_DGLabSetMaxStrengthB, "Set maximum strength for DGLab B channel");
+static ConCommand dglab_set_min_strength_b("dglab_set_min_strength_b", CC_DGLabSetMinStrengthB, "Set minimum strength for DGLab B channel"); 

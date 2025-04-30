@@ -1,4 +1,5 @@
 #include "cbase.h"
+#include <string>
 #include "IDGLabEEModPanel.h"
 #include <vgui/IVGui.h>
 #include <vgui_controls/Frame.h>
@@ -10,11 +11,10 @@
 // Default values
 #define DEFAULT_HOSTNAME "127.0.0.1"
 #define DEFAULT_PORT "5679"
-#define DEFAULT_MAX_STRENGTH "50"
 
 // Panel dimensions
 #define PANEL_WIDTH 600
-#define PANEL_HEIGHT 500
+#define PANEL_HEIGHT 700
 
 // Control dimensions
 #define LABEL_WIDTH 300
@@ -35,11 +35,21 @@
 #define PORT_ENTRY_Y 140
 #define CONNECT_BUTTON_Y 180
 #define SETTINGS_TITLE_Y 230
-#define MAX_STRENGTH_LABEL_Y 260
-#define MAX_STRENGTH_ENTRY_Y 280
-#define SAVE_BUTTON_Y 320
-#define OUTPUT_LABEL_Y 370
-#define OUTPUT_TEXT_Y 390
+#define MAX_STRENGTH_A_LABEL_Y 260
+#define MAX_STRENGTH_A_ENTRY_Y 280
+#define MIN_STRENGTH_A_LABEL_Y 320
+#define MIN_STRENGTH_A_ENTRY_Y 340
+#define MAX_STRENGTH_B_LABEL_Y 380
+#define MAX_STRENGTH_B_ENTRY_Y 400
+#define MIN_STRENGTH_B_LABEL_Y 440
+#define MIN_STRENGTH_B_ENTRY_Y 460
+#define SAVE_BUTTON_Y 500
+#define OUTPUT_LABEL_Y 550
+#define OUTPUT_TEXT_Y 570
+
+// Default values
+#define DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH 100
+#define DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH 0
 
 class CDGLabEEModPanel : public vgui::Frame
 {
@@ -57,14 +67,20 @@ private:
     //Other used VGUI control Elements:
     vgui::TextEntry* m_pHostnameEntry;
     vgui::TextEntry* m_pPortEntry;
-    vgui::TextEntry* m_pMaxStrengthEntry;
+    vgui::TextEntry* m_pMaxStrengthAEntry;
+    vgui::TextEntry* m_pMinStrengthAEntry;
+    vgui::TextEntry* m_pMaxStrengthBEntry;
+    vgui::TextEntry* m_pMinStrengthBEntry;
     vgui::RichText* m_pOutputText;
     vgui::Button* m_pConnectButton;
     vgui::Button* m_pSaveButton;
     vgui::Label* m_pHostnameLabel;
     vgui::Label* m_pPortLabel;
     vgui::Label* m_pOutputLabel;
-    vgui::Label* m_pMaxStrengthLabel;
+    vgui::Label* m_pMaxStrengthALabel;
+    vgui::Label* m_pMinStrengthALabel;
+    vgui::Label* m_pMaxStrengthBLabel;
+    vgui::Label* m_pMinStrengthBLabel;
     vgui::Label* m_pConnectionTitleLabel;
     vgui::Label* m_pSettingsTitleLabel;
 
@@ -92,7 +108,10 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     // Set panel size
     SetSize(PANEL_WIDTH, PANEL_HEIGHT);
 
-    SetScheme(vgui::scheme()->LoadSchemeFromFile("resource/SourceScheme.res", "SourceScheme"));
+    // Set title
+    SetTitle("DGLab Enemy Experience Mod", false);
+
+    // SetScheme(vgui::scheme()->LoadSchemeFromFile("resource/SourceScheme.res", "SourceScheme"));
 
     // Create controls
     // Connection Title
@@ -137,17 +156,53 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pSettingsTitleLabel->SetContentAlignment(vgui::Label::a_west);
     m_pSettingsTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
 
-    // Max Strength Label
-    m_pMaxStrengthLabel = new vgui::Label(this, "MaxStrengthLabel", "Max Strength:");
-    m_pMaxStrengthLabel->SetPos(START_X, MAX_STRENGTH_LABEL_Y);
-    m_pMaxStrengthLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
-    m_pMaxStrengthLabel->SetContentAlignment(vgui::Label::a_west);
+    // Max Strength A Label
+    m_pMaxStrengthALabel = new vgui::Label(this, "MaxStrengthALabel", "A Channel Max Strength:");
+    m_pMaxStrengthALabel->SetPos(START_X, MAX_STRENGTH_A_LABEL_Y);
+    m_pMaxStrengthALabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
+    m_pMaxStrengthALabel->SetContentAlignment(vgui::Label::a_west);
 
-    m_pMaxStrengthEntry = new vgui::TextEntry(this, "MaxStrengthEntry");
-    m_pMaxStrengthEntry->SetPos(START_X, MAX_STRENGTH_ENTRY_Y);
-    m_pMaxStrengthEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
-    m_pMaxStrengthEntry->SetAllowNonAsciiCharacters(true);
-    m_pMaxStrengthEntry->SetText(DEFAULT_MAX_STRENGTH);
+    m_pMaxStrengthAEntry = new vgui::TextEntry(this, "MaxStrengthAEntry");
+    m_pMaxStrengthAEntry->SetPos(START_X, MAX_STRENGTH_A_ENTRY_Y);
+    m_pMaxStrengthAEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
+    m_pMaxStrengthAEntry->SetAllowNonAsciiCharacters(true);
+    m_pMaxStrengthAEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH).c_str());
+
+    // Min Strength A Label
+    m_pMinStrengthALabel = new vgui::Label(this, "MinStrengthALabel", "A Channel Min Strength:");
+    m_pMinStrengthALabel->SetPos(START_X, MIN_STRENGTH_A_LABEL_Y);
+    m_pMinStrengthALabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
+    m_pMinStrengthALabel->SetContentAlignment(vgui::Label::a_west);
+
+    m_pMinStrengthAEntry = new vgui::TextEntry(this, "MinStrengthAEntry");
+    m_pMinStrengthAEntry->SetPos(START_X, MIN_STRENGTH_A_ENTRY_Y);
+    m_pMinStrengthAEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
+    m_pMinStrengthAEntry->SetAllowNonAsciiCharacters(true);
+    m_pMinStrengthAEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH).c_str());
+
+    // Max Strength B Label
+    m_pMaxStrengthBLabel = new vgui::Label(this, "MaxStrengthBLabel", "B Channel Max Strength:");
+    m_pMaxStrengthBLabel->SetPos(START_X, MAX_STRENGTH_B_LABEL_Y);
+    m_pMaxStrengthBLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
+    m_pMaxStrengthBLabel->SetContentAlignment(vgui::Label::a_west);
+
+    m_pMaxStrengthBEntry = new vgui::TextEntry(this, "MaxStrengthBEntry");
+    m_pMaxStrengthBEntry->SetPos(START_X, MAX_STRENGTH_B_ENTRY_Y);
+    m_pMaxStrengthBEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
+    m_pMaxStrengthBEntry->SetAllowNonAsciiCharacters(true);
+    m_pMaxStrengthBEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH).c_str());
+
+    // Min Strength B Label
+    m_pMinStrengthBLabel = new vgui::Label(this, "MinStrengthBLabel", "B Channel Min Strength:");
+    m_pMinStrengthBLabel->SetPos(START_X, MIN_STRENGTH_B_LABEL_Y);
+    m_pMinStrengthBLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
+    m_pMinStrengthBLabel->SetContentAlignment(vgui::Label::a_west);
+
+    m_pMinStrengthBEntry = new vgui::TextEntry(this, "MinStrengthBEntry");
+    m_pMinStrengthBEntry->SetPos(START_X, MIN_STRENGTH_B_ENTRY_Y);
+    m_pMinStrengthBEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
+    m_pMinStrengthBEntry->SetAllowNonAsciiCharacters(true);
+    m_pMinStrengthBEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH).c_str());
 
     m_pSaveButton = new vgui::Button(this, "SaveButton", "Save", this, "SaveSettings");
     m_pSaveButton->SetPos(START_X, SAVE_BUTTON_Y);
@@ -192,10 +247,13 @@ void CDGLabEEModPanel::UpdateConnectionStatus()
     
     m_pSaveButton->SetText(isServerLoaded ? "Save" : "Enter The Game First");
     m_pSaveButton->SetEnabled(isServerLoaded);
-    m_pMaxStrengthEntry->SetEnabled(isServerLoaded);
     
     m_pHostnameEntry->SetEnabled(isServerLoaded);
     m_pPortEntry->SetEnabled(isServerLoaded);
+    m_pMaxStrengthAEntry->SetEnabled(isServerLoaded);
+    m_pMinStrengthAEntry->SetEnabled(isServerLoaded);
+    m_pMaxStrengthBEntry->SetEnabled(isServerLoaded);
+    m_pMinStrengthBEntry->SetEnabled(isServerLoaded);
 }
 
 class CDGLabEEModPanelInterface : public IDGLabEEModPanel
@@ -242,11 +300,21 @@ void CDGLabEEModPanel::OnTick()
     BaseClass::OnTick();
     SetVisible(cl_show_dglab_ee_mod_panel.GetBool());
 
+    UpdateConnectionStatus();
+
+    if (!engine->IsConnected()) return;
+
     static bool lastConnected = false;
-    static int lastMaxStrength = 0;
+    static int lastMaxStrengthA = DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH;
+    static int lastMinStrengthA = DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH;
+    static int lastMaxStrengthB = DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH;
+    static int lastMinStrengthB = DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH;
     
     bool currentConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
-    int currentMaxStrength = cvar->FindVar("dglab_ws_max_strength")->GetInt();
+    int currentMaxStrengthA = cvar->FindVar("dglab_ws_max_strength_a")->GetInt();
+    int currentMinStrengthA = cvar->FindVar("dglab_ws_min_strength_a")->GetInt();
+    int currentMaxStrengthB = cvar->FindVar("dglab_ws_max_strength_b")->GetInt();
+    int currentMinStrengthB = cvar->FindVar("dglab_ws_min_strength_b")->GetInt();
 
     // Update connection status
     if (currentConnected != lastConnected)
@@ -262,17 +330,45 @@ void CDGLabEEModPanel::OnTick()
         lastConnected = currentConnected;
     }
 
-    // Update max strength
-    if (currentMaxStrength != lastMaxStrength)
+    // Update max strength A
+    if (currentMaxStrengthA != lastMaxStrengthA)
     {
         char maxStrength[32];
-        Q_snprintf(maxStrength, sizeof(maxStrength), "%d", currentMaxStrength);
-        m_pMaxStrengthEntry->SetText(maxStrength);
-        AppendLog(VarArgs("Max strength updated to: %d", currentMaxStrength));
-        lastMaxStrength = currentMaxStrength;
+        Q_snprintf(maxStrength, sizeof(maxStrength), "%d", currentMaxStrengthA);
+        m_pMaxStrengthAEntry->SetText(maxStrength);
+        AppendLog(VarArgs("A channel max strength updated to: %d", currentMaxStrengthA));
+        lastMaxStrengthA = currentMaxStrengthA;
     }
 
-    UpdateConnectionStatus();
+    // Update min strength A
+    if (currentMinStrengthA != lastMinStrengthA)
+    {
+        char minStrength[32];
+        Q_snprintf(minStrength, sizeof(minStrength), "%d", currentMinStrengthA);
+        m_pMinStrengthAEntry->SetText(minStrength);
+        AppendLog(VarArgs("A channel min strength updated to: %d", currentMinStrengthA));
+        lastMinStrengthA = currentMinStrengthA;
+    }
+
+    // Update max strength B
+    if (currentMaxStrengthB != lastMaxStrengthB)
+    {
+        char maxStrength[32];
+        Q_snprintf(maxStrength, sizeof(maxStrength), "%d", currentMaxStrengthB);
+        m_pMaxStrengthBEntry->SetText(maxStrength);
+        AppendLog(VarArgs("B channel max strength updated to: %d", currentMaxStrengthB));
+        lastMaxStrengthB = currentMaxStrengthB;
+    }
+
+    // Update min strength B
+    if (currentMinStrengthB != lastMinStrengthB)
+    {
+        char minStrength[32];
+        Q_snprintf(minStrength, sizeof(minStrength), "%d", currentMinStrengthB);
+        m_pMinStrengthBEntry->SetText(minStrength);
+        AppendLog(VarArgs("B channel min strength updated to: %d", currentMinStrengthB));
+        lastMinStrengthB = currentMinStrengthB;
+    }
 }
 
 // Command to toggle panel visibility
@@ -313,11 +409,21 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
     }
     else if (!Q_stricmp(pcCommand, "SaveSettings"))
     {
-        char maxStrength[32];
-        m_pMaxStrengthEntry->GetText(maxStrength, sizeof(maxStrength));
+        char maxStrengthA[32];
+        char minStrengthA[32];
+        char maxStrengthB[32];
+        char minStrengthB[32];
+        
+        m_pMaxStrengthAEntry->GetText(maxStrengthA, sizeof(maxStrengthA));
+        m_pMinStrengthAEntry->GetText(minStrengthA, sizeof(minStrengthA));
+        m_pMaxStrengthBEntry->GetText(maxStrengthB, sizeof(maxStrengthB));
+        m_pMinStrengthBEntry->GetText(minStrengthB, sizeof(minStrengthB));
         
         // Send settings to server using ServerCmd
-        engine->ServerCmd(VarArgs("dglab_set_max_strength %s", maxStrength));
+        engine->ServerCmd(VarArgs("dglab_set_max_strength_a %s", maxStrengthA));
+        engine->ServerCmd(VarArgs("dglab_set_min_strength_a %s", minStrengthA));
+        engine->ServerCmd(VarArgs("dglab_set_max_strength_b %s", maxStrengthB));
+        engine->ServerCmd(VarArgs("dglab_set_min_strength_b %s", minStrengthB));
     }
     else if (!Q_stricmp(pcCommand, "Close"))
     {

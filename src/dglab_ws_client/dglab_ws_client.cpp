@@ -170,7 +170,7 @@ int WSClient::clear_pulses(Channel channel) {
 }
 
 bool WSClient::set_max_strength(Channel channel, int max_strength) {
-    if (max_strength < 0 || max_strength > 200) {
+    if (max_strength < DGLAB_WS_MIN_STRENGTH || max_strength > DGLAB_WS_MAX_STRENGTH) {
         return false;
     }
     std::lock_guard<std::mutex> lock(ws_mutex_);
@@ -180,6 +180,29 @@ bool WSClient::set_max_strength(Channel channel, int max_strength) {
         max_strength_b_ = max_strength;
     }
     return true;
+}
+
+bool WSClient::set_min_strength(Channel channel, int min_strength) {
+    if (min_strength < DGLAB_WS_MIN_STRENGTH || min_strength > DGLAB_WS_MAX_STRENGTH) {
+        return false;
+    }
+    std::lock_guard<std::mutex> lock(ws_mutex_);
+    if (channel == Channel::A) {
+        min_strength_a_ = min_strength;
+    } else {
+        min_strength_b_ = min_strength;
+    }
+    return true;
+}
+
+int WSClient::get_max_strength(Channel channel) const {
+    std::lock_guard<std::mutex> lock(ws_mutex_);
+    return channel == Channel::A ? max_strength_a_ : max_strength_b_;
+}
+
+int WSClient::get_min_strength(Channel channel) const {
+    std::lock_guard<std::mutex> lock(ws_mutex_);
+    return channel == Channel::A ? min_strength_a_ : min_strength_b_;
 }
 
 int WSClient::set_strength_percentage(Channel channel, float percentage) {

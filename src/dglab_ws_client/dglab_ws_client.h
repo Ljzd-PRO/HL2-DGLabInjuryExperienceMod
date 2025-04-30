@@ -15,6 +15,7 @@ namespace dglab {
 // Constants
 static const int DGLAB_WS_MIN_STRENGTH = 0;
 static const int DGLAB_WS_MAX_STRENGTH = 200;
+static const int DGLAB_WS_DEFAULT_MIN_STRENGTH = 0;
 static const int DGLAB_WS_DEFAULT_MAX_STRENGTH = 100;
 static const int DGLAB_WS_POLL_INTERVAL_MS = 100; // Message processing interval in milliseconds
 
@@ -46,6 +47,9 @@ public:
     int add_pulses(Channel channel, const std::vector<Pulse>& pulses);
     int clear_pulses(Channel channel);
     bool set_max_strength(Channel channel, int max_strength);
+    bool set_min_strength(Channel channel, int min_strength);
+    int get_max_strength(Channel channel) const;
+    int get_min_strength(Channel channel) const;
     int set_strength_percentage(Channel channel, float percentage);
 
 private:
@@ -53,7 +57,9 @@ private:
     mutable std::mutex ws_mutex_;
     bool connected_ = false;
     int max_strength_a_ = DGLAB_WS_DEFAULT_MAX_STRENGTH;
+    int min_strength_a_ = DGLAB_WS_DEFAULT_MIN_STRENGTH;
     int max_strength_b_ = DGLAB_WS_DEFAULT_MAX_STRENGTH;
+    int min_strength_b_ = DGLAB_WS_DEFAULT_MIN_STRENGTH;
     
     // Message handling thread related
     std::thread message_thread_;
