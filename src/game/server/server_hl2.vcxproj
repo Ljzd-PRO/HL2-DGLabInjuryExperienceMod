@@ -271,6 +271,7 @@
     <ClInclude Include="..\..\game\shared\entitydatainstantiator.h" />
     <ClInclude Include="..\..\game\shared\entitylist_base.h" />
     <ClInclude Include="..\..\game\shared\env_detail_controller.h" />
+    <ClInclude Include="dglab_damage_handler.h" />
     <ClInclude Include="EventLog.h" />
     <ClInclude Include="..\..\game\shared\expressionsample.h" />
     <ClInclude Include="..\..\public\tier0\fasttimer.h" />
@@ -795,6 +796,7 @@
     <ClInclude Include="toolframework_server.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dglab_damage_handler.cpp" />
     <ClCompile Include="gamedll_replay.cpp" />
     <ClCompile Include="..\..\game\shared\achievement_saverestore.cpp" />
     <ClCompile Include="..\..\game\shared\achievementmgr.cpp" />

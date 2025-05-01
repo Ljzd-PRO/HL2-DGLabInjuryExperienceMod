@@ -19,6 +19,7 @@
 #include "iservervehicle.h"
 #include "items.h"
 #include "hl2_gamerules.h"
+#include "dglab_damage_handler.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -4869,6 +4870,12 @@ int CNPC_MetroPolice::OnTakeDamage_Alive( const CTakeDamageInfo &inputInfo )
 		m_flRecentDamageTime = gpGlobals->curtime;
 	}
 
+	// Damage info debug
+	dglab_damage_handler::DebugDamageInfo(info);
+
+	// Handle damage info
+	dglab_damage_handler::HandleDamage(info, *this);
+	
 	return BaseClass::OnTakeDamage_Alive( info ); 
 }
 
