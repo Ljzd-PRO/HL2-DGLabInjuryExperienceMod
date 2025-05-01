@@ -7,6 +7,7 @@
 #include <vgui_controls/Button.h>
 #include <vgui_controls/RichText.h>
 #include <vgui_controls/Label.h>
+#include <vgui/ILocalize.h>
 
 // Default values
 #define DEFAULT_HOSTNAME "127.0.0.1"
@@ -109,20 +110,20 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     SetSize(PANEL_WIDTH, PANEL_HEIGHT);
 
     // Set title
-    SetTitle("DGLab Enemy Experience Mod", false);
+    SetTitle("#DGLabEEMod_Title", false);
 
     // SetScheme(vgui::scheme()->LoadSchemeFromFile("resource/SourceScheme.res", "SourceScheme"));
 
     // Create controls
     // Connection Title
-    m_pConnectionTitleLabel = new vgui::Label(this, "ConnectionTitleLabel", "Connect To PyDGLab-WS Connector");
+    m_pConnectionTitleLabel = new vgui::Label(this, "ConnectionTitleLabel", "#DGLabEEMod_ConnectionTitle");
     m_pConnectionTitleLabel->SetPos(START_X, TITLE_Y);
     m_pConnectionTitleLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pConnectionTitleLabel->SetContentAlignment(vgui::Label::a_west);
     m_pConnectionTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
 
     // Hostname Label
-    m_pHostnameLabel = new vgui::Label(this, "HostnameLabel", "Hostname:");
+    m_pHostnameLabel = new vgui::Label(this, "HostnameLabel", "#DGLabEEMod_Hostname");
     m_pHostnameLabel->SetPos(START_X, HOSTNAME_LABEL_Y);
     m_pHostnameLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pHostnameLabel->SetContentAlignment(vgui::Label::a_west);
@@ -134,7 +135,7 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pHostnameEntry->SetText(DEFAULT_HOSTNAME);
 
     // Port Label
-    m_pPortLabel = new vgui::Label(this, "PortLabel", "Port:");
+    m_pPortLabel = new vgui::Label(this, "PortLabel", "#DGLabEEMod_Port");
     m_pPortLabel->SetPos(START_X, PORT_LABEL_Y);
     m_pPortLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pPortLabel->SetContentAlignment(vgui::Label::a_west);
@@ -145,19 +146,19 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pPortEntry->SetAllowNonAsciiCharacters(true);
     m_pPortEntry->SetText(DEFAULT_PORT);
 
-    m_pConnectButton = new vgui::Button(this, "ConnectButton", "Connect", this, "ToggleConnection");
+    m_pConnectButton = new vgui::Button(this, "ConnectButton", "#DGLabEEMod_Connect", this, "ToggleConnection");
     m_pConnectButton->SetPos(START_X, CONNECT_BUTTON_Y);
     m_pConnectButton->SetSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 
     // Settings Title
-    m_pSettingsTitleLabel = new vgui::Label(this, "SettingsTitleLabel", "DGLab Settings");
+    m_pSettingsTitleLabel = new vgui::Label(this, "SettingsTitleLabel", "#DGLabEEMod_SettingsTitle");
     m_pSettingsTitleLabel->SetPos(START_X, SETTINGS_TITLE_Y);
     m_pSettingsTitleLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pSettingsTitleLabel->SetContentAlignment(vgui::Label::a_west);
     m_pSettingsTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
 
     // Max Strength A Label
-    m_pMaxStrengthALabel = new vgui::Label(this, "MaxStrengthALabel", "A Channel Max Strength:");
+    m_pMaxStrengthALabel = new vgui::Label(this, "MaxStrengthALabel", "#DGLabEEMod_MaxStrengthA");
     m_pMaxStrengthALabel->SetPos(START_X, MAX_STRENGTH_A_LABEL_Y);
     m_pMaxStrengthALabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMaxStrengthALabel->SetContentAlignment(vgui::Label::a_west);
@@ -169,7 +170,7 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pMaxStrengthAEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH).c_str());
 
     // Min Strength A Label
-    m_pMinStrengthALabel = new vgui::Label(this, "MinStrengthALabel", "A Channel Min Strength:");
+    m_pMinStrengthALabel = new vgui::Label(this, "MinStrengthALabel", "#DGLabEEMod_MinStrengthA");
     m_pMinStrengthALabel->SetPos(START_X, MIN_STRENGTH_A_LABEL_Y);
     m_pMinStrengthALabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMinStrengthALabel->SetContentAlignment(vgui::Label::a_west);
@@ -181,7 +182,7 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pMinStrengthAEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH).c_str());
 
     // Max Strength B Label
-    m_pMaxStrengthBLabel = new vgui::Label(this, "MaxStrengthBLabel", "B Channel Max Strength:");
+    m_pMaxStrengthBLabel = new vgui::Label(this, "MaxStrengthBLabel", "#DGLabEEMod_MaxStrengthB");
     m_pMaxStrengthBLabel->SetPos(START_X, MAX_STRENGTH_B_LABEL_Y);
     m_pMaxStrengthBLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMaxStrengthBLabel->SetContentAlignment(vgui::Label::a_west);
@@ -193,7 +194,7 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pMaxStrengthBEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH).c_str());
 
     // Min Strength B Label
-    m_pMinStrengthBLabel = new vgui::Label(this, "MinStrengthBLabel", "B Channel Min Strength:");
+    m_pMinStrengthBLabel = new vgui::Label(this, "MinStrengthBLabel", "#DGLabEEMod_MinStrengthB");
     m_pMinStrengthBLabel->SetPos(START_X, MIN_STRENGTH_B_LABEL_Y);
     m_pMinStrengthBLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMinStrengthBLabel->SetContentAlignment(vgui::Label::a_west);
@@ -204,12 +205,12 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pMinStrengthBEntry->SetAllowNonAsciiCharacters(true);
     m_pMinStrengthBEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH).c_str());
 
-    m_pSaveButton = new vgui::Button(this, "SaveButton", "Save", this, "SaveSettings");
+    m_pSaveButton = new vgui::Button(this, "SaveButton", "#DGLabEEMod_Save", this, "SaveSettings");
     m_pSaveButton->SetPos(START_X, SAVE_BUTTON_Y);
     m_pSaveButton->SetSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 
     // Output Label
-    m_pOutputLabel = new vgui::Label(this, "OutputLabel", "Output:");
+    m_pOutputLabel = new vgui::Label(this, "OutputLabel", "#DGLabEEMod_Output");
     m_pOutputLabel->SetPos(START_X, OUTPUT_LABEL_Y);
     m_pOutputLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pOutputLabel->SetContentAlignment(vgui::Label::a_west);
@@ -242,10 +243,10 @@ void CDGLabEEModPanel::UpdateConnectionStatus()
     bool isConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
     bool isServerLoaded = engine->IsConnected();
     
-    m_pConnectButton->SetText(isServerLoaded ? (isConnected ? "Disconnect" : "Connect") : "Enter The Game First");
+    m_pConnectButton->SetText(isServerLoaded ? (isConnected ? "#DGLabEEMod_Disconnect" : "#DGLabEEMod_Connect") : "#DGLabEEMod_EnterGameFirst");
     m_pConnectButton->SetEnabled(isServerLoaded);
     
-    m_pSaveButton->SetText(isServerLoaded ? "Save" : "Enter The Game First");
+    m_pSaveButton->SetText(isServerLoaded ? "#DGLabEEMod_Save" : "#DGLabEEMod_EnterGameFirst");
     m_pSaveButton->SetEnabled(isServerLoaded);
     
     m_pHostnameEntry->SetEnabled(isServerLoaded);
