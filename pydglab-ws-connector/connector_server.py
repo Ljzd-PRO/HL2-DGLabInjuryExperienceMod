@@ -4,7 +4,7 @@ import logging
 from typing import Optional
 from websockets.frames import CloseCode
 from websockets.server import WebSocketServerProtocol, serve
-from pydglab_ws import Channel, StrengthOperationType
+from pydglab_ws import Channel, StrengthOperationType, DGLabLocalClient
 from config import settings
 
 # 配置日志
@@ -15,7 +15,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # 存储DGLab客户端实例
-dglab_client: Optional[object] = None
+dglab_client: Optional[DGLabLocalClient] = None
 
 
 async def handle_websocket(websocket: WebSocketServerProtocol):
