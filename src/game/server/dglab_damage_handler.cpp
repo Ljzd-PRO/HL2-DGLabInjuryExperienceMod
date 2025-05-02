@@ -49,7 +49,7 @@ void dglab_damage_handler::DebugDamageInfo(const CTakeDamageInfo& info)
     char damageType[22];
     info.DebugGetDamageTypeString(info.GetDamageType(), damageType, sizeof(damageType));
     
-    DevMsg("Damage Info: GetDamage=%.1f, GetDamageType=%s, GetAttacker=%s, GetWeapon=%s, GetInflictor=%s\n",
+    DevMsg("DGLabIEMod> Damage Info: GetDamage=%.1f, GetDamageType=%s, GetAttacker=%s, GetWeapon=%s, GetInflictor=%s\n",
         info.GetDamage(),
         damageType,
         info.GetAttacker() ? info.GetAttacker()->GetClassname() : "Unknown",
@@ -71,7 +71,7 @@ void dglab_damage_handler::HandlePlayerDeath(const CTakeDamageInfo& info, const 
     dglab::client.set_strength_percentage(dglab::Channel::B, 1.0f);
     dglab::client.add_pulses(dglab::Channel::B, pulse_data_died);
 
-    DevMsg("Player death pulses sent with max strength\n");
+    DevMsg("DGLabIEMod> Player death pulses sent with max strength\n");
 }
 
 void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CBaseEntity& npc)
@@ -111,7 +111,7 @@ void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CBase
     dglab::client.set_strength_percentage(dglab::Channel::B, strength_percentage);
     dglab::client.add_pulses(dglab::Channel::B, *pPulseData);
 
-    DevMsg("Strength percentage: %.2f\n", strength_percentage);
+    DevMsg("DGLabIEMod> Strength percentage: %.2f\n", strength_percentage);
 }
 
 void dglab_damage_handler::HandlePlayerRespawn(const CBasePlayer* pPlayer)
@@ -124,5 +124,5 @@ void dglab_damage_handler::HandlePlayerRespawn(const CBasePlayer* pPlayer)
     // Clear pulses for both channels
     dglab::client.clear_pulses(dglab::Channel::A);
     dglab::client.clear_pulses(dglab::Channel::B);
-    DevMsg("Cleared pulses on player respawn\n");
+    DevMsg("DGLabIEMod> Cleared pulses on player respawn\n");
 }

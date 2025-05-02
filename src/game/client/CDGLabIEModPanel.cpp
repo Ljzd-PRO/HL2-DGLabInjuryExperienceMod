@@ -260,7 +260,7 @@ CDGLabIEModPanel::CDGLabIEModPanel(vgui::VPANEL parent)
 
     vgui::ivgui()->AddTickSignal(GetVPanel(), 100);
 
-    DevMsg("DGLabIEModPanel has been constructed\n");
+    DevMsg("DGLabIEMod> DGLabIEModPanel has been constructed\n");
 }
 
 void CDGLabIEModPanel::AppendLog(const char* message)
