@@ -75,6 +75,7 @@
 #endif
 
 // NVNT haptic utils
+#include "dglab_damage_handler.h"
 #include "haptics/haptic_utils.h"
 
 #ifdef HL2_DLL
@@ -1642,6 +1643,12 @@ int CBasePlayer::OnTakeDamage_Alive( const CTakeDamageInfo &info )
 	{
 		CSoundEnt::InsertSound( SOUND_COMBAT, GetAbsOrigin(), 512, 0.5, this );//<<TODO>>//magic number
 	}
+
+	// Damage info debug
+	dglab_damage_handler::DebugDamageInfo(info);
+
+	// Handle damage info
+	dglab_damage_handler::HandleDamage(info, *this);
 
 	return 1;
 }

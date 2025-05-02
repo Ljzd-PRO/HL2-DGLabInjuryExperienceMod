@@ -42,7 +42,7 @@ void dglab_damage_handler::DebugDamageInfo(const CTakeDamageInfo& info)
     );
 }
 
-void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CAI_BaseActor& npc)
+void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CBaseEntity& npc)
 {
     const CNPC_MetroPolice* pEnemy = dynamic_cast<const CNPC_MetroPolice*>(&npc);
     const CBasePlayer* pPlayer = dynamic_cast<const CBasePlayer*>(&npc);

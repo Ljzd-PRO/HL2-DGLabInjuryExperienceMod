@@ -9,7 +9,7 @@ class dglab_damage_handler
 {
 public:
     dglab_damage_handler();
-    static void HandleDamage(const CTakeDamageInfo& info, const CAI_BaseActor& npc);
+    static void HandleDamage(const CTakeDamageInfo& info, const CBaseEntity& npc);
     static void DebugDamageInfo(const CTakeDamageInfo& info);
     static void SetEnemyExperience(bool enabled);
     static void SetSelfExperience(bool enabled);
