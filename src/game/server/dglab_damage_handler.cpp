@@ -11,6 +11,23 @@ std::vector<dglab::Pulse> dglab_damage_handler::pulse_data = {
     {{100, 100, 100, 100}, {100, 100, 100, 100}},
 };
 
+bool dglab_damage_handler::m_bEnemyExperience = true;
+bool dglab_damage_handler::m_bSelfExperience = false;
+
+dglab_damage_handler::dglab_damage_handler()
+{
+}
+
+void dglab_damage_handler::SetEnemyExperience(bool enabled)
+{
+    m_bEnemyExperience = enabled;
+}
+
+void dglab_damage_handler::SetSelfExperience(bool enabled)
+{
+    m_bSelfExperience = enabled;
+}
+
 void dglab_damage_handler::DebugDamageInfo(const CTakeDamageInfo& info)
 {
     char damageType[22];
@@ -27,6 +44,14 @@ void dglab_damage_handler::DebugDamageInfo(const CTakeDamageInfo& info)
 
 void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CAI_BaseActor& npc)
 {
+    const CNPC_MetroPolice* pEnemy = dynamic_cast<const CNPC_MetroPolice*>(&npc);
+    const CBasePlayer* pPlayer = dynamic_cast<const CBasePlayer*>(&npc);
+
+    if ((pEnemy && !m_bEnemyExperience) || (pPlayer && !m_bSelfExperience))
+    {
+        return;
+    }
+
     const float max_health = static_cast<float>(npc.GetMaxHealth());
     const float strength_percentage = min(info.GetDamage(), max_health) / max_health;
 

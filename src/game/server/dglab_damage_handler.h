@@ -8,7 +8,14 @@
 class dglab_damage_handler
 {
 public:
+    dglab_damage_handler();
     static void HandleDamage(const CTakeDamageInfo& info, const CAI_BaseActor& npc);
     static void DebugDamageInfo(const CTakeDamageInfo& info);
+    static void SetEnemyExperience(bool enabled);
+    static void SetSelfExperience(bool enabled);
     static std::vector<dglab::Pulse> pulse_data;
+
+private:
+    static bool m_bEnemyExperience;
+    static bool m_bSelfExperience;
 };

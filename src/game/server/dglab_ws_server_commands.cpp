@@ -1,9 +1,11 @@
 #include "cbase.h"
 #include "dglab_ws_client.h"
-#include <string>
+#include "dglab_damage_handler.h"
 
 // ConVars to track connection status
 ConVar dglab_ws_connected("dglab_ws_connected", "0", FCVAR_REPLICATED, "Indicates if DGLab WebSocket is connected");
+ConVar dglab_ws_enemy_experience("dglab_ws_enemy_experience", "1", FCVAR_REPLICATED, "Enable human enemy injury experience");
+ConVar dglab_ws_self_experience("dglab_ws_self_experience", "0", FCVAR_REPLICATED, "Enable self injury experience");
 
 // Global variables for default values
 char dglab_ws_default_max_strength[32];
@@ -31,6 +33,52 @@ public:
     }
 };
 static CDGLabWSDefaultInitializer g_DGLabWSDefaultInitializer;
+
+//-----------------------------------------------------------------------------
+// Purpose: Handle the dglab_set_enemy_experience command from clients
+//-----------------------------------------------------------------------------
+void CC_DGLabSetEnemyExperience(const CCommand &args)
+{
+    if (args.ArgC() < 2)
+    {
+        Warning("Usage: dglab_set_enemy_experience <0|1>\n");
+        return;
+    }
+
+    int value = atoi(args[1]);
+    if (value != 0 && value != 1)
+    {
+        Warning("Value must be 0 or 1\n");
+        return;
+    }
+
+    dglab_ws_enemy_experience.SetValue(value);
+    dglab_damage_handler::SetEnemyExperience(value != 0);
+    Msg("DGLab enemy experience %s\n", value ? "enabled" : "disabled");
+}
+
+//-----------------------------------------------------------------------------
+// Purpose: Handle the dglab_set_self_experience command from clients
+//-----------------------------------------------------------------------------
+void CC_DGLabSetSelfExperience(const CCommand &args)
+{
+    if (args.ArgC() < 2)
+    {
+        Warning("Usage: dglab_set_self_experience <0|1>\n");
+        return;
+    }
+
+    int value = atoi(args[1]);
+    if (value != 0 && value != 1)
+    {
+        Warning("Value must be 0 or 1\n");
+        return;
+    }
+
+    dglab_ws_self_experience.SetValue(value);
+    dglab_damage_handler::SetSelfExperience(value != 0);
+    Msg("DGLab self experience %s\n", value ? "enabled" : "disabled");
+}
 
 //-----------------------------------------------------------------------------
 // Purpose: Handle the dglab_connect command from clients
@@ -160,4 +208,6 @@ static ConCommand dglab_disconnect("dglab_disconnect", CC_DGLabDisconnect, "Disc
 static ConCommand dglab_set_max_strength_a("dglab_set_max_strength_a", CC_DGLabSetMaxStrengthA, "Set maximum strength for DGLab A channel");
 static ConCommand dglab_set_min_strength_a("dglab_set_min_strength_a", CC_DGLabSetMinStrengthA, "Set minimum strength for DGLab A channel");
 static ConCommand dglab_set_max_strength_b("dglab_set_max_strength_b", CC_DGLabSetMaxStrengthB, "Set maximum strength for DGLab B channel");
-static ConCommand dglab_set_min_strength_b("dglab_set_min_strength_b", CC_DGLabSetMinStrengthB, "Set minimum strength for DGLab B channel"); 
+static ConCommand dglab_set_min_strength_b("dglab_set_min_strength_b", CC_DGLabSetMinStrengthB, "Set minimum strength for DGLab B channel");
+static ConCommand dglab_set_enemy_experience("dglab_set_enemy_experience", CC_DGLabSetEnemyExperience, "Enable/disable enemy damage experience");
+static ConCommand dglab_set_self_experience("dglab_set_self_experience", CC_DGLabSetSelfExperience, "Enable/disable self damage experience"); 
