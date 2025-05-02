@@ -1732,6 +1732,12 @@ void CBasePlayer::Event_Killed( const CTakeDamageInfo &info )
 
 	ClearLastKnownArea();
 
+	// Damage info debug
+	dglab_damage_handler::DebugDamageInfo(info);
+
+	// Handle damage info
+	dglab_damage_handler::HandlePlayerDeath(info, this);
+
 	BaseClass::Event_Killed( info );
 }
 
@@ -5058,6 +5064,9 @@ void CBasePlayer::Activate( void )
 	// Reset the analog bias. If the player is in a vehicle when the game
 	// reloads, it will autosense and apply the correct bias.
 	m_iVehicleAnalogBias = VEHICLE_ANALOG_BIAS_NONE;
+
+	// Clear DGLab pulses on respawn
+	dglab_damage_handler::HandlePlayerRespawn(this);
 }
 
 void CBasePlayer::Precache( void )
@@ -8844,7 +8853,7 @@ bool CBasePlayer::HandleVoteCommands( const CCommand &args )
 const char *CBasePlayer::GetNetworkIDString()
 {
 	const char *pStr = engine->GetPlayerNetworkIDString( edict() );
-	Q_strncpy( m_szNetworkIDString, pStr ? pStr : "", sizeof(m_szNetworkIDString) );
+	Q_strncpy( m_szNetworkIDString, pStr ? pStr : "", sizeof(m_szNetworkIDString) ); 
 	return m_szNetworkIDString; 
 }
 

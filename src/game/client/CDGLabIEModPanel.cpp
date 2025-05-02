@@ -8,6 +8,7 @@
 #include <vgui_controls/RichText.h>
 #include <vgui_controls/Label.h>
 #include <vgui_controls/CheckButton.h>
+#include <vgui_controls/Slider.h>
 #include <vgui/ILocalize.h>
 
 // Default values
@@ -16,7 +17,7 @@
 
 // Panel dimensions
 #define PANEL_WIDTH 600
-#define PANEL_HEIGHT 800
+#define PANEL_HEIGHT 850
 
 // Control dimensions
 #define LABEL_WIDTH 300
@@ -41,17 +42,19 @@
 #define SETTINGS_TITLE_Y 230
 #define ENEMY_EXPERIENCE_CHECKBOX_Y 260
 #define SELF_EXPERIENCE_CHECKBOX_Y 290
-#define MAX_STRENGTH_A_LABEL_Y 330
-#define MAX_STRENGTH_A_ENTRY_Y 350
-#define MIN_STRENGTH_A_LABEL_Y 390
-#define MIN_STRENGTH_A_ENTRY_Y 410
-#define MAX_STRENGTH_B_LABEL_Y 450
-#define MAX_STRENGTH_B_ENTRY_Y 470
-#define MIN_STRENGTH_B_LABEL_Y 510
-#define MIN_STRENGTH_B_ENTRY_Y 530
-#define SAVE_BUTTON_Y 570
-#define OUTPUT_LABEL_Y 620
-#define OUTPUT_TEXT_Y 640
+#define SELF_STRENGTH_SLIDER_Y 320
+#define SELF_STRENGTH_LABEL_Y 350
+#define MAX_STRENGTH_A_LABEL_Y 390
+#define MAX_STRENGTH_A_ENTRY_Y 410
+#define MIN_STRENGTH_A_LABEL_Y 450
+#define MIN_STRENGTH_A_ENTRY_Y 470
+#define MAX_STRENGTH_B_LABEL_Y 510
+#define MAX_STRENGTH_B_ENTRY_Y 530
+#define MIN_STRENGTH_B_LABEL_Y 570
+#define MIN_STRENGTH_B_ENTRY_Y 590
+#define SAVE_BUTTON_Y 630
+#define OUTPUT_LABEL_Y 680
+#define OUTPUT_TEXT_Y 700
 
 // Default values
 #define DGLAB_IE_MOD_PANEL_DEFAULT_MAX_STRENGTH 100
@@ -91,6 +94,8 @@ private:
     vgui::Label* m_pMinStrengthBLabel;
     vgui::Label* m_pConnectionTitleLabel;
     vgui::Label* m_pSettingsTitleLabel;
+    vgui::Slider* m_pSelfStrengthSlider;
+    vgui::Label* m_pSelfStrengthLabel;
 
     void UpdateConnectionStatus();
     void AppendLog(const char* message);
@@ -175,6 +180,19 @@ CDGLabIEModPanel::CDGLabIEModPanel(vgui::VPANEL parent)
     m_pSelfExperienceCheckbox->SetPos(START_X, SELF_EXPERIENCE_CHECKBOX_Y);
     m_pSelfExperienceCheckbox->SetSize(CHECKBOX_WIDTH, CHECKBOX_HEIGHT);
     m_pSelfExperienceCheckbox->SetSelected(false);
+
+    // Self Strength Slider
+    m_pSelfStrengthSlider = new vgui::Slider(this, "SelfStrengthSlider");
+    m_pSelfStrengthSlider->SetPos(START_X, SELF_STRENGTH_SLIDER_Y);
+    m_pSelfStrengthSlider->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
+    m_pSelfStrengthSlider->SetRange(0, 100);
+    m_pSelfStrengthSlider->SetValue(50);
+    m_pSelfStrengthSlider->AddActionSignalTarget(this);
+
+    m_pSelfStrengthLabel = new vgui::Label(this, "SelfStrengthLabel", "#DGLabIEMod_SelfStrength");
+    m_pSelfStrengthLabel->SetPos(START_X, SELF_STRENGTH_LABEL_Y);
+    m_pSelfStrengthLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
+    m_pSelfStrengthLabel->SetContentAlignment(vgui::Label::a_west);
 
     // Max Strength A Label
     m_pMaxStrengthALabel = new vgui::Label(this, "MaxStrengthALabel", "#DGLabIEMod_MaxStrengthA");
@@ -276,6 +294,7 @@ void CDGLabIEModPanel::UpdateConnectionStatus()
     m_pMinStrengthBEntry->SetEnabled(isServerLoaded);
     m_pEnemyExperienceCheckbox->SetEnabled(isServerLoaded);
     m_pSelfExperienceCheckbox->SetEnabled(isServerLoaded);
+    m_pSelfStrengthSlider->SetEnabled(isServerLoaded);
 }
 
 class CDGLabIEModPanelInterface : public IDGLabIEModPanel
@@ -333,6 +352,7 @@ void CDGLabIEModPanel::OnTick()
     static int lastMinStrengthB = DGLAB_IE_MOD_PANEL_DEFAULT_MIN_STRENGTH;
     static bool lastEnemyExperience = true;
     static bool lastSelfExperience = false;
+    static float lastSelfStrength = 0.5f;
     
     bool currentConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
     int currentMaxStrengthA = cvar->FindVar("dglab_ws_max_strength_a")->GetInt();
@@ -341,6 +361,7 @@ void CDGLabIEModPanel::OnTick()
     int currentMinStrengthB = cvar->FindVar("dglab_ws_min_strength_b")->GetInt();
     bool currentEnemyExperience = cvar->FindVar("dglab_ws_enemy_experience")->GetBool();
     bool currentSelfExperience = cvar->FindVar("dglab_ws_self_experience")->GetBool();
+    float currentSelfStrength = cvar->FindVar("dglab_ws_self_strength_percentage")->GetFloat();
 
     // Update connection status
     if (currentConnected != lastConnected)
@@ -411,6 +432,14 @@ void CDGLabIEModPanel::OnTick()
         AppendLog(VarArgs("B channel min strength updated to: %d", currentMinStrengthB));
         lastMinStrengthB = currentMinStrengthB;
     }
+
+    // Update self strength slider
+    if (currentSelfStrength != lastSelfStrength)
+    {
+        m_pSelfStrengthSlider->SetValue(currentSelfStrength * 100);
+        lastSelfStrength = currentSelfStrength;
+        AppendLog(VarArgs("Self strength percentage updated to: %.2f", currentSelfStrength));
+    }
 }
 
 // Command to toggle panel visibility
@@ -470,6 +499,10 @@ void CDGLabIEModPanel::OnCommand(const char* pcCommand)
         // Send experience settings
         engine->ServerCmd(VarArgs("dglab_set_enemy_experience %d", m_pEnemyExperienceCheckbox->IsSelected() ? 1 : 0));
         engine->ServerCmd(VarArgs("dglab_set_self_experience %d", m_pSelfExperienceCheckbox->IsSelected() ? 1 : 0));
+        
+        // Send self strength percentage
+        float selfStrength = m_pSelfStrengthSlider->GetValue() / 100.0f;
+        engine->ServerCmd(VarArgs("dglab_set_self_strength_percentage %.2f", selfStrength));
     }
     else if (!Q_stricmp(pcCommand, "Close"))
     {

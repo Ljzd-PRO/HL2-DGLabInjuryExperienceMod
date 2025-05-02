@@ -6,6 +6,7 @@
 ConVar dglab_ws_connected("dglab_ws_connected", "0", FCVAR_REPLICATED, "Indicates if DGLab WebSocket is connected");
 ConVar dglab_ws_enemy_experience("dglab_ws_enemy_experience", "1", FCVAR_REPLICATED, "Enable human enemy injury experience");
 ConVar dglab_ws_self_experience("dglab_ws_self_experience", "0", FCVAR_REPLICATED, "Enable self injury experience");
+ConVar dglab_ws_self_strength_percentage("dglab_ws_self_strength_percentage", "0.5", FCVAR_REPLICATED, "Fixed strength percentage for self injury experience");
 
 // Global variables for default values
 char dglab_ws_default_max_strength[32];
@@ -202,6 +203,29 @@ void CC_DGLabSetMinStrengthB(const CCommand &args)
     Msg("DGLab B channel min strength set to %d\n", strength);
 }
 
+//-----------------------------------------------------------------------------
+// Purpose: Handle the dglab_set_self_strength_percentage command from clients
+//-----------------------------------------------------------------------------
+void CC_DGLabSetSelfStrengthPercentage(const CCommand &args)
+{
+    if (args.ArgC() < 2)
+    {
+        Warning("Usage: dglab_set_self_strength_percentage <percentage>\n");
+        return;
+    }
+
+    float value = atof(args[1]);
+    if (value < 0.0f || value > 1.0f)
+    {
+        Warning("Percentage must be between 0.0 and 1.0\n");
+        return;
+    }
+
+    dglab_ws_self_strength_percentage.SetValue(value);
+    dglab_damage_handler::SetSelfStrengthPercentage(value);
+    Msg("DGLab self strength percentage set to %.2f\n", value);
+}
+
 // Register console commands
 static ConCommand dglab_connect("dglab_connect", CC_DGLabConnect, "Connect to DGLab WebSocket server");
 static ConCommand dglab_disconnect("dglab_disconnect", CC_DGLabDisconnect, "Disconnect from DGLab WebSocket server");
@@ -210,4 +234,5 @@ static ConCommand dglab_set_min_strength_a("dglab_set_min_strength_a", CC_DGLabS
 static ConCommand dglab_set_max_strength_b("dglab_set_max_strength_b", CC_DGLabSetMaxStrengthB, "Set maximum strength for DGLab B channel");
 static ConCommand dglab_set_min_strength_b("dglab_set_min_strength_b", CC_DGLabSetMinStrengthB, "Set minimum strength for DGLab B channel");
 static ConCommand dglab_set_enemy_experience("dglab_set_enemy_experience", CC_DGLabSetEnemyExperience, "Enable/disable enemy damage experience");
-static ConCommand dglab_set_self_experience("dglab_set_self_experience", CC_DGLabSetSelfExperience, "Enable/disable self damage experience"); 
+static ConCommand dglab_set_self_experience("dglab_set_self_experience", CC_DGLabSetSelfExperience, "Enable/disable self damage experience");
+static ConCommand dglab_set_self_strength_percentage("dglab_set_self_strength_percentage", CC_DGLabSetSelfStrengthPercentage, "Set fixed strength percentage for self injury experience"); 
