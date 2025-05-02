@@ -1,4 +1,4 @@
-class IDGLabEEModPanel
+class IDGLabIEModPanel
 {
 public:
     virtual void Create(vgui::VPANEL parent) = 0;
@@ -6,4 +6,4 @@ public:
     virtual void Activate(void) = 0;
 };
 
-extern IDGLabEEModPanel* dglab_ee_mod_panel;
+extern IDGLabIEModPanel* dglab_ie_mod_panel;

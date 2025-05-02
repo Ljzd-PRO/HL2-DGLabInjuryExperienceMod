@@ -1,6 +1,6 @@
 #include "cbase.h"
 #include <string>
-#include "IDGLabEEModPanel.h"
+#include "IDGLabIEModPanel.h"
 #include <vgui/IVGui.h>
 #include <vgui_controls/Frame.h>
 #include <vgui_controls/TextEntry.h>
@@ -49,14 +49,14 @@
 #define OUTPUT_TEXT_Y 570
 
 // Default values
-#define DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH 100
-#define DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH 0
+#define DGLAB_IE_MOD_PANEL_DEFAULT_MAX_STRENGTH 100
+#define DGLAB_IE_MOD_PANEL_DEFAULT_MIN_STRENGTH 0
 
-class CDGLabEEModPanel : public vgui::Frame
+class CDGLabIEModPanel : public vgui::Frame
 {
-    DECLARE_CLASS_SIMPLE(CDGLabEEModPanel, vgui::Frame);
-    CDGLabEEModPanel(vgui::VPANEL parent);
-    ~CDGLabEEModPanel() override
+    DECLARE_CLASS_SIMPLE(CDGLabIEModPanel, vgui::Frame);
+    CDGLabIEModPanel(vgui::VPANEL parent);
+    ~CDGLabIEModPanel() override
     {
     };
 
@@ -89,8 +89,8 @@ private:
     void AppendLog(const char* message);
 };
 
-CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
-    : BaseClass(nullptr, "DGLabEEModPanel")
+CDGLabIEModPanel::CDGLabIEModPanel(vgui::VPANEL parent)
+    : BaseClass(nullptr, "DGLabIEModPanel")
 {
     SetParent(parent);
 
@@ -110,20 +110,20 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     SetSize(PANEL_WIDTH, PANEL_HEIGHT);
 
     // Set title
-    SetTitle("#DGLabEEMod_Title", false);
+    SetTitle("#DGLabIEMod_Title", false);
 
     // SetScheme(vgui::scheme()->LoadSchemeFromFile("resource/SourceScheme.res", "SourceScheme"));
 
     // Create controls
     // Connection Title
-    m_pConnectionTitleLabel = new vgui::Label(this, "ConnectionTitleLabel", "#DGLabEEMod_ConnectionTitle");
+    m_pConnectionTitleLabel = new vgui::Label(this, "ConnectionTitleLabel", "#DGLabIEMod_ConnectionTitle");
     m_pConnectionTitleLabel->SetPos(START_X, TITLE_Y);
     m_pConnectionTitleLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pConnectionTitleLabel->SetContentAlignment(vgui::Label::a_west);
     m_pConnectionTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
 
     // Hostname Label
-    m_pHostnameLabel = new vgui::Label(this, "HostnameLabel", "#DGLabEEMod_Hostname");
+    m_pHostnameLabel = new vgui::Label(this, "HostnameLabel", "#DGLabIEMod_Hostname");
     m_pHostnameLabel->SetPos(START_X, HOSTNAME_LABEL_Y);
     m_pHostnameLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pHostnameLabel->SetContentAlignment(vgui::Label::a_west);
@@ -135,7 +135,7 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pHostnameEntry->SetText(DEFAULT_HOSTNAME);
 
     // Port Label
-    m_pPortLabel = new vgui::Label(this, "PortLabel", "#DGLabEEMod_Port");
+    m_pPortLabel = new vgui::Label(this, "PortLabel", "#DGLabIEMod_Port");
     m_pPortLabel->SetPos(START_X, PORT_LABEL_Y);
     m_pPortLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pPortLabel->SetContentAlignment(vgui::Label::a_west);
@@ -146,19 +146,19 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pPortEntry->SetAllowNonAsciiCharacters(true);
     m_pPortEntry->SetText(DEFAULT_PORT);
 
-    m_pConnectButton = new vgui::Button(this, "ConnectButton", "#DGLabEEMod_Connect", this, "ToggleConnection");
+    m_pConnectButton = new vgui::Button(this, "ConnectButton", "#DGLabIEMod_Connect", this, "ToggleConnection");
     m_pConnectButton->SetPos(START_X, CONNECT_BUTTON_Y);
     m_pConnectButton->SetSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 
     // Settings Title
-    m_pSettingsTitleLabel = new vgui::Label(this, "SettingsTitleLabel", "#DGLabEEMod_SettingsTitle");
+    m_pSettingsTitleLabel = new vgui::Label(this, "SettingsTitleLabel", "#DGLabIEMod_SettingsTitle");
     m_pSettingsTitleLabel->SetPos(START_X, SETTINGS_TITLE_Y);
     m_pSettingsTitleLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pSettingsTitleLabel->SetContentAlignment(vgui::Label::a_west);
     m_pSettingsTitleLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultBold"));
 
     // Max Strength A Label
-    m_pMaxStrengthALabel = new vgui::Label(this, "MaxStrengthALabel", "#DGLabEEMod_MaxStrengthA");
+    m_pMaxStrengthALabel = new vgui::Label(this, "MaxStrengthALabel", "#DGLabIEMod_MaxStrengthA");
     m_pMaxStrengthALabel->SetPos(START_X, MAX_STRENGTH_A_LABEL_Y);
     m_pMaxStrengthALabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMaxStrengthALabel->SetContentAlignment(vgui::Label::a_west);
@@ -167,10 +167,10 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pMaxStrengthAEntry->SetPos(START_X, MAX_STRENGTH_A_ENTRY_Y);
     m_pMaxStrengthAEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
     m_pMaxStrengthAEntry->SetAllowNonAsciiCharacters(true);
-    m_pMaxStrengthAEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH).c_str());
+    m_pMaxStrengthAEntry->SetText(std::to_string(DGLAB_IE_MOD_PANEL_DEFAULT_MAX_STRENGTH).c_str());
 
     // Min Strength A Label
-    m_pMinStrengthALabel = new vgui::Label(this, "MinStrengthALabel", "#DGLabEEMod_MinStrengthA");
+    m_pMinStrengthALabel = new vgui::Label(this, "MinStrengthALabel", "#DGLabIEMod_MinStrengthA");
     m_pMinStrengthALabel->SetPos(START_X, MIN_STRENGTH_A_LABEL_Y);
     m_pMinStrengthALabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMinStrengthALabel->SetContentAlignment(vgui::Label::a_west);
@@ -179,10 +179,10 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pMinStrengthAEntry->SetPos(START_X, MIN_STRENGTH_A_ENTRY_Y);
     m_pMinStrengthAEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
     m_pMinStrengthAEntry->SetAllowNonAsciiCharacters(true);
-    m_pMinStrengthAEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH).c_str());
+    m_pMinStrengthAEntry->SetText(std::to_string(DGLAB_IE_MOD_PANEL_DEFAULT_MIN_STRENGTH).c_str());
 
     // Max Strength B Label
-    m_pMaxStrengthBLabel = new vgui::Label(this, "MaxStrengthBLabel", "#DGLabEEMod_MaxStrengthB");
+    m_pMaxStrengthBLabel = new vgui::Label(this, "MaxStrengthBLabel", "#DGLabIEMod_MaxStrengthB");
     m_pMaxStrengthBLabel->SetPos(START_X, MAX_STRENGTH_B_LABEL_Y);
     m_pMaxStrengthBLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMaxStrengthBLabel->SetContentAlignment(vgui::Label::a_west);
@@ -191,10 +191,10 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pMaxStrengthBEntry->SetPos(START_X, MAX_STRENGTH_B_ENTRY_Y);
     m_pMaxStrengthBEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
     m_pMaxStrengthBEntry->SetAllowNonAsciiCharacters(true);
-    m_pMaxStrengthBEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH).c_str());
+    m_pMaxStrengthBEntry->SetText(std::to_string(DGLAB_IE_MOD_PANEL_DEFAULT_MAX_STRENGTH).c_str());
 
     // Min Strength B Label
-    m_pMinStrengthBLabel = new vgui::Label(this, "MinStrengthBLabel", "#DGLabEEMod_MinStrengthB");
+    m_pMinStrengthBLabel = new vgui::Label(this, "MinStrengthBLabel", "#DGLabIEMod_MinStrengthB");
     m_pMinStrengthBLabel->SetPos(START_X, MIN_STRENGTH_B_LABEL_Y);
     m_pMinStrengthBLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pMinStrengthBLabel->SetContentAlignment(vgui::Label::a_west);
@@ -203,14 +203,14 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
     m_pMinStrengthBEntry->SetPos(START_X, MIN_STRENGTH_B_ENTRY_Y);
     m_pMinStrengthBEntry->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
     m_pMinStrengthBEntry->SetAllowNonAsciiCharacters(true);
-    m_pMinStrengthBEntry->SetText(std::to_string(DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH).c_str());
+    m_pMinStrengthBEntry->SetText(std::to_string(DGLAB_IE_MOD_PANEL_DEFAULT_MIN_STRENGTH).c_str());
 
-    m_pSaveButton = new vgui::Button(this, "SaveButton", "#DGLabEEMod_Save", this, "SaveSettings");
+    m_pSaveButton = new vgui::Button(this, "SaveButton", "#DGLabIEMod_Save", this, "SaveSettings");
     m_pSaveButton->SetPos(START_X, SAVE_BUTTON_Y);
     m_pSaveButton->SetSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 
     // Output Label
-    m_pOutputLabel = new vgui::Label(this, "OutputLabel", "#DGLabEEMod_Output");
+    m_pOutputLabel = new vgui::Label(this, "OutputLabel", "#DGLabIEMod_Output");
     m_pOutputLabel->SetPos(START_X, OUTPUT_LABEL_Y);
     m_pOutputLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
     m_pOutputLabel->SetContentAlignment(vgui::Label::a_west);
@@ -223,10 +223,10 @@ CDGLabEEModPanel::CDGLabEEModPanel(vgui::VPANEL parent)
 
     vgui::ivgui()->AddTickSignal(GetVPanel(), 100);
 
-    DevMsg("DGLabEEModPanel has been constructed\n");
+    DevMsg("DGLabIEModPanel has been constructed\n");
 }
 
-void CDGLabEEModPanel::AppendLog(const char* message)
+void CDGLabIEModPanel::AppendLog(const char* message)
 {
     char currentText[4096];
     m_pOutputText->GetText(0, currentText, sizeof(currentText));
@@ -238,15 +238,15 @@ void CDGLabEEModPanel::AppendLog(const char* message)
     m_pOutputText->GotoTextEnd();
 }
 
-void CDGLabEEModPanel::UpdateConnectionStatus()
+void CDGLabIEModPanel::UpdateConnectionStatus()
 {
     bool isConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
     bool isServerLoaded = engine->IsConnected();
     
-    m_pConnectButton->SetText(isServerLoaded ? (isConnected ? "#DGLabEEMod_Disconnect" : "#DGLabEEMod_Connect") : "#DGLabEEMod_EnterGameFirst");
+    m_pConnectButton->SetText(isServerLoaded ? (isConnected ? "#DGLabIEMod_Disconnect" : "#DGLabIEMod_Connect") : "#DGLabIEMod_EnterGameFirst");
     m_pConnectButton->SetEnabled(isServerLoaded);
     
-    m_pSaveButton->SetText(isServerLoaded ? "#DGLabEEMod_Save" : "#DGLabEEMod_EnterGameFirst");
+    m_pSaveButton->SetText(isServerLoaded ? "#DGLabIEMod_Save" : "#DGLabIEMod_EnterGameFirst");
     m_pSaveButton->SetEnabled(isServerLoaded);
     
     m_pHostnameEntry->SetEnabled(isServerLoaded);
@@ -257,59 +257,59 @@ void CDGLabEEModPanel::UpdateConnectionStatus()
     m_pMinStrengthBEntry->SetEnabled(isServerLoaded);
 }
 
-class CDGLabEEModPanelInterface : public IDGLabEEModPanel
+class CDGLabIEModPanelInterface : public IDGLabIEModPanel
 {
-    CDGLabEEModPanel* DGLabEEModPanel;
+    CDGLabIEModPanel* DGLabIEModPanel;
 
 public:
-    CDGLabEEModPanelInterface()
+    CDGLabIEModPanelInterface()
     {
-        DGLabEEModPanel = nullptr;
+        DGLabIEModPanel = nullptr;
     }
 
     void Create(vgui::VPANEL parent) override
     {
-        DGLabEEModPanel = new CDGLabEEModPanel(parent);
+        DGLabIEModPanel = new CDGLabIEModPanel(parent);
     }
 
     void Destroy() override
     {
-        if (DGLabEEModPanel)
+        if (DGLabIEModPanel)
         {
-            DGLabEEModPanel->SetParent(static_cast<vgui::Panel*>(nullptr));
-            delete DGLabEEModPanel;
+            DGLabIEModPanel->SetParent(static_cast<vgui::Panel*>(nullptr));
+            delete DGLabIEModPanel;
         }
     }
 
     void Activate(void) override
     {
-        if (DGLabEEModPanel)
+        if (DGLabIEModPanel)
         {
-            DGLabEEModPanel->Activate();
+            DGLabIEModPanel->Activate();
         }
     }
 };
 
-static CDGLabEEModPanelInterface g_DGLabEEModPanel;
-IDGLabEEModPanel* dglab_ee_mod_panel = &g_DGLabEEModPanel;
+static CDGLabIEModPanelInterface g_DGLabIEModPanel;
+IDGLabIEModPanel* dglab_ie_mod_panel = &g_DGLabIEModPanel;
 
 // ConVar to control panel visibility
-ConVar cl_show_dglab_ee_mod_panel("cl_show_dglab_ee_mod_panel", "0", FCVAR_CLIENTDLL, "Sets the state of myPanel <state>");
+ConVar cl_show_dglab_ie_mod_panel("cl_show_dglab_ie_mod_panel", "0", FCVAR_CLIENTDLL, "Sets the state of myPanel <state>");
 
-void CDGLabEEModPanel::OnTick()
+void CDGLabIEModPanel::OnTick()
 {
     BaseClass::OnTick();
-    SetVisible(cl_show_dglab_ee_mod_panel.GetBool());
+    SetVisible(cl_show_dglab_ie_mod_panel.GetBool());
 
     UpdateConnectionStatus();
 
     if (!engine->IsConnected()) return;
 
     static bool lastConnected = false;
-    static int lastMaxStrengthA = DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH;
-    static int lastMinStrengthA = DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH;
-    static int lastMaxStrengthB = DGLAB_EE_MOD_PANEL_DEFAULT_MAX_STRENGTH;
-    static int lastMinStrengthB = DGLAB_EE_MOD_PANEL_DEFAULT_MIN_STRENGTH;
+    static int lastMaxStrengthA = DGLAB_IE_MOD_PANEL_DEFAULT_MAX_STRENGTH;
+    static int lastMinStrengthA = DGLAB_IE_MOD_PANEL_DEFAULT_MIN_STRENGTH;
+    static int lastMaxStrengthB = DGLAB_IE_MOD_PANEL_DEFAULT_MAX_STRENGTH;
+    static int lastMinStrengthB = DGLAB_IE_MOD_PANEL_DEFAULT_MIN_STRENGTH;
     
     bool currentConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
     int currentMaxStrengthA = cvar->FindVar("dglab_ws_max_strength_a")->GetInt();
@@ -373,13 +373,13 @@ void CDGLabEEModPanel::OnTick()
 }
 
 // Command to toggle panel visibility
-CON_COMMAND(OpenDGLabEEModPanel, "Toggles myPanel on or off")
+CON_COMMAND(OpenDGLabIEModPanel, "Toggles myPanel on or off")
 {
-    cl_show_dglab_ee_mod_panel.SetValue(!cl_show_dglab_ee_mod_panel.GetBool());
-    dglab_ee_mod_panel->Activate();
+    cl_show_dglab_ie_mod_panel.SetValue(!cl_show_dglab_ie_mod_panel.GetBool());
+    dglab_ie_mod_panel->Activate();
 }
 
-void CDGLabEEModPanel::OnCommand(const char* pcCommand)
+void CDGLabIEModPanel::OnCommand(const char* pcCommand)
 {
     BaseClass::OnCommand(pcCommand);
 
@@ -428,7 +428,7 @@ void CDGLabEEModPanel::OnCommand(const char* pcCommand)
     }
     else if (!Q_stricmp(pcCommand, "Close"))
     {
-        cl_show_dglab_ee_mod_panel.SetValue(0);
+        cl_show_dglab_ie_mod_panel.SetValue(0);
         SetVisible(false);
     }
 }

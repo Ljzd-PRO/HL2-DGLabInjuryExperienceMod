@@ -22,7 +22,7 @@
 #include <vgui_controls/Panel.h>
 #include <KeyValues.h>
 #include "filesystem.h"
-#include "IDGLabEEModPanel.h"
+#include "IDGLabIEModPanel.h"
 #include "matsys_controls/matsyscontrols.h"
 
 #ifdef SIXENSE
@@ -222,7 +222,7 @@ void VGui_CreateGlobalPanels( void )
 #ifdef SIXENSE
 	g_pSixenseInput->CreateGUI( gameToolParent );
 #endif
-	dglab_ee_mod_panel->Create(gameUIDll);
+	dglab_ie_mod_panel->Create(gameUIDll);
 }
 
 void VGui_Shutdown()

@@ -1,6 +1,6 @@
 "GameInfo"
 {
-	game 		"DGLab Enemy Experience Mod"
+	game 		"DGLab Injury Experience Mod"
 	title 		"HALF-LIFE'"
 	title2		""
 	supportsvr	1
