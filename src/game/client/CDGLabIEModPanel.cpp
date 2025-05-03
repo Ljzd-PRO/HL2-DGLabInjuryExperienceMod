@@ -18,7 +18,7 @@
 
 // Panel dimensions
 #define PANEL_WIDTH 600
-#define PANEL_HEIGHT 1000
+#define PANEL_HEIGHT 1050
 
 // Control dimensions
 #define LABEL_WIDTH 300
@@ -40,25 +40,26 @@
 #define PORT_LABEL_Y 120
 #define PORT_ENTRY_Y 140
 #define CONNECT_BUTTON_Y 180
-#define SETTINGS_TITLE_Y 230
-#define ENEMY_EXPERIENCE_CHECKBOX_Y 260
-#define SELF_EXPERIENCE_CHECKBOX_Y 290
-#define SELF_STRENGTH_SLIDER_Y 320
-#define SELF_STRENGTH_LABEL_Y 350
-#define MAX_STRENGTH_A_LABEL_Y 390
-#define MAX_STRENGTH_A_ENTRY_Y 410
-#define MIN_STRENGTH_A_LABEL_Y 450
-#define MIN_STRENGTH_A_ENTRY_Y 470
-#define MAX_STRENGTH_B_LABEL_Y 510
-#define MAX_STRENGTH_B_ENTRY_Y 530
-#define MIN_STRENGTH_B_LABEL_Y 570
-#define MIN_STRENGTH_B_ENTRY_Y 590
-#define SAVE_BUTTON_Y 630
-#define OUTPUT_LABEL_Y 680
-#define OUTPUT_TEXT_Y 700
-#define VERSION_LABEL_Y 870
-#define COPYRIGHT_LABEL_Y 890
-#define GITHUB_BUTTON_Y 910
+#define CONNECTION_NOTE_Y 230
+#define SETTINGS_TITLE_Y 280
+#define ENEMY_EXPERIENCE_CHECKBOX_Y 310
+#define SELF_EXPERIENCE_CHECKBOX_Y 340
+#define SELF_STRENGTH_SLIDER_Y 370
+#define SELF_STRENGTH_LABEL_Y 400
+#define MAX_STRENGTH_A_LABEL_Y 440
+#define MAX_STRENGTH_A_ENTRY_Y 460
+#define MIN_STRENGTH_A_LABEL_Y 500
+#define MIN_STRENGTH_A_ENTRY_Y 520
+#define MAX_STRENGTH_B_LABEL_Y 560
+#define MAX_STRENGTH_B_ENTRY_Y 580
+#define MIN_STRENGTH_B_LABEL_Y 620
+#define MIN_STRENGTH_B_ENTRY_Y 640
+#define SAVE_BUTTON_Y 680
+#define OUTPUT_LABEL_Y 730
+#define OUTPUT_TEXT_Y 750
+#define VERSION_LABEL_Y 920
+#define COPYRIGHT_LABEL_Y 940
+#define GITHUB_BUTTON_Y 960
 #define PANEL_BOTTOM_MARGIN 50
 
 // Default values
@@ -91,6 +92,7 @@ private:
     vgui::Button* m_pGitHubButton;
     vgui::Label* m_pCopyrightLabel;
     vgui::Label* m_pVersionLabel;
+    vgui::Label* m_pConnectionNoteLabel;
     vgui::CheckButton* m_pEnemyExperienceCheckbox;
     vgui::CheckButton* m_pSelfExperienceCheckbox;
     vgui::Label* m_pHostnameLabel;
@@ -169,6 +171,13 @@ CDGLabIEModPanel::CDGLabIEModPanel(vgui::VPANEL parent)
     m_pConnectButton = new vgui::Button(this, "ConnectButton", "#DGLabIEMod_Connect", this, "ToggleConnection");
     m_pConnectButton->SetPos(START_X, CONNECT_BUTTON_Y);
     m_pConnectButton->SetSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+
+    // Connection Note Label
+    m_pConnectionNoteLabel = new vgui::Label(this, "ConnectionNoteLabel", "#DGLabIEMod_ConnectionNote");
+    m_pConnectionNoteLabel->SetPos(START_X, CONNECTION_NOTE_Y);
+    m_pConnectionNoteLabel->SetSize(LABEL_WIDTH * 2, LABEL_HEIGHT * 2);
+    m_pConnectionNoteLabel->SetContentAlignment(vgui::Label::a_west);
+    m_pConnectionNoteLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultSmall"));
 
     // Settings Title
     m_pSettingsTitleLabel = new vgui::Label(this, "SettingsTitleLabel", "#DGLabIEMod_SettingsTitle");
