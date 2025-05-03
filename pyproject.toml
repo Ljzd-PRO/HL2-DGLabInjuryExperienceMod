@@ -1,7 +1,7 @@
 [project]
 name = "PyDGLab-WS-Connector"
 version = "0.1.0"
-description = "用于 "
+description = "DG-Lab App Socket 被控协议中转程序"
 authors = [
     {name = "Ljzd-PRO",email = "me@ljzd.link"}
 ]
