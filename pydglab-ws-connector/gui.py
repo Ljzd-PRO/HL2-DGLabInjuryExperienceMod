@@ -127,9 +127,24 @@ class DGLabGUI:
                         # 尝试获取接口描述
                         try:
                             import winreg
-                            key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 
-                                               f"SYSTEM\\CurrentControlSet\\Control\\Network\\{{4D36E972-E325-11CE-BFC1-08002BE10318}}\\{interface}\\Connection")
-                            desc = winreg.QueryValueEx(key, "Name")[0]
+                            # 网络适配器类别的GUID
+                            NETWORK_ADAPTER_GUID = "{4D36E972-E325-11CE-BFC1-08002BE10318}"
+                            
+                            # 尝试从Connection键获取名称
+                            try:
+                                key = winreg.OpenKey(
+                                    winreg.HKEY_LOCAL_MACHINE,
+                                    f"SYSTEM\\CurrentControlSet\\Control\\Network\\{NETWORK_ADAPTER_GUID}\\{interface}\\Connection"
+                                )
+                                desc = winreg.QueryValueEx(key, "Name")[0]
+                            except:
+                                # 如果Connection键不存在，尝试从Device键获取
+                                key = winreg.OpenKey(
+                                    winreg.HKEY_LOCAL_MACHINE,
+                                    f"SYSTEM\\CurrentControlSet\\Control\\Class\\{NETWORK_ADAPTER_GUID}\\{interface}"
+                                )
+                                desc = winreg.QueryValueEx(key, "DriverDesc")[0]
+                            
                             return f"{desc} ({ip})"
                         except:
                             # 如果无法获取描述，则使用IP地址
