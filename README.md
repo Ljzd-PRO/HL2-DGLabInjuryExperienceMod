@@ -6,7 +6,8 @@
 
 > 本 Mod 需要与一个中转程序（PyDGLab-WS 连接器）配合使用，以实现与郊狼 DG-Lab App 的连接。
 
-1. 安装 Mod 后，运行 `pydglab-ws-connector` 目录下的 PyDGLab-WS 连接器
+1. 安装 Mod 后，运行 PyDGLab-WS 连接器程序
+    - 可从 [Release](https://github.com/Ljzd-PRO/HL2-DGLabInjuryExperienceMod/releases) 页面下载（PyDGLab-WS Connector）
 2. DG-Lab App 打开“SOCKET 控制”界面，扫描 PyDGLab-WS 连接器程序中显示的二维码
 3. 开启游戏，在 主菜单/暂停菜单 中打开 Mod 设置界面进行设置
 4. 【可选】根据实际情况，在 Mod 设置界面中修改 PyDGLab-WS 连接器的 IP 地址和端口号
@@ -49,14 +50,28 @@
 2. 安装您喜欢的 VS 项目开发 IDE（如 Visual Studio 或 JetBrains Rider）
 3. 克隆本仓库，并确保子模块仓库同样被克隆下来
 4. 在您喜欢的 IDE 中打开 Mod 解决方案（`src/games.sln`）
-5. 开始构建，构建生成的服务端和客户端 DLL（`server.dll`, `client.dll`）将自动复制到最终 Mod 目录 `game/mod_hl2` 的 `bin` 目录下。
+5. 用 IDE 或编辑器全局替换文本： \
+    将原项目路径：
+    ```
+    C:\Users\mcdha\Documents\HL2-DGLabInjuryExperienceMod
+    ```
+    替换为您的实际项目路径，如：`C:\Users\yourname\HL2-DGLabInjuryExperienceMod`
+    > 暂时未找到更好的解决方案
+6. 开始构建，构建生成的服务端和客户端 DLL（`server.dll`, `client.dll`）将**自动复制**到最终 Mod 目录 `game/mod_hl2` 的 `bin` 目录下。
 
 其余可参考 Source SDK 官方文档：https://developer.valvesoftware.com/wiki/SDK_Docs
+
+
+### GitHub Actions 自动构建 CI/CD
+
+目前遇到了困难，主要是 Visual Studio 2013 难以安装，即使使用 chocolatey。如果您有解决方法，欢迎提交 PR！
+
+相关 Workflow 文件：[.github/workflows/msbuild.yml](.github/workflows/msbuild.yml)
 
 ## 其他
 
 - Mod 许可证：[LICENSE](LICENSE)
 - 该 Mod 基于 Source SDK 开发，源 SDK 遵循以下许可证：
-  - [Source SDK License](LICENSE_SOURCE_SDK)
-  - [thirdpartylegalnotices.txt](thirdpartylegalnotices.txt)
+    - [Source SDK License](LICENSE_SOURCE_SDK)
+    - [thirdpartylegalnotices.txt](thirdpartylegalnotices.txt)
 - Source SDK 仓库链接：https://github.com/ValveSoftware/source-sdk-2013
