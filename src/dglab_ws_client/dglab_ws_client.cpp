@@ -101,6 +101,14 @@ bool WSClient::is_connected() const {
 }
 
 int WSClient::set_strength(Channel channel, OperationType operation_type, int value) {
+    // Check if the new strength value is the same as the last one
+    if (channel == Channel::A && value == last_strength_a_) {
+        return 0; // Skip if the value is the same
+    }
+    if (channel == Channel::B && value == last_strength_b_) {
+        return 0; // Skip if the value is the same
+    }
+
     cJSON* root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "method", "set_strength");
     cJSON* params = cJSON_CreateObject();
@@ -113,6 +121,16 @@ int WSClient::set_strength(Channel channel, OperationType operation_type, int va
     int ret = send_json(json_str);
     cJSON_free(json_str);
     cJSON_Delete(root);
+
+    // Update last strength value if the operation was successful
+    if (ret == 0) {
+        if (channel == Channel::A) {
+            last_strength_a_ = value;
+        } else {
+            last_strength_b_ = value;
+        }
+    }
+
     return ret;
 }
 
@@ -209,14 +227,9 @@ int WSClient::set_strength_percentage(Channel channel, float percentage) {
     if (percentage < 0.0f || percentage > 1.0f) {
         return -1;
     }
-
-    int max_strength;
-    {
-        std::lock_guard<std::mutex> lock(ws_mutex_);
-        max_strength = channel == Channel::A ? max_strength_a_ : max_strength_b_;
-    }
-
-    int strength = static_cast<int>(max_strength * percentage);
+    const int max_strength = channel == Channel::A ? max_strength_a_ : max_strength_b_;
+    const int min_strength = channel == Channel::A ? min_strength_a_ : min_strength_b_;
+    const int strength = static_cast<int>(percentage * (max_strength - min_strength) + min_strength);
     return set_strength(channel, OperationType::SET_TO, strength);
 }
 

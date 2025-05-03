@@ -61,6 +61,10 @@ private:
     int max_strength_b_ = DGLAB_WS_DEFAULT_MAX_STRENGTH;
     int min_strength_b_ = DGLAB_WS_DEFAULT_MIN_STRENGTH;
     
+    // Last strength values for each channel
+    int last_strength_a_ = 0;
+    int last_strength_b_ = 0;
+    
     // Message handling thread related
     std::thread message_thread_;
     std::atomic<bool> should_stop_ = false;
