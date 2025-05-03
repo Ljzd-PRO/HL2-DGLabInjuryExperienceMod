@@ -1,7 +1,0 @@
-pydglab-ws
-pydantic
-pydantic-settings
-websockets
-qrcode
-Pillow
-netifaces

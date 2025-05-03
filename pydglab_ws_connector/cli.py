@@ -1,8 +1,8 @@
 import asyncio
 import qrcode
 from pydglab_ws import DGLabWSServer
-from config import settings
-from connector_server import start_connector_server, set_dglab_client
+from pydglab_ws_connector.config import settings
+from pydglab_ws_connector.connector_server import start_connector_server, set_dglab_client
 
 
 def print_qrcode(url: str):

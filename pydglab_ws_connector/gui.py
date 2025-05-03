@@ -8,8 +8,8 @@ import netifaces
 import logging
 import webbrowser
 from pydglab_ws import DGLabWSServer, Channel, StrengthOperationType
-from config import settings
-from connector_server import start_connector_server, set_dglab_client, set_gui_instance
+from pydglab_ws_connector.config import settings
+from pydglab_ws_connector.connector_server import start_connector_server, set_dglab_client, set_gui_instance
 
 class DGLabGUI:
     def __init__(self, root):

@@ -10,8 +10,8 @@ Debug_mod_*/
 Release_mod_*/
 .cursorindexingignore
 *.sentinel
-pydglab-ws-connector/build/
-pydglab-ws-connector/dist/
+build/
+dist/
 
 # User-specific files
 *.rsuser

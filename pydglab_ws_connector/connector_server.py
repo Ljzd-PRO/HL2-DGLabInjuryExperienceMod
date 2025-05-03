@@ -5,7 +5,7 @@ from typing import Optional
 from websockets.frames import CloseCode
 from websockets.server import WebSocketServerProtocol, serve
 from pydglab_ws import Channel, StrengthOperationType, DGLabLocalClient
-from config import settings
+from pydglab_ws_connector.config import settings
 
 # 配置日志
 logging.basicConfig(

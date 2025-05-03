@@ -3,7 +3,7 @@
 block_cipher = None
 
 a = Analysis(
-    ['gui.py'],
+    ['pydglab-ws-connector/gui.py'],
     pathex=[],
     binaries=[],
     datas=[],
