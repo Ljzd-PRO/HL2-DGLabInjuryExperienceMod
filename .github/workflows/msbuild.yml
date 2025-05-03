@@ -4,24 +4,24 @@
 name: MSBuild
 
 on:
-  push:
-    paths:
-      - 'game/**'
-      - 'src/**'
-      - 'README.md'
-      - 'LICENSE'
-      - 'LICENSE_SOURCE_SDK'
-      - 'thirdpartylegalnotices.txt'
-      - 'CHANGELOG.md'
-  pull_request:
-    paths:
-      - 'game/**'
-      - 'src/**'
-      - 'README.md'
-      - 'LICENSE'
-      - 'LICENSE_SOURCE_SDK'
-      - 'thirdpartylegalnotices.txt'
-      - 'CHANGELOG.md'
+  # push:
+  #   paths:
+  #     - 'game/**'
+  #     - 'src/**'
+  #     - 'README.md'
+  #     - 'LICENSE'
+  #     - 'LICENSE_SOURCE_SDK'
+  #     - 'thirdpartylegalnotices.txt'
+  #     - 'CHANGELOG.md'
+  # pull_request:
+  #   paths:
+  #     - 'game/**'
+  #     - 'src/**'
+  #     - 'README.md'
+  #     - 'LICENSE'
+  #     - 'LICENSE_SOURCE_SDK'
+  #     - 'thirdpartylegalnotices.txt'
+  #     - 'CHANGELOG.md'
   workflow_dispatch:
   workflow_call:
 

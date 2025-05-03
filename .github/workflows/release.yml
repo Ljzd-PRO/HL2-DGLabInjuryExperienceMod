@@ -13,14 +13,14 @@ jobs:
   python-package:
     uses: ./.github/workflows/python-package.yml
 
-  msbuild:
-    uses: ./.github/workflows/msbuild.yml
+  # msbuild:
+  #   uses: ./.github/workflows/msbuild.yml
 
   release:
     runs-on: ubuntu-latest
     needs:
       - python-package
-      - msbuild
+      # - msbuild
 
     steps:
       - uses: actions/checkout@v4
@@ -31,17 +31,17 @@ jobs:
           name: pydglab-ws-connector-windows-latest
           path: artifacts/python-package
 
-      - name: Download MSBuild artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: dglabiemod-Release
-          path: artifacts/msbuild/Release
+      # - name: Download MSBuild artifacts
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: dglabiemod-Release
+      #     path: artifacts/msbuild/Release
 
-      - name: Download MSBuild Debug artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: dglabiemod-Debug
-          path: artifacts/msbuild/Debug
+      # - name: Download MSBuild Debug artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: dglabiemod-Debug
+      #     path: artifacts/msbuild/Debug
 
       - name: Create Release
         id: create_release
@@ -52,5 +52,7 @@ jobs:
           prerelease: ${{ contains(github.ref, 'beta') }}
           files: |
             artifacts/python-package/PyDGLab-WS-Connector.exe
-            artifacts/msbuild/Release/*
-            artifacts/msbuild/Debug/*
+          # files: |
+          #   artifacts/python-package/PyDGLab-WS-Connector.exe
+          #   artifacts/msbuild/Release/*
+          #   artifacts/msbuild/Debug/*
