@@ -92,4 +92,5 @@
 - 该 Mod 基于 Source SDK 开发，源 SDK 遵循以下许可证：
     - [Source SDK License](LICENSE_SOURCE_SDK)
     - [thirdpartylegalnotices.txt](thirdpartylegalnotices.txt)
+- 如果您需要再分发该 Mod 或 Source SDK，需要附带上述许可证文件
 - Source SDK 仓库链接：https://github.com/ValveSoftware/source-sdk-2013
