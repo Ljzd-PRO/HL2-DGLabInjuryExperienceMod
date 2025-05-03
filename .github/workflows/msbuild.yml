@@ -1,0 +1,64 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: MSBuild
+
+on:
+  push:
+    paths:
+      - 'game/**'
+      - 'src/**'
+      - 'README.md'
+      - 'LICENSE'
+      - 'LICENSE_SOURCE_SDK'
+      - 'thirdpartylegalnotices.txt'
+      - 'CHANGELOG.md'
+  pull_request:
+    paths:
+      - 'game/**'
+      - 'src/**'
+      - 'README.md'
+      - 'LICENSE'
+      - 'LICENSE_SOURCE_SDK'
+      - 'thirdpartylegalnotices.txt'
+      - 'CHANGELOG.md'
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Visual Studio 2013
+        run: choco install visualstudiocommunity2013
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+        vs-version: '[12.0,13.0)'
+
+      - name: Build
+        run: msbuild src/games.sln /p:Configuration=${{ matrix.configuration }}
+
+      - name: Copy README and license files
+        run: |
+          Copy-Item -Path "LICENSE" -Destination "game\mod_hl2\"
+          Copy-Item -Path "LICENSE_SOURCE_SDK" -Destination "game\mod_hl2\"
+          Copy-Item -Path "thirdpartylegalnotices.txt" -Destination "game\mod_hl2\"
+          Copy-Item -Path "README.md" -Destination "game\mod_hl2\"
+          Copy-Item -Path "CHANGELOG.md" -Destination "game\mod_hl2\"
+
+      - name: Rename mod_hl2 to dglabiemod
+        run: Rename-Item -Path "game\mod_hl2" -NewName "dglabiemod"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dglabiemod-${{ matrix.configuration }}
+          path: game\dglabiemod

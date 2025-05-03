@@ -1,0 +1,63 @@
+name: Python Package
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    paths:
+      - 'pydglab_ws_connector/**'
+      - 'pydglab-ws-connector.spec'
+      - 'file_version_info.txt'
+      - 'pyproject.toml'
+      - 'poetry.lock'
+  pull_request:
+    paths:
+      - 'pydglab_ws_connector/**'
+      - 'pydglab-ws-connector.spec'
+      - 'file_version_info.txt'
+      - 'pyproject.toml'
+      - 'poetry.lock'
+
+jobs:
+  build-wheels:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python
+        with:
+          python-version: "3.11"
+
+      - name: Build package with Poetry
+        run: poetry build
+
+      - name: Upload Wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: pydglab-ws-connector-wheels
+          path: dist
+
+  create-executable:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ windows-latest ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python
+        with:
+          python-version: "3.11"
+
+      - name: Create Executable
+        uses: ./.github/actions/pyinstaller
+
+      - name: Upload Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: pydglab-ws-connector-${{ runner.os }}
+          path: dist
