@@ -17,6 +17,13 @@ logger = logging.getLogger(__name__)
 # 存储DGLab客户端实例
 dglab_client: Optional[DGLabLocalClient] = None
 
+# 存储GUI实例
+gui_instance = None
+
+def set_gui_instance(gui):
+    """设置GUI实例"""
+    global gui_instance
+    gui_instance = gui
 
 async def handle_websocket(websocket: WebSocketServerProtocol):
     """处理WebSocket连接"""
@@ -41,6 +48,13 @@ async def handle_websocket(websocket: WebSocketServerProtocol):
                     value = params.get("value")
                     await dglab_client.set_strength(channel, operation_type, value)
                     logger.info(f"执行set_strength: channel={channel}, operation_type={operation_type}, value={value}")
+                    
+                    # 更新GUI界面
+                    if gui_instance:
+                        if channel == Channel.A:
+                            gui_instance.root.after(0, lambda: gui_instance.channel_a_scale.set(value))
+                        else:
+                            gui_instance.root.after(0, lambda: gui_instance.channel_b_scale.set(value))
                 
                 elif method == "add_pulses":
                     channel = Channel[params.get("channel")]
@@ -72,7 +86,6 @@ async def handle_websocket(websocket: WebSocketServerProtocol):
     finally:
         logger.info(f"外部客户端断开连接: {websocket.remote_address}")
 
-
 async def start_connector_server():
     """启动Connector WebSocket服务器"""
     server = await serve(
@@ -84,7 +97,6 @@ async def start_connector_server():
     logger.info(f"Connector WebSocket服务器启动在 ws://{settings.connector_ws_host}:{settings.connector_ws_port}")
     
     await asyncio.Future()  # 保持服务器运行
-
 
 def set_dglab_client(client: object):
     """设置DGLab客户端实例"""
