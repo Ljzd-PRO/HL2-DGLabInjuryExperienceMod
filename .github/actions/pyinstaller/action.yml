@@ -20,5 +20,5 @@ runs:
       shell: bash
 
     - name: Copy Extra Files
-      run: cp README.md pydglab-ws-connector/.env LICENSE ${{ inputs.dist-path }}
+      run: cp README.md pydglab_ws_connector/.env LICENSE ${{ inputs.dist-path }}
       shell: bash
