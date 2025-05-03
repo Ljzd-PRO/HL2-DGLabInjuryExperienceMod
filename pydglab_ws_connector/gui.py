@@ -257,7 +257,7 @@ class DGLabGUI:
         photo = ImageTk.PhotoImage(img)
         self.qr_label.config(image=photo)
         self.qr_label.image = photo
-        logging.info(f"已生成二维码，URL: {url}")
+        logging.info(f"已生成二维码，二维码内容: {url}")
 
 def main():
     root = tk.Tk()
