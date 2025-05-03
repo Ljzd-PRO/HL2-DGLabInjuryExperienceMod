@@ -41,7 +41,8 @@ jobs:
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
-        vs-version: '[12.0,13.0)'
+        with:
+          vs-version: '[12.0,13.0)'
 
       - name: Build
         run: msbuild src/games.sln /p:Configuration=${{ matrix.configuration }}
