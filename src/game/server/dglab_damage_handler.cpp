@@ -6,6 +6,8 @@
 #include "npc_combines.h"
 
 #define PULSE_DATA_DIED_SIZE 50
+#define DAMAGE_BURN_MULTIPLIER 5
+#define DAMAGE_ENTITY_COMBINES_MULTIPLIER 2.5
 
 // The waveform length is 200ms, and the frequency is set to half of the waveform length (100ms) to ensure output
 // If you need to increase the waveform length, make sure the corresponding frequency allows for at least one output within the waveform length
@@ -101,6 +103,18 @@ void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CBase
     {
         const float max_health = static_cast<float>(npc.GetMaxHealth());
         strength_percentage = min(info.GetDamage(), max_health) / max_health;
+
+        const int damage_type = info.GetDamageType();
+        // Burn damage multiplier
+        if (damage_type & DMG_BURN)
+        {
+            strength_percentage = min(strength_percentage * DAMAGE_BURN_MULTIPLIER, 1.0f);
+        }
+        // Entity CombineS damage multiplier
+        if (pCombineS)
+        {
+            strength_percentage = min(strength_percentage * DAMAGE_ENTITY_COMBINES_MULTIPLIER, 1.0f);
+        }
         pPulseData = &pulse_data;
     }
 
