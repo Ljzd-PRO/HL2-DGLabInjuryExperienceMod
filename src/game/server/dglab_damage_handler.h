@@ -1,6 +1,7 @@
 #pragma once
 #include "cbase.h"
 #include "dglab_ws_client.h"
+#include <chrono>
 
 class dglab_damage_handler
 {
@@ -20,4 +21,8 @@ private:
     static bool m_bEnemyExperience;
     static bool m_bSelfExperience;
     static float m_fSelfStrengthPercentage;
+
+    // Last damage info
+    static int m_iLastDamageType;
+    static std::chrono::steady_clock::time_point m_lastDamageTime;
 };

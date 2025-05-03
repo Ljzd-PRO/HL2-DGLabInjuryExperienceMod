@@ -4,10 +4,12 @@
 #include "npc_metropolice.h"
 #include <future>
 #include "npc_combines.h"
+#include <chrono>
 
 #define PULSE_DATA_DIED_SIZE 50
 #define DAMAGE_BURN_MULTIPLIER 5
 #define DAMAGE_ENTITY_COMBINES_MULTIPLIER 2.5
+#define DAMAGE_COOLDOWN_TIME 150
 
 // The waveform length is 200ms, and the frequency is set to half of the waveform length (100ms) to ensure output
 // If you need to increase the waveform length, make sure the corresponding frequency allows for at least one output within the waveform length
@@ -21,6 +23,10 @@ std::vector<dglab::Pulse> dglab_damage_handler::pulse_data_died;
 bool dglab_damage_handler::m_bEnemyExperience = true;
 bool dglab_damage_handler::m_bSelfExperience = false;
 float dglab_damage_handler::m_fSelfStrengthPercentage = 0.5f;
+
+// Initialize last damage info
+int dglab_damage_handler::m_iLastDamageType = 0;
+std::chrono::steady_clock::time_point dglab_damage_handler::m_lastDamageTime = std::chrono::steady_clock::now();
 
 dglab_damage_handler::dglab_damage_handler()
 {
@@ -85,6 +91,16 @@ void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CBase
 
     if (!pMetroPolice && !pCombineS && !pPlayer) return;
     if (((pMetroPolice || pCombineS) && !m_bEnemyExperience) || (pPlayer && !m_bSelfExperience)) return;
+
+    // Check damage cooldown
+    const int current_damage_type = info.GetDamageType();
+    const auto current_time = std::chrono::steady_clock::now();
+    const auto time_since_last_damage = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - m_lastDamageTime).count();
+    
+    if (current_damage_type == m_iLastDamageType && time_since_last_damage < DAMAGE_COOLDOWN_TIME) // 200ms
+    {
+        return; // Skip if same damage type within cooldown period
+    }
     
     float strength_percentage;
     const std::vector<dglab::Pulse>* pPulseData;
@@ -124,6 +140,10 @@ void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CBase
     dglab::client.add_pulses(dglab::Channel::A, *pPulseData);
     dglab::client.set_strength_percentage(dglab::Channel::B, strength_percentage);
     dglab::client.add_pulses(dglab::Channel::B, *pPulseData);
+
+    // Update last damage info
+    m_iLastDamageType = current_damage_type;
+    m_lastDamageTime = current_time;
 
     DevMsg("DGLabIEMod> Strength percentage: %.2f\n", strength_percentage);
 }
