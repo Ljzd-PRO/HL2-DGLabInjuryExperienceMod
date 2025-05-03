@@ -3,6 +3,7 @@
 #include "dglab_ws_client.h"
 #include "npc_metropolice.h"
 #include <future>
+#include "npc_combines.h"
 
 #define PULSE_DATA_DIED_SIZE 50
 
@@ -76,14 +77,13 @@ void dglab_damage_handler::HandlePlayerDeath(const CTakeDamageInfo& info, const 
 
 void dglab_damage_handler::HandleDamage(const CTakeDamageInfo& info, const CBaseEntity& npc)
 {
-    const CNPC_MetroPolice* pEnemy = dynamic_cast<const CNPC_MetroPolice*>(&npc);
+    const CNPC_MetroPolice* pMetroPolice = dynamic_cast<const CNPC_MetroPolice*>(&npc);
+    const CNPC_CombineS* pCombineS = dynamic_cast<const CNPC_CombineS*>(&npc);
     const CBasePlayer* pPlayer = dynamic_cast<const CBasePlayer*>(&npc);
 
-    if ((pEnemy && !m_bEnemyExperience) || (pPlayer && !m_bSelfExperience))
-    {
-        return;
-    }
-
+    if (!pMetroPolice && !pCombineS && !pPlayer) return;
+    if (((pMetroPolice || pCombineS) && !m_bEnemyExperience) || (pPlayer && !m_bSelfExperience)) return;
+    
     float strength_percentage;
     const std::vector<dglab::Pulse>* pPulseData;
 

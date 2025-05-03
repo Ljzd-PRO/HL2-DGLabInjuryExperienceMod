@@ -1,8 +1,5 @@
 #pragma once
-
 #include "cbase.h"
-
-#include "ai_baseactor.h"
 #include "dglab_ws_client.h"
 
 class dglab_damage_handler

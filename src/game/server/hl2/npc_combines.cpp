@@ -24,6 +24,7 @@
 #include "hl2_gamerules.h"
 #include "gameweaponmanager.h"
 #include "vehicle_base.h"
+#include "dglab_damage_handler.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -402,6 +403,18 @@ bool CNPC_CombineS::IsHeavyDamage( const CTakeDamageInfo &info )
 	}
 
 	return BaseClass::IsHeavyDamage( info );
+}
+
+
+int CNPC_CombineS::OnTakeDamage_Alive(const CTakeDamageInfo& info)
+{
+	// Damage info debug
+	dglab_damage_handler::DebugDamageInfo(info);
+
+	// Handle damage info
+	dglab_damage_handler::HandleDamage(info, *this);
+	
+	return BaseClass::OnTakeDamage_Alive( info );
 }
 
 #if HL2_EPISODIC

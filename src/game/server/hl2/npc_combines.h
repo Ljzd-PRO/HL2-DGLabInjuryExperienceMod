@@ -46,6 +46,7 @@ public:
 
 private:
 	bool		ShouldHitPlayer( const Vector &targetDir, float targetDist );
+	int			OnTakeDamage_Alive(const CTakeDamageInfo& info);
 
 #if HL2_EPISODIC
 public:
