@@ -14,10 +14,11 @@
 // Default values
 #define DEFAULT_HOSTNAME "127.0.0.1"
 #define DEFAULT_PORT "5679"
+#define DGLAB_IE_MOD_VERSION "v1.0.0"
 
 // Panel dimensions
 #define PANEL_WIDTH 600
-#define PANEL_HEIGHT 850
+#define PANEL_HEIGHT 1000
 
 // Control dimensions
 #define LABEL_WIDTH 300
@@ -27,7 +28,7 @@
 #define BUTTON_WIDTH 200
 #define BUTTON_HEIGHT 40
 #define OUTPUT_WIDTH 500
-#define OUTPUT_HEIGHT 100
+#define OUTPUT_HEIGHT 150
 #define CHECKBOX_WIDTH 300
 #define CHECKBOX_HEIGHT 20
 
@@ -55,6 +56,10 @@
 #define SAVE_BUTTON_Y 630
 #define OUTPUT_LABEL_Y 680
 #define OUTPUT_TEXT_Y 700
+#define VERSION_LABEL_Y 870
+#define COPYRIGHT_LABEL_Y 890
+#define GITHUB_BUTTON_Y 910
+#define PANEL_BOTTOM_MARGIN 50
 
 // Default values
 #define DGLAB_IE_MOD_PANEL_DEFAULT_MAX_STRENGTH 100
@@ -83,6 +88,9 @@ private:
     vgui::RichText* m_pOutputText;
     vgui::Button* m_pConnectButton;
     vgui::Button* m_pSaveButton;
+    vgui::Button* m_pGitHubButton;
+    vgui::Label* m_pCopyrightLabel;
+    vgui::Label* m_pVersionLabel;
     vgui::CheckButton* m_pEnemyExperienceCheckbox;
     vgui::CheckButton* m_pSelfExperienceCheckbox;
     vgui::Label* m_pHostnameLabel;
@@ -257,6 +265,25 @@ CDGLabIEModPanel::CDGLabIEModPanel(vgui::VPANEL parent)
     m_pOutputText->SetSize(OUTPUT_WIDTH, OUTPUT_HEIGHT);
     m_pOutputText->SetPaintBorderEnabled(true);
     m_pOutputText->SetVerticalScrollbar(true);
+
+    // Version Label
+    m_pVersionLabel = new vgui::Label(this, "VersionLabel", DGLAB_IE_MOD_VERSION);
+    m_pVersionLabel->SetPos(START_X, VERSION_LABEL_Y);
+    m_pVersionLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
+    m_pVersionLabel->SetContentAlignment(vgui::Label::a_west);
+    m_pVersionLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultSmall"));
+
+    // Copyright Label
+    m_pCopyrightLabel = new vgui::Label(this, "CopyrightLabel", "#DGLabIEMod_Copyright");
+    m_pCopyrightLabel->SetPos(START_X, COPYRIGHT_LABEL_Y);
+    m_pCopyrightLabel->SetSize(LABEL_WIDTH, LABEL_HEIGHT);
+    m_pCopyrightLabel->SetContentAlignment(vgui::Label::a_west);
+    m_pCopyrightLabel->SetFont(vgui::scheme()->GetIScheme(GetScheme())->GetFont("DefaultSmall"));
+
+    // GitHub Link Button
+    m_pGitHubButton = new vgui::Button(this, "GitHubButton", "#DGLabIEMod_GitHub", this, "OpenGitHub");
+    m_pGitHubButton->SetPos(START_X, GITHUB_BUTTON_Y);
+    m_pGitHubButton->SetSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 
     vgui::ivgui()->AddTickSignal(GetVPanel(), 100);
 
@@ -503,6 +530,10 @@ void CDGLabIEModPanel::OnCommand(const char* pcCommand)
         // Send self strength percentage
         float selfStrength = m_pSelfStrengthSlider->GetValue() / 100.0f;
         engine->ServerCmd(VarArgs("dglab_set_self_strength_percentage %.2f", selfStrength));
+    }
+    else if (!Q_stricmp(pcCommand, "OpenGitHub"))
+    {
+        system("start https://github.com/Ljzd-PRO/HL2-DGLabInjuryExperienceMod");
     }
     else if (!Q_stricmp(pcCommand, "Close"))
     {
