@@ -9,7 +9,7 @@
 #define PULSE_DATA_DIED_SIZE 50
 #define DAMAGE_BURN_MULTIPLIER 5
 #define DAMAGE_ENTITY_COMBINES_MULTIPLIER 2.5
-#define DAMAGE_COOLDOWN_TIME 150
+#define DAMAGE_COOLDOWN_TIME 200
 
 // The waveform length is 200ms, and the frequency is set to half of the waveform length (100ms) to ensure output
 // If you need to increase the waveform length, make sure the corresponding frequency allows for at least one output within the waveform length
@@ -18,25 +18,15 @@ std::vector<dglab::Pulse> dglab_damage_handler::pulse_data = {
     {{100, 100, 100, 100}, {100, 100, 100, 100}},
 };
 
-std::vector<dglab::Pulse> dglab_damage_handler::pulse_data_died;
+std::vector<dglab::Pulse> dglab_damage_handler::pulse_data_died(PULSE_DATA_DIED_SIZE, {{180, 180, 180, 180}, {100, 100, 100, 100}});
 
 bool dglab_damage_handler::m_bEnemyExperience = true;
 bool dglab_damage_handler::m_bSelfExperience = false;
-float dglab_damage_handler::m_fSelfStrengthPercentage = 0.5f;
+float dglab_damage_handler::m_fSelfStrengthPercentage = 0.3f;
 
 // Initialize last damage info
 int dglab_damage_handler::m_iLastDamageType = 0;
 std::chrono::steady_clock::time_point dglab_damage_handler::m_lastDamageTime = std::chrono::steady_clock::now();
-
-dglab_damage_handler::dglab_damage_handler()
-{
-    // Initialize pulse_data_died with PULSE_DATA_DIED_SIZE identical pulses
-    pulse_data_died.resize(PULSE_DATA_DIED_SIZE);
-    for (auto& pulse : pulse_data_died)
-    {
-        pulse = {{180, 180, 180, 180}, {100, 100, 100, 100}};
-    }
-}
 
 void dglab_damage_handler::SetEnemyExperience(bool enabled)
 {
