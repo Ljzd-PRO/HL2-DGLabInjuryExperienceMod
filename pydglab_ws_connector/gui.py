@@ -217,7 +217,7 @@ class DGLabGUI:
         self.connector_task = asyncio.create_task(start_connector_server())
         logging.info("Connector服务器已启动")
         
-        async with DGLabWSServer(settings.ws_host, settings.ws_port, 60) as server:
+        async with DGLabWSServer(settings.ws_host, settings.ws_port, 20) as server:
             # 创建本地客户端
             client = server.new_local_client()
             set_dglab_client(client)
