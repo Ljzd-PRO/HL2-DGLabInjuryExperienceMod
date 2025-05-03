@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup Visual Studio 2013
-        run: choco install visualstudiocommunity2013
+        run: choco install visualstudioexpress2013windowsdesktop
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
