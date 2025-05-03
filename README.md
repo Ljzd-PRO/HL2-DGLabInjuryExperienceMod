@@ -72,6 +72,7 @@
     替换为您的实际项目路径，如：`C:\Users\yourname\HL2-DGLabInjuryExperienceMod`
     > 暂时未找到更好的解决方案
 6. 开始构建，构建生成的服务端和客户端 DLL（`server.dll`, `client.dll`）将**自动复制**到最终 Mod 目录 `game/mod_hl2` 的 `bin` 目录下。
+    > 提示：按某个配置（如 Debug）构建完后，如果要切换到其他配置（如 Release）进行构建，需要先清理解决方案
 
 其余可参考 Source SDK 官方文档：https://developer.valvesoftware.com/wiki/SDK_Docs
 
