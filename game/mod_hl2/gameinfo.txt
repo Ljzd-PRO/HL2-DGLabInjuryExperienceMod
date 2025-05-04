@@ -7,9 +7,16 @@
 
 	type		singleplayer_only
 
+	gamedata    "halflife2.fgd"
+
+	developer	"Ljzd-PRO"
+	developer_url	"https://github.com/Ljzd-PRO"
+	icon		"icon"
+	manual		"https://github.com/Ljzd-PRO/HL2-DGLabInjuryExperienceMod"
+
 	FileSystem
 	{
-		SteamAppId				243730 // This sets the app ID in Steam. This is the Source SDK Base 2013 Singleplayer
+		SteamAppId				220 // This sets the app ID in Steam.
 		
 		//
 		// The code that loads this file automatically does a few things here:
