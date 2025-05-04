@@ -2,6 +2,8 @@
 
 半条命 2 Mod —— 用郊狼⚡模拟一下自己和敌人的受伤痛觉~
 
+![Screenshot-1](imgs/screenshot-1.jpg)
+
 ## 使用说明
 
 > 本 Mod 需要与一个中转程序（PyDGLab-WS 连接器）配合使用，以实现与郊狼 DG-Lab App 的连接。
@@ -15,6 +17,10 @@
 5. 【可选】根据实际情况，在 Mod 设置界面中修改 PyDGLab-WS 连接器的 IP 地址和端口号
 6. 在 Mod 设置界面中，点击“连接”按钮以连接至 PyDGLab-WS 连接器
 7. 开始游戏！
+
+![Screenshot-3](imgs/screenshot-3.jpg)
+
+![Screenshot-2](imgs/screenshot-2.jpg)
 
 ### “AI Disabled” 修复
 
