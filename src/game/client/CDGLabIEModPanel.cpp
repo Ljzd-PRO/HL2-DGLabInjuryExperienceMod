@@ -14,7 +14,7 @@
 // Default values
 #define DEFAULT_HOSTNAME "127.0.0.1"
 #define DEFAULT_PORT "5679"
-#define DGLAB_IE_MOD_VERSION "v1.0.0"
+#define DGLAB_IE_MOD_VERSION "v1.0.1"
 
 // Panel dimensions
 #define PANEL_WIDTH 600
@@ -65,6 +65,7 @@
 // Default values
 #define DGLAB_IE_MOD_PANEL_DEFAULT_MAX_STRENGTH 100
 #define DGLAB_IE_MOD_PANEL_DEFAULT_MIN_STRENGTH 0
+#define DGLAB_IE_MOD_PANEL_DEFAULT_SELF_STRENGTH 30
 
 class CDGLabIEModPanel : public vgui::Frame
 {
@@ -203,7 +204,7 @@ CDGLabIEModPanel::CDGLabIEModPanel(vgui::VPANEL parent)
     m_pSelfStrengthSlider->SetPos(START_X, SELF_STRENGTH_SLIDER_Y);
     m_pSelfStrengthSlider->SetSize(ENTRY_WIDTH, ENTRY_HEIGHT);
     m_pSelfStrengthSlider->SetRange(0, 100);
-    m_pSelfStrengthSlider->SetValue(50);
+    m_pSelfStrengthSlider->SetValue(DGLAB_IE_MOD_PANEL_DEFAULT_SELF_STRENGTH);
     m_pSelfStrengthSlider->AddActionSignalTarget(this);
 
     m_pSelfStrengthLabel = new vgui::Label(this, "SelfStrengthLabel", "#DGLabIEMod_SelfStrength");
@@ -388,7 +389,7 @@ void CDGLabIEModPanel::OnTick()
     static int lastMinStrengthB = DGLAB_IE_MOD_PANEL_DEFAULT_MIN_STRENGTH;
     static bool lastEnemyExperience = true;
     static bool lastSelfExperience = false;
-    static float lastSelfStrength = 0.5f;
+    static float lastSelfStrength = DGLAB_IE_MOD_PANEL_DEFAULT_SELF_STRENGTH / 100.0f;
     
     bool currentConnected = cvar->FindVar("dglab_ws_connected")->GetBool();
     int currentMaxStrengthA = cvar->FindVar("dglab_ws_max_strength_a")->GetInt();

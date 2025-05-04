@@ -6,7 +6,7 @@
 ConVar dglab_ws_connected("dglab_ws_connected", "0", FCVAR_REPLICATED, "Indicates if DGLab WebSocket is connected");
 ConVar dglab_ws_enemy_experience("dglab_ws_enemy_experience", "1", FCVAR_REPLICATED, "Enable human enemy injury experience");
 ConVar dglab_ws_self_experience("dglab_ws_self_experience", "0", FCVAR_REPLICATED, "Enable self injury experience");
-ConVar dglab_ws_self_strength_percentage("dglab_ws_self_strength_percentage", "0.5", FCVAR_REPLICATED, "Fixed strength percentage for self injury experience");
+ConVar dglab_ws_self_strength_percentage("dglab_ws_self_strength_percentage", "0.3", FCVAR_REPLICATED, "Fixed strength percentage for self injury experience");
 
 // Global variables for default values
 char dglab_ws_default_max_strength[32];
