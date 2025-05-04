@@ -2,25 +2,55 @@
 
 半条命 2 Mod —— 用郊狼⚡模拟一下自己和敌人的受伤痛觉~
 
+> 目前仅适用于 “半条命 2” 章节，其余章节/DLC暂时不支持，后续可能会有支持更新
+
 ![Screenshot-1](imgs/screenshot-1.jpg)
 
 ## 使用说明
 
 > 本 Mod 需要与一个中转程序（PyDGLab-WS 连接器）配合使用，以实现与郊狼 DG-Lab App 的连接。
 
-1. 安装 Mod 后，运行 PyDGLab-WS 连接器程序
-    - 可从 [Release](https://github.com/Ljzd-PRO/HL2-DGLabInjuryExperienceMod/releases) 页面下载（PyDGLab-WS Connector）
+1. 前往 [GitHub Release](https://github.com/Ljzd-PRO/HL2-DGLabInjuryExperienceMod/releases) 页面，下载以下文件：
+    - Mod 压缩包
+    - PyDGLab-WS 连接器（`PyDGLab-WS Connector.exe`）
+2. 将 Mod 压缩包解压至 `<Steam 库路径>\steamapps\sourcemods`，确保解压后的 **Mod 目录名为 `dglabiemod`**
+    - 可通过 Steam “设置” - “储存空间” 查看所有下载库和路径
+    - 如果**不存在** `sourcemods` 目录，请**手动创建**
+    - 参考图位于下方
+3. 安装 Mod 后，运行 PyDGLab-WS 连接器程序
     - 如果遇到**防火墙权限请求**，请同意，否则手机端 DG-Lab App 的传入请求将被阻断
-2. 确保手机与电脑处于**同一局域网**，并在 PyDGLab-WS 连接器中**切换至对应网络**的二维码
-3. DG-Lab App 打开“SOCKET 控制”界面，扫描 PyDGLab-WS 连接器程序中显示的二维码
-4. 开启游戏，在 主菜单/暂停菜单 中打开 Mod 设置界面进行设置
-5. 【可选】根据实际情况，在 Mod 设置界面中修改 PyDGLab-WS 连接器的 IP 地址和端口号
-6. 在 Mod 设置界面中，点击“连接”按钮以连接至 PyDGLab-WS 连接器
-7. 开始游戏！
+4. 确保手机与电脑处于**同一局域网**，并在 PyDGLab-WS 连接器中**切换至对应网络**的二维码
+5. DG-Lab App 打开“SOCKET 控制”界面，扫描 PyDGLab-WS 连接器程序中显示的二维码
+6. 重启 Steam，您的库列表应该会多出“DGLab Injury Experience Mod”这一项，启动游戏
+7. 进入游戏后，在 主菜单/暂停菜单 中打开 Mod 设置界面进行设置
+8. 【可选】根据实际情况，在 Mod 设置界面中修改 PyDGLab-WS 连接器的 IP 地址和端口号
+9. 在 Mod 设置界面中，点击“连接”按钮以连接至 PyDGLab-WS 连接器
+10. 开始游戏！
 
+Mod 解压后目录结构及位置展示：
+![Screenshot-4](imgs/screenshot-4.png)
+
+PyDGLab-WS 连接器程序：
 ![Screenshot-3](imgs/screenshot-3.jpg)
 
+游戏内 Mod 设置界面：
 ![Screenshot-2](imgs/screenshot-2.jpg)
+
+### 存档迁移
+
+在 Mod 安装后，您不会看到来自游戏本体的存档，您需要手动复制存档目录。
+
+#### 游戏本体存档路径
+
+```
+<Steam 库路径>\steamapps\common\Half-Life 2\hl2\save
+```
+
+#### Mod 存档路径
+
+```
+<Steam 库路径>\steamapps\sourcemods\dglabiemod\save
+```
 
 ### “AI Disabled” 修复
 
